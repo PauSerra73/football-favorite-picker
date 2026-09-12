@@ -303,8 +303,8 @@ var myPicker = new picker.Picker({
     localStorageKey: 'picker-state',
 
     defaultSettings: {
-        minBatchSize: 2,
-        maxBatchSize: 2,
+        minBatchSize: 5,
+        maxBatchSize: 5,
         country: 'all'
     },
 
@@ -351,9 +351,7 @@ pickerUI.initialize();
 var currentSettings = myPicker.getSettings();
 
 document.getElementById('country-filter').value = currentSettings.country || 'all';
-document.getElementById('batch-size').value = currentSettings.minBatchSize || 2;    
-
-myPicker.setSettings(myPicker.getSettings());
+document.getElementById('batch-size').value = currentSettings.minBatchSize || 5;    
 
 document.getElementById('batch-size').addEventListener('change', function() {
     var size = parseInt(this.value);
@@ -371,11 +369,13 @@ document.getElementById('country-filter').addEventListener('change', function() 
 
 document.getElementById('reset').addEventListener('click', function() {
     myPicker.reset();
+    pickerUI.update(true);
 
     var settings = myPicker.getSettings();
 
     document.getElementById('country-filter').value = settings.country || 'all';
-    document.getElementById('batch-size').value = settings.minBatchSize || 2;
+    document.getElementById('batch-size').value = settings.minBatchSize || 5;
+});
 });
 /* Sortable favorites - you can safely remove this, and the Sortable.min.js script, if you don't want to be able to sort your favorite list. */
 var sortable = new Sortable(pickerUI.elem.favorites.get(0), {
