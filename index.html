@@ -431,6 +431,7 @@ document.getElementById('batch-size').addEventListener('change', function() {
     settings.minBatchSize = size;
     settings.maxBatchSize = size;
     myPicker.setSettings(settings);
+    pickerUI.update(true);
 });
 
 document.getElementById('country-filter').addEventListener('change', function() {
