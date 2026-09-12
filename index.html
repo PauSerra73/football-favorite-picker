@@ -441,11 +441,16 @@ document.getElementById('country-filter').addEventListener('change', function() 
 });
 
 document.getElementById('reset').addEventListener('click', function() {
+    var confirmReset = confirm(
+        'Cuidado: perderás el ranking actual y todo el progreso.\n\n¿Estás seguro de que quieres reiniciar?'
+    );
+    if (!confirmReset) {
+        return;
+    }
+
     myPicker.reset();
     pickerUI.update(true);
-
     var settings = myPicker.getSettings();
-
     document.getElementById('country-filter').value = settings.country || 'all';
     document.getElementById('batch-size').value = settings.minBatchSize || 5;
 });
