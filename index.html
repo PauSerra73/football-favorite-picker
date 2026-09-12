@@ -338,7 +338,7 @@ var pickerUI = new PickerUI(myPicker, {
 
         var remaining = state.current.length +
                         state.evaluating.length +
-                        state.survived.length;
+                        state.survived.length - 1;
 
         $('#remaining').text(
             'Clubs remaining to be eliminated before next favorite is found: ' + remaining
@@ -347,6 +347,11 @@ var pickerUI = new PickerUI(myPicker, {
 });
 
 pickerUI.initialize();
+
+var currentSettings = myPicker.getSettings();
+
+document.getElementById('country-filter').value = currentSettings.country || 'all';
+document.getElementById('batch-size').value = currentSettings.minBatchSize || 2;    
 
 myPicker.setSettings(myPicker.getSettings());
 
@@ -366,6 +371,11 @@ document.getElementById('country-filter').addEventListener('change', function() 
 
 document.getElementById('reset').addEventListener('click', function() {
     myPicker.reset();
+
+    var settings = myPicker.getSettings();
+
+    document.getElementById('country-filter').value = settings.country || 'all';
+    document.getElementById('batch-size').value = settings.minBatchSize || 2;
 });
 /* Sortable favorites - you can safely remove this, and the Sortable.min.js script, if you don't want to be able to sort your favorite list. */
 var sortable = new Sortable(pickerUI.elem.favorites.get(0), {
