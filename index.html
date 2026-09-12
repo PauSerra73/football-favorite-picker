@@ -463,8 +463,14 @@ document.getElementById('copy-ranking').addEventListener('click', function() {
     var ranking = [];
 
     pickerUI.elem.favorites.children().each(function(index) {
-        var item = pickerUI.getItem(this);
-        ranking.push((index + 1) + '. ' + item.name);
+        var itemId = pickerUI.getItem(this);
+
+        var item = items.find(function(club) {
+            return club.id === itemId;
+        });
+        if (item) {
+            ranking.push((index + 1) + '. ' + item.name);
+        }
     });
 
     var text = 'My Football Favorite Ranking\n\n' + ranking.join('\n');
