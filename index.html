@@ -251,7 +251,7 @@ var myPicker = new picker.Picker({
     localStorageKey: 'picker-state',
     defaultSettings: {
         minBatchSize: 2,
-        maxBatchSize: 10
+        maxBatchSize: 2
     }
 });
 
@@ -261,12 +261,35 @@ var pickerUI = new PickerUI(myPicker, {
         pass: "#pass",
         undo: "#undo",
         redo: "#redo",
+        <p id="settings">
+    Batch size:
+    <select id="batch-size">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+    </select>
+    <button id="reset">Reset</button>
+</p>
         evaluating: "#evaluating",
         favorites: "#favorites"
     }
 });
 
 pickerUI.initialize();
+    document.getElementById('batch-size').addEventListener('change', function() {
+    var size = parseInt(this.value);
+
+    myPicker.setSettings({
+        minBatchSize: size,
+        maxBatchSize: size
+    });
+});
+
+document.getElementById('reset').addEventListener('click', function() {
+    myPicker.reset();
+});
 
 /* Sortable favorites - you can safely remove this, and the Sortable.min.js script, if you don't want to be able to sort your favorite list. */
 var sortable = new Sortable(pickerUI.elem.favorites.get(0), {
