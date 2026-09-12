@@ -249,11 +249,13 @@ button.disabled:hover {
 </p>
 </div>
 
-<div id="secondary">
-<h2>Found favorites</h2>
+<h2>Found Favorites</h2>
 
 <ol id="favorites" class="item-list">
 </ol>
+<p>
+    <button id="copy-ranking">Copy ranking</button>
+</p>
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -295,6 +297,20 @@ var items = [
     {id: 'Chelsea', name: 'Chelsea', image: 'images/chelsea.png', country: 'England'},
     {id: 'Manchester City', name: 'Manchester City', image: 'images/manchestercity.png', country: 'England'},
     {id: 'Tottenham', name: 'Tottenham', image: 'images/tottenham.png', country: 'England'},
+    {id: 'Newcastle', name: 'Newcastle', image: 'images/newcastle.png', country: 'England'},
+    {id: 'Aston Villa', name: 'Aston Villa', image: 'images/astonvilla.png', country: 'England'},
+    {id: 'Brighton', name: 'Brighton & Hove Albion', image: 'images/brighton.png', country: 'England'},
+    {id: 'Brentford', name: 'Brentford', image: 'images/brentford.png', country: 'England'},
+    {id: 'Bournemouth', name: 'Bournemouth', image: 'images/bournemouth.png', country: 'England'},
+    {id: 'Everton', name: 'Everton', image: 'images/everton.png', country: 'England'},
+    {id: 'Coventry', name: 'Coventry City', image: 'images/coventry.png', country: 'England'},
+    {id: 'Crystal Palace', name: 'Crystal Palace', image: 'images/crystalpalace.png', country: 'England'},
+    {id: 'Fulham', name: 'Fulham', image: 'images/fulham.png', country: 'England'},
+    {id: 'Hull City', name: 'Hull City', image: 'images/hull_city.png', country: 'England'},
+    {id: 'Ipswich', name: 'Ipswich Town', image: 'images/ipswich_town.png', country: 'England'},
+    {id: 'Leeds', name: 'Leeds United', image: 'images/leeds.png', country: 'England'},
+    {id: 'Forest', name: 'Nottingham Forest', image: 'images/nottingham_forest.png', country: 'England'},
+    {id: 'Sunderland', name: 'Sunderland', image: 'images/sunderland.png', country: 'England'},
     {id: 'PSG', name: 'PSG', image: 'images/psg.png', country: 'France'}
 ];
 
@@ -392,6 +408,20 @@ var sortable = new Sortable(pickerUI.elem.favorites.get(0), {
         }).get());
         pickerUI.update(true);
     }
+});
+document.getElementById('copy-ranking').addEventListener('click', function() {
+    var ranking = [];
+
+    pickerUI.elem.favorites.children().each(function(index) {
+        var item = pickerUI.getItem(this);
+        ranking.push((index + 1) + '. ' + item.name);
+    });
+
+    var text = 'My Football Favorite Ranking\n\n' + ranking.join('\n');
+
+    navigator.clipboard.writeText(text).then(function() {
+        alert('Ranking copied to clipboard!');
+    });
 });
 /* End sortable favorites */
 </script>
