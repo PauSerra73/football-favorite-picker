@@ -217,6 +217,17 @@ button.disabled:hover {
 </ul>
 
 <p id="buttons"><button id="pick">Pick</button> <button id="pass">Pass</button> <button id="undo">Undo</button> <button id="redo">Redo</button></p>
+<p id="settings">
+    Batch size:
+    <select id="batch-size">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+    </select>
+    <button id="reset">Reset</button>
+</p>
 </div>
 
 <div id="secondary">
@@ -261,17 +272,6 @@ var pickerUI = new PickerUI(myPicker, {
         pass: "#pass",
         undo: "#undo",
         redo: "#redo",
-        <p id="settings">
-    Batch size:
-    <select id="batch-size">
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="10">10</option>
-    </select>
-    <button id="reset">Reset</button>
-</p>
         evaluating: "#evaluating",
         favorites: "#favorites"
     }
