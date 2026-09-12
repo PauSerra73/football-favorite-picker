@@ -216,7 +216,15 @@ button.disabled:hover {
 <ul id="evaluating" class="item-list">
 </ul>
 
-<p id="buttons"><button id="pick">Pick</button> <button id="pass">Pass</button> <button id="undo">Undo</button> <button id="redo">Redo</button></p>
+<p id="buttons">
+    <button id="pick">Pick</button>
+    <button id="pass">Pass</button>
+    <button id="undo">Undo</button>
+    <button id="redo">Redo</button>
+</p>
+
+<p id="remaining"></p>
+
 <p id="settings">
     Country:
     <select id="country-filter">
@@ -306,6 +314,18 @@ var pickerUI = new PickerUI(myPicker, {
         redo: "#redo",
         evaluating: "#evaluating",
         favorites: "#favorites"
+    },
+
+    onUpdate: function() {
+        var state = this.picker.state.arrays;
+
+        var remaining = state.current.length +
+                        state.evaluating.length +
+                        state.survived.length;
+
+        $('#remaining').text(
+            'Clubs remaining to be eliminated before next favorite is found: ' + remaining
+        );
     }
 });
 
