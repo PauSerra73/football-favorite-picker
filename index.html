@@ -228,13 +228,17 @@ button.disabled:hover {
 <p id="settings">
     Country:
     <select id="country-filter">
-        <option value="all">All Countries</option>
-        <option value="Spain">Spain</option>
-        <option value="England">England</option>
-        <option value="Italy">Italy</option>
-        <option value="France">France</option>
-        <option value="Germany">Germany</option>
-    </select>
+    <option value="all">All Countries</option>
+    <option value="Spain">Spain</option>
+    <option value="England">England</option>
+    <option value="Italy">Italy</option>
+    <option value="Germany">Germany</option>
+    <option value="France">France</option>
+    <option value="Netherlands">Netherlands</option>
+    <option value="Portugal">Portugal</option>
+    <option value="Türkiye">Türkiye</option>
+    <option value="Belgium">Belgium</option>
+</select>
 
     <span id="competition-filters">
         <br>
@@ -487,8 +491,20 @@ var items = [
     {id: 'PSV', name: 'PSV', image: 'images/psv.png', country: 'Netherlands', competitions: ['Champions League']},
     {id: 'Feyenoord', name: 'Feyenoord', image: 'images/feyenoord.png', country: 'Netherlands', competitions: ['Champions League']},
     {id: 'AZ', name: 'AZ Alkmaar', image: 'images/az.png', country: 'Netherlands', competitions: ['Europa League']},
-    {id: 'NEC', name: 'Twente', image: 'images/nec.png', country: 'Netherlands', competitions: ['Europa League']},
+    {id: 'NEC', name: 'NEC Nimega', image: 'images/nec.png', country: 'Netherlands', competitions: ['Europa League']},
     {id: 'Twente', name: 'Twente', image: 'images/twente.png', country: 'Netherlands', competitions: ['Conference League']},
+    {id: 'Excelsior', name: 'Excelsior', image: 'images/excelsior.png', country: 'Netherlands', competitions: []},
+    {id: 'Fortuna Sittard', name: 'Fortuna Sittard', image: 'images/fortunasittard.png', country: 'Netherlands', competitions: []},
+    {id: 'Gronningen', name: 'Gronningen', image: 'images/gronningen.png', country: 'Netherlands', competitions: []},
+    {id: 'Go Ahead', name: 'Go Ahead Eagles', image: 'images/go_ahead_eagles.png', country: 'Netherlands', competitions: []},
+    {id: 'Hereenveen', name: 'Hereenveen', image: 'images/hereenveen.png', country: 'Netherlands', competitions: []},
+    {id: 'Sparta Rotterdam', name: 'Sparta Rotterdam', image: 'images/sparta.png', country: 'Netherlands', competitions: []},
+    {id: 'SC Telstar', name: 'SC Telstar', image: 'images/telstar.png', country: 'Netherlands', competitions: []},
+    {id: 'Utrecht', name: 'Utrecht', image: 'images/utrecht.png', country: 'Netherlands', competitions: []},
+    {id: 'Cambuur', name: 'Cambuur', image: 'images/cambuur.png', country: 'Netherlands', competitions: []},
+    {id: 'Zwole', name: 'Zwole', image: 'images/zwole.png', country: 'Netherlands', competitions: []},
+    {id: 'Willem', name: 'Willem II', image: 'images/willem.png', country: 'Netherlands', competitions: []},
+    {id: 'Den Haag', name: 'Den Haag', image: 'images/adodenhaag.png', country: 'Netherlands', competitions: []},
 
     /* Bélgica */
     {id: 'Brugge', name: 'Club Brugge', image: 'images/clubbrujas.png', country: 'Belgium', competitions: ['Champions League']},
@@ -496,12 +512,23 @@ var items = [
     {id: 'UnionSG', name: 'Union Saint-Gilloise', image: 'images/union_saint_gilloise.png', country: 'Belgium', competitions: ['Europa League']},
     {id: 'KAA Gent', name: 'KAA Gent', image: 'images/gent.png', country: 'Belgium', competitions: ['Conference League']},
     {id: 'Sint Truiden', name: 'Sint Truiden', image: 'images/truiden.png', country: 'Belgium', competitions: ['Conference League']},
+    {id: 'Charleroi', name: 'Charleroi', image: 'images/charleroi.png', country: 'Belgium', competitions: []},
+    {id: 'Zulte', name: 'Zulte Waregem', image: 'images/zulte.png', country: 'Belgium', competitions: []},
+    {id: 'Standard Liege', name: 'Standard Liège', image: 'images/standard_lieja.png', country: 'Belgium', competitions: []},
+    {id: 'Beveren', name: 'SK Bevereen', image: 'images/beveren.png', country: 'Belgium', competitions: []},
+    {id: 'Genk', name: 'KRC Genk', image: 'images/genk.png', country: 'Belgium', competitions: []},
+    {id: 'Royal Antwerp', name: 'Royal Antwerp', image: 'images/royal_antwerp.png', country: 'Belgium', competitions: []},
+    {id: 'Lommel', name: 'Lommel', image: 'images/lommel.png', country: 'Belgium', competitions: []},
+    {id: 'Cercle Brugge', name: 'Cercle Brugge', image: 'images/cerclebrugge.png', country: 'Belgium', competitions: []},
+    {id: 'Louviere', name: 'RAAL La Lovière', image: 'images/raal.png', country: 'Belgium', competitions: []},
+    {id: 'Leuven', name: 'Leuven', image: 'images/leuven.png', country: 'Belgium', competitions: []},
+    {id: 'Cortique', name: 'KV Cortrique', image: 'images/kortrijk.png', country: 'Belgium', competitions: []},
 
     /* Turquía */
-    {id: 'Galatasaray', name: 'Galatasaray', image: 'images/galatasaray.png', country: 'Turkiye', competitions: ['Champions League']},
-    {id: 'Fenerbahçe', name: 'Fenerbahçe', image: 'images/fenerbahce.png', country: 'Turkiye', competitions: ['Champions League']},
-    {id: 'Besiktas', name: 'Besiktas', image: 'images/besiktas.png', country: 'Turkiye', competitions: ['Europa League']},
-    {id: 'Trabzonspor', name: 'Trabzonspor', image: 'images/trabzonspor.png', country: 'Turkiye', competitions: ['Conference League']},
+    {id: 'Galatasaray', name: 'Galatasaray', image: 'images/galatasaray.png', country: 'Türkiye', competitions: ['Champions League']},
+    {id: 'Fenerbahçe', name: 'Fenerbahçe', image: 'images/fenerbahce.png', country: 'Türkiye', competitions: ['Champions League']},
+    {id: 'Besiktas', name: 'Besiktas', image: 'images/besiktas.png', country: 'Türkiye', competitions: ['Europa League']},
+    {id: 'Trabzonspor', name: 'Trabzonspor', image: 'images/trabzonspor.png', country: 'Türkiye', competitions: ['Conference League']},
 
     /* Otros */
     {id: 'Jagiellonia', name: 'Jagiellonia Bialystok', image: 'images/jagiellonia.png', country: 'Poland', competitions: ['Europa League']},
