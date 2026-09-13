@@ -302,6 +302,7 @@ button.disabled:hover {
 'use strict';
 
 var items = [
+    /* España */
     {id: 'Barcelona', name: 'FC Barcelona', image: 'images/barcelona.png', country: 'Spain', competitions: ['Champions League']},
     {id: 'Real Madrid', name: 'Real Madrid', image: 'images/realmadrid.png', country: 'Spain', competitions: ['Champions League']},
     {id: 'Atlético Madrid', name: 'Atlético Madrid', image: 'images/atlmadrid.png', country: 'Spain', competitions: ['Champions League']},
@@ -322,6 +323,8 @@ var items = [
     {id: 'Levante', name: 'Levante', image: 'images/levante.png', country: 'Spain', competitions: []},
     {id: 'Celta', name: 'Celta de Vigo', image: 'images/celta.png', country: 'Spain', competitions: ['Europa League']},
     {id: 'Alavés', name: 'Alavés', image: 'images/alaves.png', country: 'Spain', competitions: []},
+
+    /* Italia */
     {id: 'Juventus', name: 'Juventus', image: 'images/juventus.png', country: 'Italy', competitions: ['Europa League']},
     {id: 'AC Milan', name: 'AC Milan', image: 'images/milan.png', country: 'Italy', competitions: ['Europa League']},
     {id: 'Inter de Milan', name: 'Inter de Milan', image: 'images/inter.png', country: 'Italy', competitions: ['Champions League']},
@@ -342,6 +345,8 @@ var items = [
     {id: 'Udinese', name: 'Udinese', image: 'images/udinese.png', country: 'Italy', competitions: []},
     {id: 'Venezia', name: 'Venezia', image: 'images/venezia.png', country: 'Italy', competitions: []},
     {id: 'Monza', name: 'Monza', image: 'images/monza.png', country: 'Italy', competitions: []},
+
+    /* Alemania */
     {id: 'Bayern Munchen', name: 'Bayern Munchen', image: 'images/bayernmunchen.png', country: 'Germany', competitions: ['Champions League']},
     {id: 'Dortmund', name: 'Borussia Dortmund', image: 'images/borussiadortmund.png', country: 'Germany', competitions: ['Champions League']},
     {id: 'Leipzig', name: 'RB Leipzig', image: 'images/rbleipzig.png', country: 'Germany', competitions: ['Champions League']},
@@ -360,6 +365,8 @@ var items = [
     {id: 'Bremen', name: 'Werder Bremen', image: 'images/werderbremen.png', country: 'Germany', competitions: []},
     {id: 'Elversberg', name: 'Elversberg', image: 'images/elversberg.png', country: 'Germany', competitions: []},
     {id: 'Paderborn', name: 'Paderborn07', image: 'images/paderborn07.png', country: 'Germany', competitions: []},
+
+    /* Inglaterra */
     {id: 'Liverpool', name: 'Liverpool', image: 'images/liverpool.png', country: 'England', competitions: ['Champions League']},
     {id: 'Manchester United', name: 'Manchester United', image: 'images/manchesterunited.png', country: 'England', competitions: ['Champions League']},
     {id: 'Arsenal', name: 'Arsenal', image: 'images/arsenal.png', country: 'England', competitions: ['Champions League']},
@@ -380,6 +387,8 @@ var items = [
     {id: 'Leeds', name: 'Leeds United', image: 'images/leeds.png', country: 'England', competitions: []},
     {id: 'Forest', name: 'Nottingham Forest', image: 'images/nottingham_forest.png', country: 'England', competitions: []},
     {id: 'Sunderland', name: 'Sunderland', image: 'images/sunderland.png', country: 'England', competitions: ['Europa League']},
+
+    /* Francia */
     {id: 'PSG', name: 'PSG', image: 'images/psg.png', country: 'France', competitions: ['Champions League']},
     {id: 'Lille', name: 'Lille', image: 'images/lille.png', country: 'France', competitions: ['Champions League']},
     {id: 'Lens', name: 'Lens', image: 'images/racinglens.png', country: 'France', competitions: ['Champions League']},
@@ -398,21 +407,49 @@ var items = [
     {id: 'Stade Bretois', name: 'Stade Bretois', image: 'images/stadebretois.png', country: 'France', competitions: []},
     {id: 'Toulouse', name: 'Toulouse', image: 'images/toulouse.png', country: 'France', competitions: []},
     {id: 'Troyes', name: 'Troyes', image: 'images/troyes.png', country: 'France', competitions: []},
+
+    /* Otros */
+    {id: 'Benfica', name: 'Benfica', image: 'images/benfica.png', country: 'Portugal', competitions: ['Europa League']},
     {id: 'Sporting', name: 'Sporting CP', image: 'images/sporting.png', country: 'Portugal', competitions: ['Champions League']},
     {id: 'Porto', name: 'Porto', image: 'images/porto.png', country: 'Portugal', competitions: ['Champions League']},
+    {id: 'Torrense', name: 'SCU Torrense', image: 'images/torrense.png', country: 'Portugal', competitions: ['Europa League']},
+    {id: 'Ajax', name: 'Ajax', image: 'images/ajax.png', country: 'Netherlands', competitions: ['Conference League']},
     {id: 'PSV', name: 'PSV', image: 'images/psv.png', country: 'Netherlands', competitions: ['Champions League']},
     {id: 'Feyenoord', name: 'Feyenoord', image: 'images/feyenoord.png', country: 'Netherlands', competitions: ['Champions League']},
+    {id: 'AZ', name: 'AZ Alkmaar', image: 'images/az.png', country: 'Netherlands', competitions: ['Europa League']},
+    {id: 'NEC', name: 'Twente', image: 'images/nec.png', country: 'Netherlands', competitions: ['Europa League']},
+    {id: 'Twente', name: 'Twente', image: 'images/twente.png', country: 'Netherlands', competitions: ['Conference League']},
     {id: 'Brugge', name: 'Club Brugge', image: 'images/clubbrujas.png', country: 'Belgium', competitions: ['Champions League']},
+    {id: 'Anderlecht', name: 'Anderlecht', image: 'images/anderlecht.png', country: 'Belgium', competitions: ['Europa League']},
+    {id: 'UnionSG', name: 'Union Saint-Gilloise', image: 'images/union_saint_gilloise.png', country: 'Belgium', competitions: ['Europa League']},
+    {id: 'KAA Gent', name: 'KAA Gent', image: 'images/gent.png', country: 'Belgium', competitions: ['Conference League']},
     {id: 'Galatasaray', name: 'Galatasaray', image: 'images/galatasaray.png', country: 'Turkiye', competitions: ['Champions League']},
     {id: 'Fenerbahçe', name: 'Fenerbahçe', image: 'images/fenerbahce.png', country: 'Turkiye', competitions: ['Champions League']},
+    {id: 'Besiktas', name: 'Besiktas', image: 'images/besiktas.png', country: 'Turkiye', competitions: ['Europa League']},
+    {id: 'Trabzonspor', name: 'Trabzonspor', image: 'images/trabzonspor.png', country: 'Turkiye', competitions: ['Conference League']},
     {id: 'Shakhtar', name: 'Shakhtar Donetsk', image: 'images/shakhtar_donetsk.png', country: 'Ukraine', competitions: ['Champions League']},
     {id: 'Slovan', name: 'Slovan Bratislava', image: 'images/slovan_bratislava.png', country: 'Slovakia', competitions: ['Champions League']},
     {id: 'Sabah', name: 'Sabah FK', image: 'images/sabah.png', country: 'Azerbaijan', competitions: ['Champions League']},
     {id: 'Bodo Glimt', name: 'Bodo Glimt', image: 'images/bodo_glimt.png', country: 'Norway', competitions: ['Champions League']},
     {id: 'Viking', name: 'Viking Stavanger', image: 'images/viking.png', country: 'Norway', competitions: ['Champions League']},
     {id: 'AEK Atenas', name: 'AEK Atenas', image: 'images/aek_atenas.png', country: 'Greece', competitions: ['Champions League']},
+    {id: 'Olympiakos', name: 'Olympiakos', image: 'images/olympiacos.png', country: 'Greece', competitions: ['Europa League']},
+    {id: 'OFI', name: 'OFI', image: 'images/ofi.png', country: 'Greece', competitions: ['Europa League']},
+    {id: 'Panathinaikos', name: 'Panathinaikos', image: 'images/panathinaikos.png', country: 'Greece', competitions: ['Conference League']},
     {id: 'Slavia Praga', name: 'Slavia Praga', image: 'images/slavia_praga.png', country: 'Czech Republic', competitions: ['Champions League']},
-    {id: 'LASK', name: 'LASK', image: 'images/lask.png', country: 'Austria', competitions: ['Champions League']}
+    {id: 'Sparta Praga', name: 'Sparta Praha', image: 'images/sparta_praga.png', country: 'Czech Republic', competitions: ['Europa League']},
+    {id: 'Viktoria Plzen', name: 'Viktoria Plzen', image: 'images/viktoria_plzen.png', country: 'Czech Republic', competitions: ['Europa League']},
+    {id: 'LASK', name: 'LASK', image: 'images/lask.png', country: 'Austria', competitions: ['Champions League']},
+    {id: 'Salzburg', name: 'RB Salzburg', image: 'images/rbsalzburg.png', country: 'Austria', competitions: ['Europa League']},
+    {id: 'Sturm Graz', name: 'Sturm Graz', image: 'images/sturm_graz.png', country: 'Austria', competitions: ['Europa League']},
+    {id: 'Celtic', name: 'Celtic', image: 'images/celtic.png', country: 'Scotland', competitions: ['Europa League']},
+    {id: 'Hearts', name: 'Heart of Midlothian', image: 'images/hearts.png', country: 'Scotland', competitions: ['Conference League']},
+    {id: 'Copenhague', name: 'Copenhaguen', image: 'images/fc_copenhague.png', country: 'Denmark', competitions: ['Conference League']},
+    {id: 'Midtjylland', name: 'Midtjylland', image: 'images/midtjylland.png', country: 'Denmark', competitions: ['Conference League']},
+    {id: 'Pafos', name: 'Pafos', image: 'images/pafos.png', country: 'Cyprus', competitions: ['Conference League']},
+    {id: 'DZagreb', name: 'Dinamo Zagreb', image: 'images/dinamo_zagreb.png', country: 'Croatia', competitions: ['Europa League']},
+    {id: 'Ferencvarosi', name: 'Ferencvarosi', image: 'images/ferencvaros.png', country: 'Hungary', competitions: ['Europa League']},
+    {id: 'Estrella Roja', name: 'Red Star Belgrade', image: 'images/estrella_roja.png', country: 'Serbia', competitions: ['Conference League']},
 ];
 
 var myPicker = new picker.Picker({
