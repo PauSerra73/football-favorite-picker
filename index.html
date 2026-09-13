@@ -425,32 +425,38 @@ defaultSettings: {
     country: 'all',
     competitions: []
 },
+
+var myPicker = new picker.Picker({
+    items: items,
+    localStorageKey: 'football-picker-state',
+
+    defaultSettings: {
+        minBatchSize: 5,
+        maxBatchSize: 5,
+        country: 'all',
+        competitions: []
     },
 
- getFilteredItems: function(settings) {
-    var filtered = items;
-    if (settings.country && settings.country !== 'all') {
-        filtered = filtered.filter(function(item) {
-            return item.country === settings.country;
-        });
-    }
-    if (!settings.country || settings.country === 'all') {
-        var selectedCompetitions = [];
-        $('.competition-filter:checked').each(function() {
-            selectedCompetitions.push(this.value);
-        });
-
-        if (selectedCompetitions.length > 0) {
+    getFilteredItems: function(settings) {
+        var filtered = items;
+        if (settings.country && settings.country !== 'all') {
             filtered = filtered.filter(function(item) {
-                return item.competitions.some(function(competition) {
-                    return selectedCompetitions.indexOf(competition) !== -1;
-                });
+                return item.country === settings.country;
             });
         }
-    }
-    return filtered.map(function(item) {
-        return item.id;
-    });
+        if (!settings.country || settings.country === 'all') {
+            var selectedCompetitions = settings.competitions || [];
+            if (selectedCompetitions.length > 0) {
+                filtered = filtered.filter(function(item) {
+                    return item.competitions.some(function(competition) {
+                        return selectedCompetitions.indexOf(competition) !== -1;
+                    });
+                });
+            }
+        }
+        return filtered.map(function(item) {
+            return item.id;
+        });
     }
 });
     
