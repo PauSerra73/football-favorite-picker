@@ -644,13 +644,24 @@ function updateDivisionNames() {
 }
     document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
     checkbox.addEventListener('change', function() {
-
         var settings = myPicker.getSettings();
-
         settings.competitions = [];
-
         document.querySelectorAll('.competition-filter:checked').forEach(function(checked) {
             settings.competitions.push(checked.value);
+        });
+
+        myPicker.setSettings(settings);
+        pickerUI.update(true);
+    });
+});
+document.querySelectorAll('.division-filter').forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+        var settings = myPicker.getSettings();
+
+        settings.divisions = [];
+
+        document.querySelectorAll('.division-filter:checked').forEach(function(checked) {
+            settings.divisions.push(checked.value);
         });
 
         myPicker.setSettings(settings);
