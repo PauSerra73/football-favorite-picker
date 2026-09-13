@@ -256,20 +256,20 @@ button.disabled:hover {
         </label>
     </span>
 
-    <span id="division-filters" style="display:none;">
-        <br>
-        Division:
-        <br>
-        <label>
-            <input type="checkbox" class="division-filter" value="First Division">
-            First Division
-        </label>
-        <br>
-        <label>
-            <input type="checkbox" class="division-filter" value="Second Division">
-            Second Division
-        </label>
-    </span>
+<span id="division-filters" style="display:none;">
+    <br>
+    Division:
+    <br>
+    <label>
+        <input type="checkbox" class="division-filter" value="First Division">
+        <span id="first-division-name">First Division</span>
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" class="division-filter" value="Second Division">
+        <span id="second-division-name">Second Division</span>
+    </label>
+</span>
 
     <br>
     Batch size:
@@ -554,16 +554,20 @@ onUpdate: function() {
 pickerUI.initialize();
 var currentSettings = myPicker.getSettings();
 document.getElementById('country-filter').value = currentSettings.country || 'all';
-document.getElementById('batch-size').value = currentSettings.minBatchSize || 5;
+document.getElementById('batch-size').value =
+    currentSettings.minBatchSize || 5;
 document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
-    checkbox.checked = (currentSettings.competitions || []).indexOf(checkbox.value) !== -1;
+    checkbox.checked =
+        (currentSettings.competitions || []).indexOf(checkbox.value) !== -1;
 });
 
 document.querySelectorAll('.division-filter').forEach(function(checkbox) {
-    checkbox.checked = (currentSettings.divisions || []).indexOf(checkbox.value) !== -1;
+    checkbox.checked =
+        (currentSettings.divisions || []).indexOf(checkbox.value) !== -1;
 });
 
 updateFilterVisibility();
+updateDivisionNames();
 
 document.getElementById('batch-size').addEventListener('change', function() {
     var size = parseInt(this.value);
@@ -576,21 +580,23 @@ document.getElementById('batch-size').addEventListener('change', function() {
 document.getElementById('country-filter').addEventListener('change', function() {
     var settings = myPicker.getSettings();
     settings.country = this.value;
-if (this.value !== 'all') {
-    settings.competitions = [];
-    document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
-        checkbox.checked = false;
-    });
-}
-if (this.value === 'all') {
-    settings.divisions = [];
-    document.querySelectorAll('.division-filter').forEach(function(checkbox) {
-        checkbox.checked = false;
-    });
-}
+    if (this.value !== 'all') {
+        settings.competitions = [];
+        document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
+            checkbox.checked = false;
+        });
+    }
+    if (this.value === 'all') {
+        settings.divisions = [];
+
+        document.querySelectorAll('.division-filter').forEach(function(checkbox) {
+            checkbox.checked = false;
+        });
+    }
     myPicker.setSettings(settings);
     pickerUI.update(true);
     updateFilterVisibility();
+    updateDivisionNames();
 });
 function updateFilterVisibility() {
     var country = document.getElementById('country-filter').value;
@@ -601,6 +607,39 @@ function updateFilterVisibility() {
     } else {
         document.getElementById('competition-filters').style.display = 'none';
         document.getElementById('division-filters').style.display = 'inline';
+    }
+}
+function updateDivisionNames() {
+    var country = document.getElementById('country-filter').value;
+    var divisionNames = {
+        Spain: {
+            first: 'Primera División',
+            second: 'Segunda División'
+        },
+        England: {
+            first: 'Premier League',
+            second: 'Championship'
+        },
+        Italy: {
+            first: 'Serie A',
+            second: 'Serie B'
+        },
+        Germany: {
+            first: 'Bundesliga',
+            second: '2. Bundesliga'
+        },
+        France: {
+            first: 'Ligue 1',
+            second: 'Ligue 2'
+        }
+    };
+    var names = divisionNames[country];
+    if (names) {
+        document.getElementById('first-division-name').textContent = names.first;
+        document.getElementById('second-division-name').textContent = names.second;
+    } else {
+        document.getElementById('first-division-name').textContent = 'First Division';
+        document.getElementById('second-division-name').textContent = 'Second Division';
     }
 }
     document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
