@@ -459,22 +459,30 @@ var pickerUI = new PickerUI(myPicker, {
         favorites: "#favorites"
     },
 
-    onUpdate: function() {
-        var state = this.picker.state.arrays;
-        var remaining = state.current.length +
-                        state.evaluating.length +
-                        state.survived.length - 1;
+onUpdate: function() {
+    var state = this.picker.state.arrays;
+    var remaining = state.current.length +
+                    state.evaluating.length +
+                    state.survived.length - 1;
+
+    if (remaining < 0) {
+        $('#remaining').text('Selection complete!');
+    } else {
         $('#remaining').text(
             'Clubs remaining to be eliminated before next favorite is found: ' + remaining
         );
     }
+}
 });
 
 pickerUI.initialize();
 updateFilterVisibility();
 var currentSettings = myPicker.getSettings();
 document.getElementById('country-filter').value = currentSettings.country || 'all';
-document.getElementById('batch-size').value = currentSettings.minBatchSize || 5;    
+document.getElementById('batch-size').value = currentSettings.minBatchSize || 5;
+document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
+    checkbox.checked = (currentSettings.competitions || []).indexOf(checkbox.value) !== -1;
+});
 
 document.getElementById('batch-size').addEventListener('change', function() {
     var size = parseInt(this.value);
