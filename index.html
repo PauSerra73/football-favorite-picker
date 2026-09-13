@@ -552,21 +552,18 @@ onUpdate: function() {
 });
 
 pickerUI.initialize();
-updateFilterVisibility();
 var currentSettings = myPicker.getSettings();
 document.getElementById('country-filter').value = currentSettings.country || 'all';
 document.getElementById('batch-size').value = currentSettings.minBatchSize || 5;
-document.querySelectorAll('.division-filter').forEach(function(checkbox) {
-    checkbox.addEventListener('change', function() {
-        var settings = myPicker.getSettings();
-        settings.divisions = [];
-        document.querySelectorAll('.division-filter:checked').forEach(function(checked) {
-            settings.divisions.push(checked.value);
-        });
-        myPicker.setSettings(settings);
-        pickerUI.update(true);
-    });
+document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
+    checkbox.checked = (currentSettings.competitions || []).indexOf(checkbox.value) !== -1;
 });
+
+document.querySelectorAll('.division-filter').forEach(function(checkbox) {
+    checkbox.checked = (currentSettings.divisions || []).indexOf(checkbox.value) !== -1;
+});
+
+updateFilterVisibility();
 
 document.getElementById('batch-size').addEventListener('change', function() {
     var size = parseInt(this.value);
