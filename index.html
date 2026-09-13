@@ -303,26 +303,46 @@ button.disabled:hover {
 
 var items = [
     /* España */
-    {id: 'Barcelona', name: 'FC Barcelona', image: 'images/barcelona.png', country: 'Spain', competitions: ['Champions League']},
-    {id: 'Real Madrid', name: 'Real Madrid', image: 'images/realmadrid.png', country: 'Spain', competitions: ['Champions League']},
-    {id: 'Atlético Madrid', name: 'Atlético Madrid', image: 'images/atlmadrid.png', country: 'Spain', competitions: ['Champions League']},
-    {id: 'Villarreal', name: 'Villarreal', image: 'images/villarreal.png', country: 'Spain', competitions: ['Champions League']},
-    {id: 'Betis', name: 'Real Betis', image: 'images/betis.png', country: 'Spain', competitions: ['Champions League']},
-    {id: 'Athletic', name: 'Athletic Club', image: 'images/athletic.png', country: 'Spain', competitions: []},
-    {id: 'Valencia', name: 'Valencia', image: 'images/valencia.png', country: 'Spain', competitions: []},
-    {id: 'Sevilla', name: 'Sevilla', image: 'images/sevilla.png', country: 'Spain', competitions: []},
-    {id: 'Real Sociedad', name: 'Real Sociedad', image: 'images/realsociedad.png', country: 'Spain', competitions: ['Europa League']},
-    {id: 'Espanyol', name: 'Espanyol', image: 'images/espanyol.png', country: 'Spain', competitions: []},
-    {id: 'Depor', name: 'Deportivo A Coruña', image: 'images/deportivocoruna.png', country: 'Spain', competitions: []},
-    {id: 'Racing', name: 'Racing de Santander', image: 'images/racingsantander.png', country: 'Spain', competitions: []},
-    {id: 'Malaga', name: 'Málaga', image: 'images/malaga.png', country: 'Spain', competitions: []},
-    {id: 'Osasuna', name: 'Osasuna', image: 'images/osasuna.png', country: 'Spain', competitions: []},
-    {id: 'Elche', name: 'Elche', image: 'images/elche.png', country: 'Spain', competitions: []},
-    {id: 'Getafe', name: 'Getafe', image: 'images/getafe.png', country: 'Spain', competitions: ['Conference League']},
-    {id: 'Rayo Vallecano', name: 'Rayo Vallecano', image: 'images/rayovallecano.png', country: 'Spain', competitions: []},
-    {id: 'Levante', name: 'Levante', image: 'images/levante.png', country: 'Spain', competitions: []},
-    {id: 'Celta', name: 'Celta de Vigo', image: 'images/celta.png', country: 'Spain', competitions: ['Europa League']},
-    {id: 'Alavés', name: 'Alavés', image: 'images/alaves.png', country: 'Spain', competitions: []},
+    {id: 'Barcelona', name: 'FC Barcelona', image: 'images/barcelona.png', country: 'Spain', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Real Madrid', name: 'Real Madrid', image: 'images/realmadrid.png', country: 'Spain', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Atlético Madrid', name: 'Atlético Madrid', image: 'images/atlmadrid.png', country: 'Spain', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Villarreal', name: 'Villarreal', image: 'images/villarreal.png', country: 'Spain', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Betis', name: 'Real Betis', image: 'images/betis.png', country: 'Spain', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Athletic', name: 'Athletic Club', image: 'images/athletic.png', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Valencia', name: 'Valencia', image: 'images/valencia.png', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Sevilla', name: 'Sevilla', image: 'images/sevilla.png', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Real Sociedad', name: 'Real Sociedad', image: 'images/realsociedad.png', country: 'Spain', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Espanyol', name: 'Espanyol', image: 'images/espanyol.png', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Depor', name: 'Deportivo A Coruña', image: 'images/deportivocoruna.png', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Racing', name: 'Racing de Santander', image: 'images/racingsantander.png', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Malaga', name: 'Málaga', image: 'images/malaga.png', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Osasuna', name: 'Osasuna', image: 'images/osasuna.png', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Elche', name: 'Elche', image: 'images/elche.png', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Getafe', name: 'Getafe', image: 'images/getafe.png', country: 'Spain', division: 'First Division', competitions: ['Conference League']},
+    {id: 'Rayo Vallecano', name: 'Rayo Vallecano', image: 'images/rayovallecano.png', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Levante', name: 'Levante', image: 'images/levante.png', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Celta', name: 'Celta de Vigo', image: 'images/celta.png', country: 'Spain', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Alavés', name: 'Alavés', image: 'images/alaves.png', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Sporting Gijón', name: 'Sporting de Gijón', image: 'images/sportingg.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Albacete', name: 'Albacete', image: 'images/albacete.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Almería', name: 'UD Almería', image: 'images/almeria.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Andorra', name: 'FC Andorra', image: 'images/andorra.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Burgos', name: 'Burgos CF', image: 'images/burgos.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Cádiz', name: 'Cádiz', image: 'images/cadiz.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Castellón', name: 'CD Castellón', image: 'images/castellon.png', division: 'Second Division', country: 'Spain', competitions: []},
+    {id: 'Ceuta', name: 'AD Ceuta', image: 'images/ceuta.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Cordoba', name: 'Córdoba CF', image: 'images/cordoba.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Eibar', name: 'Eibar', image: 'images/eibar.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Eldense', name: 'Eldense', image: 'images/eldense.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Girona', name: 'Girona FC', image: 'images/girona.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Granada', name: 'Granada', image: 'images/granada.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Leganés', name: 'Leganés', image: 'images/leganes.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Mallorca', name: 'Mallorca', image: 'images/mallorca.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Real Oviedo', name: 'Real Oviedo', image: 'images/realoviedo.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Sabadell', name: 'CE Sabadell', image: 'images/sabadell.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Tenerife', name: 'Tenerife', image: 'images/tenerife.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Las Palmas', name: 'UD Las Palmas', image: 'images/udlaspalmas.png', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Valladolid', name: 'Real Valladolid', image: 'images/valladolid.png', country: 'Spain', division: 'Second Division', competitions: []},
 
     /* Italia */
     {id: 'Juventus', name: 'Juventus', image: 'images/juventus.png', country: 'Italy', competitions: ['Europa League']},
@@ -434,6 +454,7 @@ var items = [
     {id: 'Shakhtar', name: 'Shakhtar Donetsk', image: 'images/shakhtar_donetsk.png', country: 'Ukraine', competitions: ['Champions League']},
     {id: 'Slovan', name: 'Slovan Bratislava', image: 'images/slovan_bratislava.png', country: 'Slovakia', competitions: ['Champions League']},
     {id: 'Sabah', name: 'Sabah FK', image: 'images/sabah.png', country: 'Azerbaijan', competitions: ['Champions League']},
+    {id: 'Kairat', name: 'Kairat Almaty', image: 'images/kairat_almaty.png', country: 'Kazakhstan', competitions: ['Conference League']},
     
     {id: 'Bodo Glimt', name: 'Bodo Glimt', image: 'images/bodo_glimt.png', country: 'Norway', competitions: ['Champions League']},
     {id: 'Viking', name: 'Viking Stavanger', image: 'images/viking.png', country: 'Norway', competitions: ['Champions League']},
@@ -474,27 +495,33 @@ var myPicker = new picker.Picker({
         competitions: []
     },
 
-    getFilteredItems: function(settings) {
-        var filtered = items;
-        if (settings.country && settings.country !== 'all') {
+getFilteredItems: function(settings) {
+    var filtered = items;
+    if (settings.country && settings.country !== 'all') {
+        filtered = filtered.filter(function(item) {
+            return item.country === settings.country;
+        });
+        var selectedDivisions = settings.divisions || [];
+        if (selectedDivisions.length > 0) {
             filtered = filtered.filter(function(item) {
-                return item.country === settings.country;
+                return selectedDivisions.indexOf(item.division) !== -1;
             });
         }
-        if (!settings.country || settings.country === 'all') {
-            var selectedCompetitions = settings.competitions || [];
-            if (selectedCompetitions.length > 0) {
-                filtered = filtered.filter(function(item) {
-                    return item.competitions.some(function(competition) {
-                        return selectedCompetitions.indexOf(competition) !== -1;
-                    });
-                });
-            }
-        }
-        return filtered.map(function(item) {
-            return item.id;
-        });
     }
+    if (!settings.country || settings.country === 'all') {
+        var selectedCompetitions = settings.competitions || [];
+        if (selectedCompetitions.length > 0) {
+            filtered = filtered.filter(function(item) {
+                return item.competitions.some(function(competition) {
+                    return selectedCompetitions.indexOf(competition) !== -1;
+                });
+            });
+        }
+    }
+    return filtered.map(function(item) {
+        return item.id;
+    });
+}
 });
 
 var pickerUI = new PickerUI(myPicker, {
