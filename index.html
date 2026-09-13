@@ -488,12 +488,13 @@ var myPicker = new picker.Picker({
     items: items,
     localStorageKey: 'football-picker-state',
 
-    defaultSettings: {
-        minBatchSize: 5,
-        maxBatchSize: 5,
-        country: 'all',
-        competitions: []
-    },
+defaultSettings: {
+    minBatchSize: 5,
+    maxBatchSize: 5,
+    country: 'all',
+    competitions: [],
+    divisions: []
+},
 
 getFilteredItems: function(settings) {
     var filtered = items;
@@ -555,8 +556,16 @@ updateFilterVisibility();
 var currentSettings = myPicker.getSettings();
 document.getElementById('country-filter').value = currentSettings.country || 'all';
 document.getElementById('batch-size').value = currentSettings.minBatchSize || 5;
-document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
-    checkbox.checked = (currentSettings.competitions || []).indexOf(checkbox.value) !== -1;
+document.querySelectorAll('.division-filter').forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+        var settings = myPicker.getSettings();
+        settings.divisions = [];
+        document.querySelectorAll('.division-filter:checked').forEach(function(checked) {
+            settings.divisions.push(checked.value);
+        });
+        myPicker.setSettings(settings);
+        pickerUI.update(true);
+    });
 });
 
 document.getElementById('batch-size').addEventListener('change', function() {
@@ -570,17 +579,23 @@ document.getElementById('batch-size').addEventListener('change', function() {
 document.getElementById('country-filter').addEventListener('change', function() {
     var settings = myPicker.getSettings();
     settings.country = this.value;
-    if (this.value !== 'all') {
-        settings.competitions = [];
-        document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
-            checkbox.checked = false;
-        });
-    }
+if (this.value !== 'all') {
+    settings.competitions = [];
+    document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
+        checkbox.checked = false;
+    });
+}
+if (this.value === 'all') {
+    settings.divisions = [];
+    document.querySelectorAll('.division-filter').forEach(function(checkbox) {
+        checkbox.checked = false;
+    });
+}
     myPicker.setSettings(settings);
     pickerUI.update(true);
     updateFilterVisibility();
 });
-function updateFilterVisibility() {
+f    unction updateFilterVisibility() {
     var country = document.getElementById('country-filter').value;
 
     if (country === 'all') {
