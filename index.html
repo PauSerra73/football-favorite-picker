@@ -240,6 +240,9 @@ button.disabled:hover {
     justify-content: center;
     align-items: center;
 }
+.winrate-club-button.selected {
+    border: 3px solid #7AC;
+}
 
 .winrate-club-button img {
     width: 100px;
@@ -429,6 +432,8 @@ button.disabled:hover {
 
 <p>
     <button id="winrate-pass">Pass</button>
+    <button id="winrate-undo">Undo</button>
+    <button id="winrate-reset">Reset</button>
 </p>
 
 <p id="winrate-progress">
@@ -975,7 +980,6 @@ document.getElementById('copy-ranking').addEventListener('click', function() {
 
     /* WIN RATE MODE */
 
-
     var winRateComparisons = JSON.parse(
     localStorage.getItem('football-winrate-comparisons') || '[]'
 );
@@ -1004,6 +1008,8 @@ function getWinRateClubs() {
 
 /* Calculate statistics */
 
+/* Calculate Statistics */
+
 function getWinRateStats() {
     var clubs = getWinRateClubs();
     var stats = {};
@@ -1013,14 +1019,13 @@ function getWinRateStats() {
             losses: 0,
             comparisons: 0
         };
-
     });
+
     winRateComparisons.forEach(function(comparison) {
         if (!stats[comparison.club1] ||
             !stats[comparison.club2]) {
             return;
         }
-
         stats[comparison.club1].comparisons++;
         stats[comparison.club2].comparisons++;
 
@@ -1031,10 +1036,23 @@ function getWinRateStats() {
             stats[comparison.club2].wins++;
             stats[comparison.club1].losses++;
         }
+
     });
     return stats;
 }
+    
+/* Pass */
 
+function passWinRateComparison() {
+    showWinRateComparison();
+}
+    
+document.getElementById(
+    'winrate-pass'
+).addEventListener('click', function() {
+    passWinRateComparison();
+});
+    
 /* Save comparisons */
 
 function saveWinRateComparisons() {
@@ -1075,9 +1093,10 @@ function getRandomWinRateClubs() {
 }
 
 
-/*Show Comparison*/
+/* Show Comparison */
 
 function showWinRateComparison() {
+
     var clubs = getRandomWinRateClubs();
     if (clubs.length < 2) {
         return;
@@ -1085,20 +1104,20 @@ function showWinRateComparison() {
 
     var container =
         document.getElementById('winrate-comparison');
-
     container.innerHTML = '';
     clubs.forEach(function(club, index) {
 
         var button =
             document.createElement('button');
+
         button.className =
             'winrate-club-button';
 
         var image =
             document.createElement('img');
+
         image.src = club.image;
-        image.alt =
-            club.name;
+        image.alt = club.name;
 
         var name =
             document.createElement('span');
@@ -1106,17 +1125,22 @@ function showWinRateComparison() {
             'winrate-club-name';
         name.textContent =
             club.name;
+
         button.appendChild(image);
         button.appendChild(name);
 
-        button.addEventListener('dblclick', function() {
-            registerWinRateComparison(
-                clubs[0],
-                clubs[1],
-                club
-            );
+        /* First click selects the club. Second click confirms the selection. */
+        button.addEventListener('click', function() {
+            if (button.classList.contains('selected')) {
+                registerWinRateComparison(
+                    clubs[0],
+                    clubs[1],
+                    club
+                );
+            } else {
+                button.classList.add('selected');
+            }
         });
-
         container.appendChild(button);
 
         if (index === 0) {
@@ -1130,33 +1154,71 @@ function showWinRateComparison() {
         }
     });
 }
-
-/*Register Comparison*/
+/* Register Comparison */
 
 function registerWinRateComparison(
     club1,
     club2,
     winner
 ) {
+
     winRateComparisons.push({
         club1: club1.id,
         club2: club2.id,
         winner: winner.id
-
-/*    function passWinRateComparison() {
-    showWinRateComparison();
-}
-document.getElementById(
-    'winrate-pass'
-).addEventListener('dblclick', function() {
-    passWinRateComparison();
-});*/
     });
+
     saveWinRateComparisons();
     updateWinRateRanking();
     updateWinRateProgress();
     showWinRateComparison();
 }
+    
+/* Undo */
+
+function undoWinRateComparison() {
+    if (winRateComparisons.length === 0) {
+        return;
+    }
+
+    winRateComparisons.pop();
+    saveWinRateComparisons();
+    updateWinRateRanking();
+    updateWinRateProgress();
+    showWinRateComparison();
+}
+
+document.getElementById(
+    'winrate-undo'
+).addEventListener('click', function() {
+
+    undoWinRateComparison();
+});
+
+/* Reset Win Rate */
+
+function resetWinRate() {
+    var confirmReset = confirm(
+        'Cuidado: perderás todas las comparaciones del modo Win Rate.\n\n¿Estás seguro de que quieres reiniciar?'
+    );
+
+    if (!confirmReset) {
+        return;
+    }
+
+    winRateComparisons = [];
+    saveWinRateComparisons();
+    updateWinRateRanking();
+    updateWinRateProgress();
+    showWinRateComparison();
+}
+
+document.getElementById(
+    'winrate-reset'
+).addEventListener('click', function() {
+    resetWinRate();
+
+});
 
 /*Update Ranking*/
 
