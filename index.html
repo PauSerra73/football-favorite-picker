@@ -51,6 +51,22 @@ button.disabled:hover {
     background:#DDD;
 }
 
+<div id="game-mode">
+    <label for="mode-select">Mode:</label>
+    <select id="mode-select">
+        <option value="picker">Favorite Picker</option>
+        <option value="winrate">Win Rate</option>
+    </select>
+</div>
+
+<div id="winrate-settings" style="display:none;">
+    <label for="winrate-competition">Competition:</label>
+    <select id="winrate-competition">
+        <option value="laliga">La Liga</option>
+        <option value="champions">Champions League</option>
+    </select>
+</div>
+
 #container {
     position:relative;
     margin-left:-10px;
@@ -203,6 +219,111 @@ button.disabled:hover {
     position:relative;
     z-index:3;
 }
+
+#game-mode,
+#winrate-settings {
+    margin-bottom: 10px;
+}
+
+#winrate-mode {
+    width: 100%;
+    overflow: hidden;
+}
+
+#winrate-picking {
+    float: left;
+    width: 636px;
+}
+
+#winrate-ranking {
+    margin-left: 646px;
+}
+
+#winrate-comparison {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    min-height: 220px;
+}
+
+.winrate-club-button {
+    width: 180px;
+    min-height: 180px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.winrate-club-button img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.winrate-club-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.winrate-vs {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#winrate-ranking-list {
+    width: 100%;
+}
+
+.winrate-ranking-row {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    border-bottom: 1px solid #ddd;
+}
+
+.winrate-position {
+    width: 35px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.winrate-ranking-row img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.winrate-club {
+    flex: 1;
+}
+
+.winrate-comparisons {
+    width: 70px;
+    text-align: center;
+}
+
+.winrate-percentage {
+    width: 70px;
+    text-align: right;
+    font-weight: bold;
+}
+
+@media (max-width: 1023px) {
+    #winrate-picking {
+        float: none;
+        width: 100%;
+    }
+
+    #winrate-ranking {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+}
 </style>
 </head>
 <body>
@@ -299,7 +420,22 @@ button.disabled:hover {
     </p>
 
 </div>
+<div id="winrate-mode" style="display:none;">
+    <div id="winrate-picking">
+        <h2>Choose your favorite</h2>
+        <div id="winrate-comparison">
+        </div>
+        <p id="winrate-progress">
+            Comparisons: 0
+        </p>
+    </div>
+    <div id="winrate-ranking">
+        <h2>Ranking</h2>
+        <div id="winrate-ranking-list">
+        </div>
+    </div>
 
+</div>
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -830,6 +966,373 @@ document.getElementById('copy-ranking').addEventListener('click', function() {
     });
 });
 /* End sortable favorites */
+
+    /* WIN RATE MODE */
+
+var winRateComparisons = JSON.parse(
+    localStorage.getItem('football-winrate-comparisons') || '[]'
+);
+var winRateCompetition = localStorage.getItem(
+    'football-winrate-competition'
+) || 'laliga';
+document.getElementById('winrate-competition').value = winRateCompetition;
+
+/* Get clubs for selected competition */
+
+function getWinRateClubs() {
+    var competition =
+        document.getElementById('winrate-competition').value;
+    return items.filter(function(item) {
+        if (competition === 'laliga') {
+            return item.country === 'Spain' &&
+                   item.division === 'First Division';
+        }
+        if (competition === 'champions') {
+            return item.competitions &&
+                   item.competitions.indexOf('Champions League') !== -1;
+        }
+        return false;
+    });
+}
+
+/* Calculate statistics */
+
+function getWinRateStats() {
+    var clubs = getWinRateClubs();
+    var stats = {};
+    clubs.forEach(function(club) {
+        stats[club.id] = {
+            wins: 0,
+            losses: 0,
+            comparisons: 0
+        };
+
+    });
+    winRateComparisons.forEach(function(comparison) {
+        if (!stats[comparison.club1] ||
+            !stats[comparison.club2]) {
+            return;
+        }
+
+        stats[comparison.club1].comparisons++;
+        stats[comparison.club2].comparisons++;
+
+        if (comparison.winner === comparison.club1) {
+            stats[comparison.club1].wins++;
+            stats[comparison.club2].losses++;
+        } else {
+            stats[comparison.club2].wins++;
+            stats[comparison.club1].losses++;
+        }
+    });
+    return stats;
+}
+
+/* Save comparisons */
+
+function saveWinRateComparisons() {
+    localStorage.setItem(
+        'football-winrate-comparisons',
+        JSON.stringify(winRateComparisons)
+    );
+}
+
+/*Save Selected Competition*/
+
+function saveWinRateCompetition() {
+
+    localStorage.setItem(
+        'football-winrate-competition',
+        document.getElementById('winrate-competition').value
+    );
+}
+
+/*Get Random Clubs*/
+
+function getRandomWinRateClubs() {
+    var clubs = getWinRateClubs();
+    if (clubs.length < 2) {
+        return [];
+    }
+    var firstIndex =
+        Math.floor(Math.random() * clubs.length);
+    var secondIndex;
+    do {
+        secondIndex =
+            Math.floor(Math.random() * clubs.length);
+    } while (secondIndex === firstIndex);
+    return [
+        clubs[firstIndex],
+        clubs[secondIndex]
+    ];
+}
+
+
+/*Show Comparison*/
+
+function showWinRateComparison() {
+    var clubs = getRandomWinRateClubs();
+    if (clubs.length < 2) {
+        return;
+    }
+
+    var container =
+        document.getElementById('winrate-comparison');
+
+    container.innerHTML = '';
+    clubs.forEach(function(club, index) {
+
+        var button =
+            document.createElement('button');
+        button.className =
+            'winrate-club-button';
+
+        var image =
+            document.createElement('img');
+        image.src =
+            'images/' + club.id + '.png';
+        image.alt =
+            club.name;
+
+        var name =
+            document.createElement('span');
+        name.className =
+            'winrate-club-name';
+        name.textContent =
+            club.name;
+        button.appendChild(image);
+        button.appendChild(name);
+
+        button.addEventListener('click', function() {
+            registerWinRateComparison(
+                clubs[0],
+                clubs[1],
+                club
+            );
+        });
+
+        container.appendChild(button);
+
+        if (index === 0) {
+            var vs =
+                document.createElement('span');
+            vs.className =
+                'winrate-vs';
+            vs.textContent =
+                'VS';
+            container.appendChild(vs);
+        }
+    });
+}
+
+/*Register Comparison*/
+
+function registerWinRateComparison(
+    club1,
+    club2,
+    winner
+) {
+    winRateComparisons.push({
+        club1: club1.id,
+        club2: club2.id,
+        winner: winner.id
+
+    });
+    saveWinRateComparisons();
+    updateWinRateRanking();
+    updateWinRateProgress();
+    showWinRateComparison();
+}
+
+/*Update Ranking*/
+
+function updateWinRateRanking() {
+
+    var clubs =
+        getWinRateClubs();
+    var stats =
+        getWinRateStats();
+    var ranking =
+        clubs.map(function(club) {
+            var clubStats =
+                stats[club.id];
+            var winRate = null;
+            if (clubStats.comparisons > 0) {
+                winRate =
+                    clubStats.wins /
+                    clubStats.comparisons *
+                    100;
+            }
+
+            return {
+                club: club,
+                wins: clubStats.wins,
+                comparisons:
+                    clubStats.comparisons,
+                winRate: winRate
+            };
+        });
+
+    ranking.sort(function(a, b) {
+
+        /* Clubs without comparisons go last*/
+
+        if (a.winRate === null &&
+            b.winRate !== null) {
+            return 1;
+        }
+
+        if (a.winRate !== null &&
+            b.winRate === null) {
+            return -1;
+        }
+
+        if (a.winRate === null &&
+            b.winRate === null) {
+            return a.club.name.localeCompare(
+                b.club.name
+            );
+        }
+
+        /* Higher win rate first */
+
+        if (b.winRate !== a.winRate) {
+            return b.winRate - a.winRate;
+        }
+
+        return b.comparisons -
+               a.comparisons;
+    });
+    var container =
+        document.getElementById(
+            'winrate-ranking-list'
+        );
+    container.innerHTML = '';
+    ranking.forEach(function(entry, index) {
+        var row =
+            document.createElement('div');
+        row.className =
+            'winrate-ranking-row';
+
+        /*Position*/
+        var position =
+            document.createElement('div');
+        position.className =
+            'winrate-position';
+        position.textContent =
+            (index + 1) + '.';
+        row.appendChild(position);
+
+
+        /*Badge*/
+        var image =
+            document.createElement('img');
+        image.src =
+            'images/' +
+            entry.club.id +
+            '.png';
+        image.alt =
+            entry.club.name;
+        row.appendChild(image);
+
+        /*Club name*/
+        var name =
+            document.createElement('div');
+        name.className =
+            'winrate-club';
+        name.textContent =
+            entry.club.name;
+        row.appendChild(name);
+
+        /* Comparisons */
+        var comparisons =
+            document.createElement('div');
+
+        comparisons.className =
+            'winrate-comparisons';
+
+        comparisons.textContent =
+            entry.comparisons;
+
+        row.appendChild(comparisons);
+
+        /* Win rate */
+        var percentage =
+            document.createElement('div');
+        percentage.className =
+            'winrate-percentage';
+        if (entry.winRate === null) {
+            percentage.textContent = '—';
+        } else {
+            percentage.textContent =
+                entry.winRate.toFixed(1) + '%';
+        }
+        row.appendChild(percentage);
+        container.appendChild(row);
+    });
+}
+
+
+function updateWinRateProgress() {
+    var total =
+        winRateComparisons.length;
+    document.getElementById(
+        'winrate-progress'
+    ).textContent =
+        'Comparisons: ' + total;
+}
+
+document.getElementById(
+    'winrate-competition'
+).addEventListener('change', function() {
+    saveWinRateCompetition();
+    updateWinRateRanking();
+    updateWinRateProgress();
+    showWinRateComparison();
+});
+
+document.getElementById(
+    'mode-select'
+).addEventListener('change', function() {
+    var mode = this.value;
+    if (mode === 'picker') {
+        document.getElementById(
+            'picking'
+        ).style.display = '';
+        document.getElementById(
+            'secondary'
+        ).style.display = '';
+        document.getElementById(
+            'winrate-mode'
+        ).style.display = 'none';
+        document.getElementById(
+            'winrate-settings'
+        ).style.display = 'none';
+    }
+
+    if (mode === 'winrate') {
+        document.getElementById(
+            'picking'
+        ).style.display = 'none';
+        document.getElementById(
+            'secondary'
+        ).style.display = 'none';
+        document.getElementById(
+            'winrate-mode'
+        ).style.display = '';
+        document.getElementById(
+            'winrate-settings'
+        ).style.display = '';
+        updateWinRateRanking();
+        updateWinRateProgress();
+        showWinRateComparison();
+    }
+
+});
+
+
+updateWinRateRanking();
+updateWinRateProgress();
 </script>
 </body>
 </html>
