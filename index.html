@@ -424,9 +424,16 @@ button.disabled:hover {
         <h2>Choose your favorite</h2>
         <div id="winrate-comparison">
         </div>
-        <p id="winrate-progress">
-            Comparisons: 0
-        </p>
+       <div id="winrate-comparison">
+</div>
+
+<p>
+    <button id="winrate-pass">Pass</button>
+</p>
+
+<p id="winrate-progress">
+    Comparisons: 0
+</p>
     </div>
     <div id="winrate-ranking">
         <h2>Ranking</h2>
@@ -1088,8 +1095,7 @@ function showWinRateComparison() {
 
         var image =
             document.createElement('img');
-        image.src =
-            'images/' + club.id + '.png';
+        image.src = club.image;
         image.alt =
             club.name;
 
@@ -1102,7 +1108,7 @@ function showWinRateComparison() {
         button.appendChild(image);
         button.appendChild(name);
 
-        button.addEventListener('click', function() {
+        button.addEventListener('dblclick', function() {
             registerWinRateComparison(
                 clubs[0],
                 clubs[1],
@@ -1136,6 +1142,14 @@ function registerWinRateComparison(
         club2: club2.id,
         winner: winner.id
 
+    function passWinRateComparison() {
+    showWinRateComparison();
+}
+document.getElementById(
+    'winrate-pass'
+).addEventListener('dblclick', function() {
+    passWinRateComparison();
+});
     });
     saveWinRateComparisons();
     updateWinRateRanking();
@@ -1226,10 +1240,7 @@ function updateWinRateRanking() {
         /*Badge*/
         var image =
             document.createElement('img');
-        image.src =
-            'images/' +
-            entry.club.id +
-            '.png';
+        image.src = entry.club.image;
         image.alt =
             entry.club.name;
         row.appendChild(image);
