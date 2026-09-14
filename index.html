@@ -975,7 +975,8 @@ document.getElementById('copy-ranking').addEventListener('click', function() {
 
     /* WIN RATE MODE */
 
-var winRateComparisons = JSON.parse(
+
+    var winRateComparisons = JSON.parse(
     localStorage.getItem('football-winrate-comparisons') || '[]'
 );
 var winRateCompetition = localStorage.getItem(
@@ -1142,14 +1143,14 @@ function registerWinRateComparison(
         club2: club2.id,
         winner: winner.id
 
-    function passWinRateComparison() {
+/*    function passWinRateComparison() {
     showWinRateComparison();
 }
 document.getElementById(
     'winrate-pass'
 ).addEventListener('dblclick', function() {
     passWinRateComparison();
-});
+});*/
     });
     saveWinRateComparisons();
     updateWinRateRanking();
