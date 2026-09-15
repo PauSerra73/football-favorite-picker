@@ -450,7 +450,29 @@ button.disabled:hover {
         <button id="import-export">Import / Export</button>
     </p>
 </div>
+<div id="import-export-modal" style="display:none;">
+    <div id="import-export-box">
+        <h2>Import / Export Favorites</h2>
 
+        <p>
+            Export your Found Favorites to move them to another browser
+            or device, or import a previously exported ranking.
+        </p>
+
+        <textarea
+            id="import-export-text"
+            rows="10"
+            style="width:100%;"
+            placeholder="Exported favorites will appear here..."
+        ></textarea>
+
+        <p>
+            <button id="export-favorites">Export</button>
+            <button id="import-favorites">Import</button>
+            <button id="close-import-export">Close</button>
+        </p>
+    </div>
+</div>
 </div>
 <div id="winrate-mode" style="display:none;">
 
@@ -1102,29 +1124,7 @@ document.getElementById('copy-ranking').addEventListener('click', function() {
         alert('Ranking copied to clipboard!');
     });
 });
-<div id="import-export-modal" style="display:none;">
-    <div id="import-export-box">
-        <h2>Import / Export Favorites</h2>
 
-        <p>
-            Export your Found Favorites to move them to another browser
-            or device, or import a previously exported ranking.
-        </p>
-
-        <textarea
-            id="import-export-text"
-            rows="10"
-            style="width:100%;"
-            placeholder="Exported favorites will appear here..."
-        ></textarea>
-
-        <p>
-            <button id="export-favorites">Export</button>
-            <button id="import-favorites">Import</button>
-            <button id="close-import-export">Close</button>
-        </p>
-    </div>
-</div>
 /* End sortable favorites */
 
     /* WIN RATE MODE */
