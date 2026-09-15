@@ -314,6 +314,31 @@ button.disabled:hover {
         margin-top: 30px;
     }
 }
+    #import-export-modal {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    z-index:1000;
+}
+
+#import-export-box {
+    position:relative;
+    width:500px;
+    max-width:90%;
+    margin:100px auto;
+    padding:20px;
+    background:white;
+    border:1px solid #ccc;
+    box-sizing:border-box;
+}
+
+#import-export-text {
+    box-sizing:border-box;
+    resize:vertical;
+}
 </style>
 </head>
 <body>
@@ -422,6 +447,7 @@ button.disabled:hover {
     </ol>
     <p>
         <button id="copy-ranking">Copy ranking</button>
+        <button id="import-export">Import / Export</button>
     </p>
 </div>
 
@@ -1076,6 +1102,29 @@ document.getElementById('copy-ranking').addEventListener('click', function() {
         alert('Ranking copied to clipboard!');
     });
 });
+<div id="import-export-modal" style="display:none;">
+    <div id="import-export-box">
+        <h2>Import / Export Favorites</h2>
+
+        <p>
+            Export your Found Favorites to move them to another browser
+            or device, or import a previously exported ranking.
+        </p>
+
+        <textarea
+            id="import-export-text"
+            rows="10"
+            style="width:100%;"
+            placeholder="Exported favorites will appear here..."
+        ></textarea>
+
+        <p>
+            <button id="export-favorites">Export</button>
+            <button id="import-favorites">Import</button>
+            <button id="close-import-export">Close</button>
+        </p>
+    </div>
+</div>
 /* End sortable favorites */
 
     /* WIN RATE MODE */
@@ -1105,8 +1154,6 @@ function getWinRateClubs() {
         return false;
     });
 }
-
-/* Calculate statistics */
 
 /* Calculate Statistics */
 
@@ -1202,29 +1249,22 @@ function showWinRateComparison() {
         return;
     }
 
-    var container =
-        document.getElementById('winrate-comparison');
+    var container = document.getElementById('winrate-comparison');
     container.innerHTML = '';
     clubs.forEach(function(club, index) {
 
         var button =
             document.createElement('button');
 
-        button.className =
-            'winrate-club-button';
+        button.className ='winrate-club-button';
 
-        var image =
-            document.createElement('img');
-
+        var image = document.createElement('img');
         image.src = club.image;
         image.alt = club.name;
 
-        var name =
-            document.createElement('span');
-        name.className =
-            'winrate-club-name';
-        name.textContent =
-            club.name;
+        var name = document.createElement('span');
+        name.className ='winrate-club-name';
+        name.textContent = club.name;
 
         button.appendChild(image);
         button.appendChild(name);
@@ -1499,7 +1539,81 @@ if (savedMode === 'winrate') {
     document.getElementById('winrate-mode').style.display = 'none';
     document.getElementById('winrate-settings').style.display = 'none';
 }
+document.getElementById('import-export').addEventListener('click', function() {
+    document.getElementById('import-export-modal').style.display = 'block';
+    document.getElementById('import-export-text').value = '';
+});
 
+document.getElementById('close-import-export').addEventListener('click', function() {
+    document.getElementById('import-export-modal').style.display = 'none';
+});
+
+document.getElementById('export-favorites').addEventListener('click', function() {
+    var favorites = [];
+
+    pickerUI.elem.favorites.children().each(function() {
+        favorites.push(pickerUI.getItem(this));
+    });
+
+    var exportText = 'FOOTBALL_FAVORITES_V1\n' + favorites.join('\n');
+
+    document.getElementById('import-export-text').value = exportText;
+});
+
+document.getElementById('import-favorites').addEventListener('click', function() {
+    var text = document.getElementById('import-export-text').value.trim();
+
+    if (!text) {
+        alert('Please paste an exported ranking first.');
+        return;
+    }
+
+    var lines = text.split(/\r?\n/);
+
+    if (lines[0] !== 'FOOTBALL_FAVORITES_V1') {
+        alert('Invalid export data.');
+        return;
+    }
+
+    var importedFavorites = lines
+        .slice(1)
+        .map(function(line) {
+            return line.trim();
+        })
+        .filter(function(id) {
+            return id !== '';
+        });
+
+    var validFavorites = importedFavorites.filter(function(id) {
+        return items.some(function(item) {
+            return item.id === id;
+        });
+    });
+
+    if (validFavorites.length !== importedFavorites.length) {
+        alert(
+            'Some clubs in the imported data could not be found. ' +
+            'Please make sure the export comes from the same version of the game.'
+        );
+    }
+
+    var confirmImport = confirm(
+        'Importing this ranking will replace your current Found Favorites.\n\n' +
+        'Clubs to import: ' + validFavorites.length +
+        '\n\nDo you want to continue?'
+    );
+
+    if (!confirmImport) {
+        return;
+    }
+
+    myPicker.setFavorites(validFavorites);
+    pickerUI.update(true);
+
+    document.getElementById('import-export-modal').style.display = 'none';
+
+    alert('Favorites imported successfully!');
+});
 updateWinRateRanking();
 updateWinRateProgress();
 </script>
