@@ -389,20 +389,17 @@ button.disabled:hover {
         </label>
     </span>
 
-<span id="division-filters" style="display:none;">
-    <br>
-    Division:
-    <br>
-    <label>
+<div id="division-filters">
+    <label id="first-division-filter">
         <input type="checkbox" class="division-filter" value="First Division">
         <span id="first-division-name">First Division</span>
     </label>
-    <br>
-    <label>
+
+    <label id="second-division-filter">
         <input type="checkbox" class="division-filter" value="Second Division">
         <span id="second-division-name">Second Division</span>
     </label>
-</span>
+</div>
 
     <br>
     Batch size:
@@ -876,6 +873,7 @@ function updateFilterVisibility() {
 }
 function updateDivisionNames() {
     var country = document.getElementById('country-filter').value;
+
     var divisionNames = {
         Spain: {
             first: 'Primera División',
@@ -896,15 +894,59 @@ function updateDivisionNames() {
         France: {
             first: 'Ligue 1',
             second: 'Ligue 2'
+        },
+        Netherlands: {
+            first: 'Eredivisie'
+        },
+        Portugal: {
+            first: 'Primeira Liga'
+        },
+        Türkiye: {
+            first: 'Süper Lig'
+        },
+        Belgium: {
+            first: 'Belgian Pro League'
         }
     };
+
     var names = divisionNames[country];
+
     if (names) {
         document.getElementById('first-division-name').textContent = names.first;
-        document.getElementById('second-division-name').textContent = names.second;
+
+        if (names.second) {
+            document.getElementById('second-division-name').textContent = names.second;
+        }
     } else {
         document.getElementById('first-division-name').textContent = 'First Division';
         document.getElementById('second-division-name').textContent = 'Second Division';
+    }
+
+    var singleDivisionCountries = [
+        'Netherlands',
+        'Portugal',
+        'Türkiye',
+        'Belgium'
+    ];
+
+    if (singleDivisionCountries.indexOf(country) !== -1) {
+        document.getElementById('second-division-filter').style.display = 'none';
+
+        /* Make sure the hidden division cannot remain selected*/
+        var secondDivision = document.querySelector(
+            '#second-division-filter input'
+        );
+
+        if (secondDivision) {
+            secondDivision.checked = false;
+        }
+        var settings = myPicker.getSettings();
+        settings.divisions = (settings.divisions || []).filter(function(division) {
+            return division !== 'Second Division';
+        });
+        myPicker.setSettings(settings);
+    } else {
+        document.getElementById('second-division-filter').style.display = '';
     }
 }
     document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
@@ -1357,60 +1399,56 @@ function updateWinRateRanking() {
 function updateWinRateProgress() {
     var total =
         winRateComparisons.length;
-    document.getElementById(
-        'winrate-progress'
-    ).textContent =
+    document.getElementById('winrate-progress').textContent =
         'Comparisons: ' + total;
 }
 
-document.getElementById(
-    'winrate-competition'
-).addEventListener('change', function() {
+document.getElementById('winrate-competition').addEventListener('change', function() {
     saveWinRateCompetition();
     updateWinRateRanking();
     updateWinRateProgress();
     showWinRateComparison();
 });
 
-document.getElementById(
-    'mode-select'
-).addEventListener('change', function() {
+document.getElementById('mode-select').addEventListener('change', function() {
     var mode = this.value;
+    localStorage.setItem('football-picker-mode', mode);
     if (mode === 'picker') {
-        document.getElementById(
-            'picking'
-        ).style.display = '';
-        document.getElementById(
-            'secondary'
-        ).style.display = '';
-        document.getElementById(
-            'winrate-mode'
-        ).style.display = 'none';
-        document.getElementById(
-            'winrate-settings'
-        ).style.display = 'none';
+        document.getElementById('picking').style.display = '';
+        document.getElementById('secondary').style.display = '';
+        document.getElementById('winrate-mode').style.display = 'none';
+        document.getElementById('winrate-settings').style.display = 'none';
     }
-
     if (mode === 'winrate') {
-        document.getElementById(
-            'picking'
-        ).style.display = 'none';
-        document.getElementById(
-            'secondary'
-        ).style.display = 'none';
-        document.getElementById(
-            'winrate-mode'
-        ).style.display = '';
-        document.getElementById(
-            'winrate-settings'
-        ).style.display = '';
+        document.getElementById('picking').style.display = 'none';
+        document.getElementById('secondary').style.display = 'none';
+        document.getElementById('winrate-mode').style.display = '';
+        document.getElementById('winrate-settings').style.display = '';
         updateWinRateRanking();
         updateWinRateProgress();
         showWinRateComparison();
     }
-
 });
+var savedMode = localStorage.getItem('football-picker-mode');
 
+if (savedMode === 'winrate') {
+    document.getElementById('mode-select').value = 'winrate';
+
+    document.getElementById('picking').style.display = 'none';
+    document.getElementById('secondary').style.display = 'none';
+    document.getElementById('winrate-mode').style.display = '';
+    document.getElementById('winrate-settings').style.display = '';
+
+    updateWinRateRanking();
+    updateWinRateProgress();
+    showWinRateComparison();
+} else {
+    document.getElementById('mode-select').value = 'picker';
+    document.getElementById('picking').style.display = '';
+    document.getElementById('secondary').style.display = '';
+    document.getElementById('winrate-mode').style.display = 'none';
+    document.getElementById('winrate-settings').style.display = 'none';
+}
 
 updateWinRateRanking();
 updateWinRateProgress();
