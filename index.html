@@ -399,34 +399,27 @@ button.disabled:hover {
         <option value="all">All Countries</option>
     </select>
 
-    <span id="competition-filters">
-        <label>
-            <input
-                type="checkbox"
-                class="competition-filter"
-                value="Champions League"
-            >
-            Champions League
-        </label>
+<span id="competition-filters">
+    <label>
+        <input type="checkbox" class="competition-filter" value="Champions League">
+        Champions League
+    </label>
 
-        <label>
-            <input
-                type="checkbox"
-                class="competition-filter"
-                value="Europa League"
-            >
-            Europa League
-        </label>
+    <label>
+        <input type="checkbox" class="competition-filter" value="Europa League">
+        Europa League
+    </label>
 
-        <label>
-            <input
-                type="checkbox"
-                class="competition-filter"
-                value="Conference League"
-            >
-            Conference League
-        </label>
-    </span>
+    <label>
+        <input type="checkbox" class="competition-filter" value="Conference League">
+        Conference League
+    </label>
+
+    <label>
+        <input type="checkbox" class="competition-filter" value="Copa Libertadores">
+        Copa Libertadores
+    </label>
+</span>
 
     <span id="division-filters" style="display:none;">
 
@@ -829,15 +822,15 @@ var items = [
     {id: 'Bahia', name: 'Bahía', image: 'images/bahia.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: []},
     {id: 'Botafogo', name: 'Botafogo', image: 'images/botafogo.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: []},
     {id: 'Chapecoense', name: 'Chapecoense', image: 'images/chapecoense.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: []},
-    {id: 'Corinthians', name: 'Corinthians', image: 'images/corinthians.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: []},
+    {id: 'Corinthians', name: 'Corinthians', image: 'images/corinthians.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: ['Copa Libertadores']},
     {id: 'Coritiba', name: 'Coritiba', image: 'images/coritiba.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: []},
-    {id: 'Cruzeiro', name: 'Cruzeiro', image: 'images/cruzeiro.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: []},
-    {id: 'Flamengo', name: 'Flamengo', image: 'images/flamengo.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: []},
-    {id: 'Fluminense', name: 'Fluminense', image: 'images/fluminense.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: []},
+    {id: 'Cruzeiro', name: 'Cruzeiro', image: 'images/cruzeiro.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Flamengo', name: 'Flamengo', image: 'images/flamengo.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Fluminense', name: 'Fluminense', image: 'images/fluminense.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: ['Copa Libertadores']},
     {id: 'Gremio', name: 'Gremio', image: 'images/gremio.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: []},
     {id: 'Internacional', name: 'Internacional', image: 'images/internacional.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: []},
-    {id: 'Mirassol', name: 'Mirassol', image: 'images/mirassol.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: []},
-    {id: 'Palmeiras', name: 'Palmeiras', image: 'images/palmeiras.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: []},
+    {id: 'Mirassol', name: 'Mirassol', image: 'images/mirassol.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Palmeiras', name: 'Palmeiras', image: 'images/palmeiras.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: ['Copa Libertadores']},
     {id: 'RB Bragantino', name: 'RB Bragantino', image: 'images/rbbragantino.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: []},
     {id: 'Remo', name: 'Remo', image: 'images/remo.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: []},
     {id: 'Santos', name: 'Santos', image: 'images/santos.png', continent: 'America', country: 'Brazil', division: 'First Division', competitions: []},
@@ -852,31 +845,31 @@ var items = [
     {id: 'Banfield', name: 'Banfield', image: 'images/banfield.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
     {id: 'Barracas', name: 'Barracas Central', image: 'images/barracas.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
     {id: 'Belgrano', name: 'Belgrano', image: 'images/belgrano.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
-    {id: 'Boca', name: 'Boca Juniors', image: 'images/boca.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
+    {id: 'Boca', name: 'Boca Juniors', image: 'images/boca.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: ['Copa Libertadores']},
     {id: 'Central Cordoba', name: 'Central Córdoba', image: 'images/centralcordoba.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
     {id: 'Defensa', name: 'Defensa y Justicia', image: 'images/defensa.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
-    {id: 'Estudiantes', name: 'Estudiantes LP', image: 'images/estudiantes.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
+    {id: 'Estudiantes', name: 'Estudiantes LP', image: 'images/estudiantes.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: ['Copa Libertadores']},
     {id: 'Estudiantesrc', name: 'AA Estudiantes', image: 'images/estudiantesrc.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
     {id: 'Gimnasia', name: 'Club Gimnasia y Esgrima LP', image: 'images/gimnasia.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
     {id: 'Gimnasia Mendoza', name: 'Gimnasia Mendoza', image: 'images/gimnasiamendoza.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
     {id: 'Huracán', name: 'Huracán', image: 'images/huracan.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
     {id: 'Independiente', name: 'Independiente', image: 'images/independiente.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
-    {id: 'Independiente Riv', name: 'Independiente Rivadavia', image: 'images/independienteriv.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
+    {id: 'Independiente Riv', name: 'Independiente Rivadavia', image: 'images/independienteriv.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: ['Copa Libertadores']},
     {id: 'Instituto', name: 'Instituto Atlético Central Córdoba', image: 'images/instituto.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
-    {id: 'Lanús', name: 'Lanús', image: 'images/lanus.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
+    {id: 'Lanús', name: 'Lanús', image: 'images/lanus.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: ['Copa Libertadores']},
     {id: 'Newells', name: 'Newell\'s Old Boys', image: 'images/newells.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
-    {id: 'Platense', name: 'Platense', image: 'images/platense.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
+    {id: 'Platense', name: 'Platense', image: 'images/platense.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: ['Copa Libertadores']},
     {id: 'Racing Club', name: 'Racing Club', image: 'images/racingclub.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
     {id: 'Riestra', name: 'Deportivo Riestra', image: 'images/riestra.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
     {id: 'River', name: 'River Plate', image: 'images/river.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
-    {id: 'Rosario', name: 'Rosario Central', image: 'images/rosariocentral.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
+    {id: 'Rosario', name: 'Rosario Central', image: 'images/rosariocentral.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: ['Copa Libertadores']},
     {id: 'San Lorenzo', name: 'San Lorenzo', image: 'images/sanlorenzo.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
     {id: 'Sarmiento', name: 'Sarmiento', image: 'images/sarmiento.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
     {id: 'Talleres', name: 'Talleres', image: 'images/talleres.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
     {id: 'Tigre', name: 'Tigre', image: 'images/tigre.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
     {id: 'Union', name: 'Unión', image: 'images/union.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
     {id: 'Velez', name: 'CA Vélez Sarsfield', image: 'images/velez.png', continent: 'America', country: 'Argentina', division: 'First Division', competitions: []},
-    
+
     /* México */
     {id: 'America', name: 'América', image: 'images/america.png', continent: 'America', country: 'Mexico', division: 'First Division', competitions: []},
     {id: 'Atlas', name: 'Atlas', image: 'images/atlas.png', continent: 'America', country: 'Mexico', division: 'First Division', competitions: []},
@@ -899,6 +892,33 @@ var items = [
 
     
     /* Otros */
+    {id: 'Medellín', name: 'Deportivo Independiente Medellín', image: 'images/dim.png', continent: 'America', country: 'Colombia', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Always Ready', name: 'Always Ready', image: 'images/always_ready.png', continent: 'America', country: 'Bolivia', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'BarcelonaSC', name: 'Barcelona SC', image: 'images/barcelonasc.png', continent: 'America', country: 'Ecuador', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Cusco', name: 'Cusco', image: 'images/cusco.png', continent: 'America', country: 'Perú', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Coquimbo Unido', name: 'Coquimbo Unido', image: 'images/coquimbo.png', continent: 'America', country: 'Chile', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Tolima', name: 'Tolima', image: 'images/tolima.png', continent: 'America', country: 'Colombia', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'NacionalUruguay', name: 'Nacional', image: 'images/nacionaluruguay.png', continent: 'America', country: 'Uruguay', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Universitario', name: 'Universitario', image: 'images/universitario.png', continent: 'America', country: 'Perú', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Bolívar', name: 'Bolívar', image: 'images/bolivar.png', continent: 'America', country: 'Bolivia', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Guaira', name: 'D. La Guaira', image: 'images/laguaira.png', continent: 'America', country: 'Venezuela', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'U. Católica', name: 'U. Católica', image: 'images/ucatolica.png', continent: 'America', country: 'Chile', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Santa Fe', name: 'Santa Fe', image: 'images/santafe.png', continent: 'America', country: 'Colombia', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Peñarol', name: 'Peñarol', image: 'images/peñarol.png', continent: 'America', country: 'Peñarol', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Sporting Cristal', name: 'Sporting Cristal', image: 'images/sportingcristal.png', continent: 'America', country: 'Perú', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Junior', name: 'Junior', image: 'images/junior.png', continent: 'America', country: 'Colombia', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'LDU Quito', name: 'LDU Quito', image: 'images/ligadequito.png', continent: 'America', country: 'Ecuador', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'IndependienteDV', name: 'Independiente del Valle', image: 'images/indepientedv.png', continent: 'America', country: 'Ecuador', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Universidad Central', name: 'Universidad Central', image: 'images/bolivar.png', continent: 'America', country: 'Venezuela', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Libertad', name: 'Libertad', image: 'images/libertad.png', continent: 'America', country: 'Paraguay', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Cerro Porteño', name: 'Cerro Porteño', image: 'images/cerroporteno.png', continent: 'America', country: 'Paraguay', division: 'First Division', competitions: ['Copa Libertadores']},
+    {id: 'Atlnacional', name: 'Atlético Nacional', image: 'images/atlnacional.png', continent: 'America', country: 'Colombia', division: 'First Division', competitions: []},
+    {id: 'Colo Colo', name: 'Colo Colo', image: 'images/colocolo.png', continent: 'America', country: 'Chile', division: 'First Division', competitions: []},
+    {id: 'DepCali', name: 'Deportivo Cali', image: 'images/depcali.png', continent: 'America', country: 'Colombia', division: 'First Division', competitions: []},
+    {id: 'Millonarios', name: 'Millonarios', image: 'images/millonarios.png', continent: 'America', country: 'Colombia', division: 'First Division', competitions: []},
+    {id: 'UdeChile', name: 'Universidad de Chile', image: 'images/udechile.png', continent: 'America', country: 'Chile', division: 'First Division', competitions: []},
+    
+    
     {id: 'Jagiellonia', name: 'Jagiellonia Bialystok', image: 'images/jagiellonia.png', continent: 'Europe', country: 'Poland', competitions: ['Europa League']},
     {id: 'Lech Poznan', name: 'Lech Poznan', image: 'images/lechpoznan.png', continent: 'Europe', country: 'Poland', competitions: ['Europa League']},
     
@@ -993,20 +1013,20 @@ getFilteredItems: function(settings) {
         }
     }
            /* EUROPEAN COMPETITIONS Only available when viewing Europe without selecting a specific country. */
-        if (
-            settings.continent === 'Europe' &&
-            (!settings.country || settings.country === 'all')
-        ) {
-            var selectedCompetitions = settings.competitions || [];
+   if (
+    (settings.continent === 'Europe' || settings.continent === 'America') &&
+    (!settings.country || settings.country === 'all')
+) {
+    var selectedCompetitions = settings.competitions || [];
 
-            if (selectedCompetitions.length > 0) {
-                filtered = filtered.filter(function(item) {
-                    return item.competitions.some(function(competition) {
-                        return selectedCompetitions.indexOf(competition) !== -1;
-                    });
-                });
-            }
-        }
+    if (selectedCompetitions.length > 0) {
+        filtered = filtered.filter(function(item) {
+            return item.competitions.some(function(competition) {
+                return selectedCompetitions.indexOf(competition) !== -1;
+            });
+        });
+    }
+}
 
         /* ALL CONTINENTS Preserve the old behaviour: competitions can be used globally.  */
         if (!settings.continent || settings.continent === 'all') {
@@ -1189,25 +1209,21 @@ document.getElementById('continent-filter').addEventListener('change', function(
 function updateFilterVisibility() {
     var continent = document.getElementById('continent-filter').value;
     var country = document.getElementById('country-filter').value;
-
     var competitionFilters = document.getElementById('competition-filters');
     var divisionFilters = document.getElementById('division-filters');
 
-    /* A specific country: show divisions. */
     if (country !== 'all') {
         competitionFilters.style.display = 'none';
         divisionFilters.style.display = 'inline';
         return;
     }
 
-    /* Europe without a specific country: show European competitions. */
-    if (continent === 'Europe') {
+    if (continent === 'Europe' || continent === 'America') {
         competitionFilters.style.display = 'inline';
         divisionFilters.style.display = 'none';
         return;
     }
 
-    /* All continents or America without a country: no division filters. */
     competitionFilters.style.display = 'none';
     divisionFilters.style.display = 'none';
 }
