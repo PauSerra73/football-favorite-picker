@@ -1209,23 +1209,46 @@ document.getElementById('continent-filter').addEventListener('change', function(
 function updateFilterVisibility() {
     var continent = document.getElementById('continent-filter').value;
     var country = document.getElementById('country-filter').value;
+
     var competitionFilters = document.getElementById('competition-filters');
     var divisionFilters = document.getElementById('division-filters');
 
     if (country !== 'all') {
         competitionFilters.style.display = 'none';
         divisionFilters.style.display = 'inline';
-        return;
-    }
-
-    if (continent === 'Europe' || continent === 'America') {
+    } else {
         competitionFilters.style.display = 'inline';
         divisionFilters.style.display = 'none';
-        return;
+        updateCompetitionFilters();
     }
+}
+function updateCompetitionFilters() {
+    var continent = document.getElementById('continent-filter').value;
 
-    competitionFilters.style.display = 'none';
-    divisionFilters.style.display = 'none';
+    document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
+        var visible = true;
+
+        if (continent === 'Europe') {
+            visible = checkbox.value !== 'Copa Libertadores';
+        }
+
+        if (continent === 'America') {
+            visible = checkbox.value === 'Copa Libertadores';
+        }
+
+        checkbox.parentElement.style.display = visible ? '' : 'none';
+        if (!visible) {
+            checkbox.checked = false;
+        }
+    });
+
+    var settings = myPicker.getSettings();
+    settings.competitions = [];
+    document.querySelectorAll('.competition-filter:checked').forEach(function(checkbox) {
+        settings.competitions.push(checkbox.value);
+    });
+
+    myPicker.setSettings(settings);
 }
 function updateDivisionNames() {
     var country = document.getElementById('country-filter').value;
