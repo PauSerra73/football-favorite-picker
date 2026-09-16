@@ -380,50 +380,70 @@ button.disabled:hover {
 <p id="remaining"></p>
 
 <p id="settings">
-    Country:
+<div id="country-filters">
+
+    <label for="continent-filter">Continent:</label>
+    <select id="continent-filter">
+        <option value="all">All Continents</option>
+        <option value="Europe">Europe</option>
+        <option value="America">America</option>
+    </select>
+
+    <label for="country-filter">Country:</label>
     <select id="country-filter">
-    <option value="all">All Countries</option>
-    <option value="Spain">Spain</option>
-    <option value="England">England</option>
-    <option value="Italy">Italy</option>
-    <option value="Germany">Germany</option>
-    <option value="France">France</option>
-    <option value="Netherlands">Netherlands</option>
-    <option value="Portugal">Portugal</option>
-    <option value="Türkiye">Türkiye</option>
-    <option value="Belgium">Belgium</option>
-</select>
+        <option value="all">All Countries</option>
+    </select>
 
     <span id="competition-filters">
-        <br>
-        Competition:
-        <br>
         <label>
-            <input type="checkbox" class="competition-filter" value="Champions League">
+            <input
+                type="checkbox"
+                class="competition-filter"
+                value="Champions League"
+            >
             Champions League
         </label>
-        <br>
+
         <label>
-            <input type="checkbox" class="competition-filter" value="Europa League">
+            <input
+                type="checkbox"
+                class="competition-filter"
+                value="Europa League"
+            >
             Europa League
         </label>
-        <br>
+
         <label>
-            <input type="checkbox" class="competition-filter" value="Conference League">
+            <input
+                type="checkbox"
+                class="competition-filter"
+                value="Conference League"
+            >
             Conference League
         </label>
     </span>
 
-<div id="division-filters">
-    <label id="first-division-filter">
-        <input type="checkbox" class="division-filter" value="First Division">
-        <span id="first-division-name">First Division</span>
-    </label>
+    <span id="division-filters" style="display:none;">
 
-    <label id="second-division-filter">
-        <input type="checkbox" class="division-filter" value="Second Division">
-        <span id="second-division-name">Second Division</span>
-    </label>
+        <label id="first-division-filter">
+            <input
+                type="checkbox"
+                class="division-filter"
+                value="First Division"
+            >
+            <span id="first-division-name">First Division</span>
+        </label>
+
+        <label id="second-division-filter">
+            <input
+                type="checkbox"
+                class="division-filter"
+                value="Second Division"
+            >
+            <span id="second-division-name">Second Division</span>
+        </label>
+    </span>
+
 </div>
 
     <br>
@@ -511,336 +531,422 @@ button.disabled:hover {
 
 var items = [
     /* España */
-    {id: 'Barcelona', name: 'FC Barcelona', image: 'images/barcelona.png', country: 'Spain', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Real Madrid', name: 'Real Madrid', image: 'images/realmadrid.png', country: 'Spain', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Atlético Madrid', name: 'Atlético Madrid', image: 'images/atlmadrid.png', country: 'Spain', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Villarreal', name: 'Villarreal', image: 'images/villarreal.png', country: 'Spain', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Betis', name: 'Real Betis', image: 'images/betis.png', country: 'Spain', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Athletic', name: 'Athletic Club', image: 'images/athletic.png', country: 'Spain', division: 'First Division', competitions: []},
-    {id: 'Valencia', name: 'Valencia', image: 'images/valencia.png', country: 'Spain', division: 'First Division', competitions: []},
-    {id: 'Sevilla', name: 'Sevilla', image: 'images/sevilla.png', country: 'Spain', division: 'First Division', competitions: []},
-    {id: 'Real Sociedad', name: 'Real Sociedad', image: 'images/realsociedad.png', country: 'Spain', division: 'First Division', competitions: ['Europa League']},
-    {id: 'Espanyol', name: 'Espanyol', image: 'images/espanyol.png', country: 'Spain', division: 'First Division', competitions: []},
-    {id: 'Depor', name: 'Deportivo A Coruña', image: 'images/deportivocoruna.png', country: 'Spain', division: 'First Division', competitions: []},
-    {id: 'Racing', name: 'Racing de Santander', image: 'images/racingsantander.png', country: 'Spain', division: 'First Division', competitions: []},
-    {id: 'Malaga', name: 'Málaga', image: 'images/malaga.png', country: 'Spain', division: 'First Division', competitions: []},
-    {id: 'Osasuna', name: 'Osasuna', image: 'images/osasuna.png', country: 'Spain', division: 'First Division', competitions: []},
-    {id: 'Elche', name: 'Elche', image: 'images/elche.png', country: 'Spain', division: 'First Division', competitions: []},
-    {id: 'Getafe', name: 'Getafe', image: 'images/getafe.png', country: 'Spain', division: 'First Division', competitions: ['Conference League']},
-    {id: 'Rayo Vallecano', name: 'Rayo Vallecano', image: 'images/rayovallecano.png', country: 'Spain', division: 'First Division', competitions: []},
-    {id: 'Levante', name: 'Levante', image: 'images/levante.png', country: 'Spain', division: 'First Division', competitions: []},
-    {id: 'Celta', name: 'Celta de Vigo', image: 'images/celta.png', country: 'Spain', division: 'First Division', competitions: ['Europa League']},
-    {id: 'Alavés', name: 'Alavés', image: 'images/alaves.png', country: 'Spain', division: 'First Division', competitions: []},
-    {id: 'Sporting Gijón', name: 'Sporting de Gijón', image: 'images/sportingg.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Albacete', name: 'Albacete', image: 'images/albacete.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Almería', name: 'UD Almería', image: 'images/almeria.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Andorra', name: 'FC Andorra', image: 'images/andorra.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Burgos', name: 'Burgos CF', image: 'images/burgos.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Cádiz', name: 'Cádiz', image: 'images/cadiz.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Castellón', name: 'CD Castellón', image: 'images/castellon.png', division: 'Second Division', country: 'Spain', competitions: []},
-    {id: 'Ceuta', name: 'AD Ceuta', image: 'images/ceuta.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Cordoba', name: 'Córdoba CF', image: 'images/cordoba.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Eibar', name: 'Eibar', image: 'images/eibar.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Eldense', name: 'Eldense', image: 'images/eldense.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Girona', name: 'Girona FC', image: 'images/girona.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Granada', name: 'Granada', image: 'images/granada.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Leganés', name: 'Leganés', image: 'images/leganes.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Mallorca', name: 'Mallorca', image: 'images/mallorca.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Real Oviedo', name: 'Real Oviedo', image: 'images/realoviedo.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Sabadell', name: 'CE Sabadell', image: 'images/sabadell.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Tenerife', name: 'Tenerife', image: 'images/tenerife.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Las Palmas', name: 'UD Las Palmas', image: 'images/udlaspalmas.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Valladolid', name: 'Real Valladolid', image: 'images/valladolid.png', country: 'Spain', division: 'Second Division', competitions: []},
-    {id: 'Real Zaragoza', name: 'Real Zaragoza', image: 'images/zaragoza.png', country: 'Spain', competitions: []},
-    {id: 'Recreativo', name: 'Recreativo de Huelva', image: 'images/recreativo.png', country: 'Spain', competitions: []},
-    {id: 'Sant Andreu', name: 'Sant Andreu', image: 'images/santandreu.png', country: 'Spain', competitions: []},
-    {id: 'Europa', name: 'CE Europa', image: 'images/europa.png', country: 'Spain', competitions: []},
-    {id: 'Logroñés', name: 'UD Logroñés', image: 'images/logroñés.png', country: 'Spain', competitions: []},
-    {id: 'Real Unión', name: 'Real Unión de Irún', image: 'images/irún.png', country: 'Spain', competitions: []},
-    {id: 'Mirandés', name: 'Mirandés', image: 'images/mirandés.png', country: 'Spain', competitions: []},
-    {id: 'Ponferradina', name: 'Ponferradina', image: 'images/ponferradina.png', country: 'Spain', competitions: []},
-    {id: 'Cultural Leonesa', name: 'Cultural Leonesa', image: 'images/culleonesa.png', country: 'Spain', competitions: []},
-    {id: 'Arenas', name: 'Arenas de Getxo', image: 'images/arenas.png', country: 'Spain', competitions: []},
-    {id: 'Salamanca', name: 'Unionistas de Salamanca', image: 'images/salamanca.png', country: 'Spain', competitions: []},
-    {id: 'Real Jaén', name: 'Real Jaén', image: 'images/jaén.png', country: 'Spain', competitions: []},
-    {id: 'Nàstic', name: 'Nàstic de Tarragona', image: 'images/nàstic.png', country: 'Spain', competitions: []},
-    {id: 'Real Murcia', name: 'Real Murcia', image: 'images/murcia.png', country: 'Spain', competitions: []},
-    {id: 'Cartagena', name: 'Cartagena', image: 'images/cartagena.png', country: 'Spain', competitions: []},
-    {id: 'Huesca', name: 'SD Huesca', image: 'images/huesca.png', country: 'Spain', competitions: []},
-    {id: 'Hércules', name: 'Hércules de Alicante', image: 'images/hércules.png', country: 'Spain', competitions: []},
-    {id: 'Amorebieta', name: 'Amorebieta', image: 'images/amorebieta.png', country: 'Spain', competitions: []},
-    {id: 'Reus', name: 'Reus FC', image: 'images/reus.png', country: 'Spain', competitions: []},
-    {id: 'Xerez', name: 'Xerez CD', image: 'images/xerez.png', country: 'Spain', competitions: []},
-    {id: 'Numancia', name: 'Numancia', image: 'images/numancia.png', country: 'Spain', competitions: []},
+    {id: 'Barcelona', name: 'FC Barcelona', image: 'images/barcelona.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Real Madrid', name: 'Real Madrid', image: 'images/realmadrid.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Atlético Madrid', name: 'Atlético Madrid', image: 'images/atlmadrid.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Villarreal', name: 'Villarreal', image: 'images/villarreal.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Betis', name: 'Real Betis', image: 'images/betis.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Athletic', name: 'Athletic Club', image: 'images/athletic.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Valencia', name: 'Valencia', image: 'images/valencia.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Sevilla', name: 'Sevilla', image: 'images/sevilla.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Real Sociedad', name: 'Real Sociedad', image: 'images/realsociedad.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Espanyol', name: 'Espanyol', image: 'images/espanyol.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Depor', name: 'Deportivo A Coruña', image: 'images/deportivocoruna.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Racing', name: 'Racing de Santander', image: 'images/racingsantander.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Malaga', name: 'Málaga', image: 'images/malaga.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Osasuna', name: 'Osasuna', image: 'images/osasuna.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Elche', name: 'Elche', image: 'images/elche.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Getafe', name: 'Getafe', image: 'images/getafe.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: ['Conference League']},
+    {id: 'Rayo Vallecano', name: 'Rayo Vallecano', image: 'images/rayovallecano.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Levante', name: 'Levante', image: 'images/levante.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Celta', name: 'Celta de Vigo', image: 'images/celta.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Alavés', name: 'Alavés', image: 'images/alaves.png', continent: 'Europe', country: 'Spain', division: 'First Division', competitions: []},
+    {id: 'Sporting Gijón', name: 'Sporting de Gijón', image: 'images/sportingg.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Albacete', name: 'Albacete', image: 'images/albacete.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Almería', name: 'UD Almería', image: 'images/almeria.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Andorra', name: 'FC Andorra', image: 'images/andorra.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Burgos', name: 'Burgos CF', image: 'images/burgos.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Cádiz', name: 'Cádiz', image: 'images/cadiz.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Castellón', name: 'CD Castellón', image: 'images/castellon.png', division: 'Second Division', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Ceuta', name: 'AD Ceuta', image: 'images/ceuta.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Cordoba', name: 'Córdoba CF', image: 'images/cordoba.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Eibar', name: 'Eibar', image: 'images/eibar.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Eldense', name: 'Eldense', image: 'images/eldense.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Girona', name: 'Girona FC', image: 'images/girona.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Granada', name: 'Granada', image: 'images/granada.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Leganés', name: 'Leganés', image: 'images/leganes.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Mallorca', name: 'Mallorca', image: 'images/mallorca.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Real Oviedo', name: 'Real Oviedo', image: 'images/realoviedo.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Sabadell', name: 'CE Sabadell', image: 'images/sabadell.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Tenerife', name: 'Tenerife', image: 'images/tenerife.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Las Palmas', name: 'UD Las Palmas', image: 'images/udlaspalmas.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Valladolid', name: 'Real Valladolid', image: 'images/valladolid.png', continent: 'Europe', country: 'Spain', division: 'Second Division', competitions: []},
+    {id: 'Real Zaragoza', name: 'Real Zaragoza', image: 'images/zaragoza.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Recreativo', name: 'Recreativo de Huelva', image: 'images/recreativo.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Sant Andreu', name: 'Sant Andreu', image: 'images/santandreu.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Europa', name: 'CE Europa', image: 'images/europa.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Logroñés', name: 'UD Logroñés', image: 'images/logroñés.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Real Unión', name: 'Real Unión de Irún', image: 'images/irún.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Mirandés', name: 'Mirandés', image: 'images/mirandés.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Ponferradina', name: 'Ponferradina', image: 'images/ponferradina.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Cultural Leonesa', name: 'Cultural Leonesa', image: 'images/culleonesa.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Arenas', name: 'Arenas de Getxo', image: 'images/arenas.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Salamanca', name: 'Unionistas de Salamanca', image: 'images/salamanca.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Real Jaén', name: 'Real Jaén', image: 'images/jaén.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Nàstic', name: 'Nàstic de Tarragona', image: 'images/nàstic.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Real Murcia', name: 'Real Murcia', image: 'images/murcia.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Cartagena', name: 'Cartagena', image: 'images/cartagena.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Huesca', name: 'SD Huesca', image: 'images/huesca.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Hércules', name: 'Hércules de Alicante', image: 'images/hércules.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Amorebieta', name: 'Amorebieta', image: 'images/amorebieta.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Reus', name: 'Reus FC', image: 'images/reus.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Xerez', name: 'Xerez CD', image: 'images/xerez.png', continent: 'Europe', country: 'Spain', competitions: []},
+    {id: 'Numancia', name: 'Numancia', image: 'images/numancia.png', continent: 'Europe', country: 'Spain', competitions: []},
 
     /* Italia */
-    {id: 'Juventus', name: 'Juventus', image: 'images/juventus.png', country: 'Italy', division: 'First Division', competitions: ['Europa League']},
-    {id: 'AC Milan', name: 'AC Milan', image: 'images/milan.png', country: 'Italy', division: 'First Division', competitions: ['Europa League']},
-    {id: 'Inter de Milan', name: 'Inter de Milan', image: 'images/inter.png', country: 'Italy', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Napoli', name: 'Napoli', image: 'images/napoli.png', country: 'Italy', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Roma', name: 'AS Roma', image: 'images/roma.png', country: 'Italy', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Lazio', name: 'Lazio', image: 'images/lazio.png', country: 'Italy', division: 'First Division', competitions: []},
-    {id: 'Fiorentina', name: 'Fiorentina', image: 'images/fiorentina.png', country: 'Italy', division: 'First Division', competitions: []},
-    {id: 'Bologna', name: 'Bologna', image: 'images/bologna.png', country: 'Italy', division: 'First Division', competitions: []},
-    {id: 'Atalanta', name: 'Atalanta', image: 'images/atalanta.png', country: 'Italy', division: 'First Division', competitions: ['Conference League']},
-    {id: 'Cagliari', name: 'Cagliari', image: 'images/cagliari.png', country: 'Italy', division: 'First Division', competitions: []},
-    {id: 'Como', name: 'Como', image: 'images/como.png', country: 'Italy', division: 'First Division', competitions: []},
-    {id: 'Torino', name: 'Torino', image: 'images/torino.png', country: 'Italy', division: 'First Division', competitions: []},
-    {id: 'Frosinone', name: 'Frosinone', image: 'images/frosinone.png', country: 'Italy', division: 'First Division', competitions: []},
-    {id: 'Genoa', name: 'Genoa', image: 'images/genoa.png', country: 'Italy', division: 'First Division', competitions: []},
-    {id: 'Lecce', name: 'Lecce', image: 'images/lecce.png', country: 'Italy', division: 'First Division', competitions: []},
-    {id: 'Parma', name: 'Parma', image: 'images/parma.png', country: 'Italy', division: 'First Division', competitions: []},
-    {id: 'Sassuolo', name: 'Sassuolo', image: 'images/sassuolo.png', country: 'Italy', division: 'First Division', competitions: []},
-    {id: 'Udinese', name: 'Udinese', image: 'images/udinese.png', country: 'Italy', division: 'First Division', competitions: []},
-    {id: 'Venezia', name: 'Venezia', image: 'images/venezia.png', country: 'Italy', division: 'First Division', competitions: []},
-    {id: 'Monza', name: 'Monza', image: 'images/monza.png', country: 'Italy', division: 'First Division', competitions: []},
-    {id: 'Arezzo', name: 'SS Arezzo', image: 'images/arezzo.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Ascoli', name: 'Ascoli', image: 'images/ascoli.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Avellino', name: 'Avellino FC', image: 'images/avellino.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Benevento', name: 'Benevento', image: 'images/benevento.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Catanzaro', name: 'Catanzaro', image: 'images/catanzaro.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Cesena', name: 'Cesena', image: 'images/cesena.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Cremonese', name: 'Cremonese', image: 'images/cremonese.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Empoli', name: 'Empoli', image: 'images/empoli.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Hellas Verona', name: 'Hellas Verona', image: 'images/hellasverona.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Juve Stabia', name: 'Juve Stabia', image: 'images/juve_stabia.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Mantova', name: 'Mantova', image: 'images/mantova.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Modena', name: 'Modena FC', image: 'images/modena.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Padova', name: 'Padova', image: 'images/padova.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Palermo', name: 'Palermo', image: 'images/palermo.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Pisa', name: 'Pisa', image: 'images/pisa.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Sampdoria', name: 'Sampdoria', image: 'images/sampdoria.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Sudtirol', name: 'FC Sudtirol', image: 'images/sudtirol.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Vicenza', name: 'Vicenza', image: 'images/vicenza.png', country: 'Italy', division: 'Second Division', competitions: []},
-    {id: 'Virtus Entella', name: 'Virtus Entella', image: 'images/virtus_entella.png', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Juventus', name: 'Juventus', image: 'images/juventus.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: ['Europa League']},
+    {id: 'AC Milan', name: 'AC Milan', image: 'images/milan.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Inter de Milan', name: 'Inter de Milan', image: 'images/inter.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Napoli', name: 'Napoli', image: 'images/napoli.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Roma', name: 'AS Roma', image: 'images/roma.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Lazio', name: 'Lazio', image: 'images/lazio.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: []},
+    {id: 'Fiorentina', name: 'Fiorentina', image: 'images/fiorentina.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: []},
+    {id: 'Bologna', name: 'Bologna', image: 'images/bologna.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: []},
+    {id: 'Atalanta', name: 'Atalanta', image: 'images/atalanta.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: ['Conference League']},
+    {id: 'Cagliari', name: 'Cagliari', image: 'images/cagliari.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: []},
+    {id: 'Como', name: 'Como', image: 'images/como.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: []},
+    {id: 'Torino', name: 'Torino', image: 'images/torino.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: []},
+    {id: 'Frosinone', name: 'Frosinone', image: 'images/frosinone.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: []},
+    {id: 'Genoa', name: 'Genoa', image: 'images/genoa.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: []},
+    {id: 'Lecce', name: 'Lecce', image: 'images/lecce.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: []},
+    {id: 'Parma', name: 'Parma', image: 'images/parma.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: []},
+    {id: 'Sassuolo', name: 'Sassuolo', image: 'images/sassuolo.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: []},
+    {id: 'Udinese', name: 'Udinese', image: 'images/udinese.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: []},
+    {id: 'Venezia', name: 'Venezia', image: 'images/venezia.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: []},
+    {id: 'Monza', name: 'Monza', image: 'images/monza.png', continent: 'Europe', country: 'Italy', division: 'First Division', competitions: []},
+    {id: 'Arezzo', name: 'SS Arezzo', image: 'images/arezzo.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Ascoli', name: 'Ascoli', image: 'images/ascoli.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Avellino', name: 'Avellino FC', image: 'images/avellino.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Benevento', name: 'Benevento', image: 'images/benevento.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Catanzaro', name: 'Catanzaro', image: 'images/catanzaro.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Cesena', name: 'Cesena', image: 'images/cesena.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Cremonese', name: 'Cremonese', image: 'images/cremonese.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Empoli', name: 'Empoli', image: 'images/empoli.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Hellas Verona', name: 'Hellas Verona', image: 'images/hellasverona.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Juve Stabia', name: 'Juve Stabia', image: 'images/juve_stabia.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Mantova', name: 'Mantova', image: 'images/mantova.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Modena', name: 'Modena FC', image: 'images/modena.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Padova', name: 'Padova', image: 'images/padova.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Palermo', name: 'Palermo', image: 'images/palermo.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Pisa', name: 'Pisa', image: 'images/pisa.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Sampdoria', name: 'Sampdoria', image: 'images/sampdoria.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Sudtirol', name: 'FC Sudtirol', image: 'images/sudtirol.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Vicenza', name: 'Vicenza', image: 'images/vicenza.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
+    {id: 'Virtus Entella', name: 'Virtus Entella', image: 'images/virtus_entella.png', continent: 'Europe', country: 'Italy', division: 'Second Division', competitions: []},
 
     /* Alemania */
-    {id: 'Bayern Munchen', name: 'Bayern Munchen', image: 'images/bayernmunchen.png', country: 'Germany', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Dortmund', name: 'Borussia Dortmund', image: 'images/borussiadortmund.png', country: 'Germany', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Leipzig', name: 'RB Leipzig', image: 'images/rbleipzig.png', country: 'Germany', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Frankfurt', name: 'Eintracht Frankfurt', image: 'images/eintrachtfrankfurt.png', country: 'Germany', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Schalke 04', name: 'Schalke 04', image: 'images/schalke04.png', country: 'Germany', division: 'First Division', competitions: []},
-    {id: 'Stuttgart', name: 'Stuttgart', image: 'images/stuttgart.png', country: 'Germany', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Monchengladbach', name: 'Borussia Monchengladbach', image: 'images/bmonchengladbach.png', country: 'Germany', division: 'First Division', competitions: []},
-    {id: 'Union Berlin', name: 'Union Berlín', image: 'images/unionberlin.png', country: 'Germany', division: 'First Division', competitions: []},
-    {id: 'Koln', name: 'Koln', image: 'images/koln.png', country: 'Germany', division: 'First Division', competitions: []},
-    {id: 'Leverkusen', name: 'Bayer Leverkusen', image: 'images/bayerleverkusen.png', country: 'Germany', division: 'First Division', competitions: ['Europa League']},
-    {id: 'Freiburg', name: 'SC Freiburg', image: 'images/freiburg.png', country: 'Germany', division: 'First Division', competitions: ['Conference League']},
-    {id: 'Hamburgo', name: 'Hamburgo', image: 'images/hamburgo.png', country: 'Germany', division: 'First Division', competitions: []},
-    {id: 'Hoffeinheim', name: 'Hoffeinheim', image: 'images/hoffenheim.png', country: 'Germany', division: 'First Division', competitions: ['Europa League']},
-    {id: 'Mainz 05', name: 'Mainz 05', image: 'images/mainz05.png', country: 'Germany', division: 'First Division', competitions: []},
-    {id: 'Augsburgo', name: 'Augsburgo', image: 'images/augsburgo.png', country: 'Germany', division: 'First Division', competitions: []},
-    {id: 'Bremen', name: 'Werder Bremen', image: 'images/werderbremen.png', country: 'Germany', division: 'First Division', competitions: []},
-    {id: 'Elversberg', name: 'Elversberg', image: 'images/elversberg.png', country: 'Germany', division: 'First Division', competitions: []},
-    {id: 'Paderborn', name: 'Paderborn07', image: 'images/paderborn07.png', country: 'Germany', division: 'First Division', competitions: []},
+    {id: 'Bayern Munchen', name: 'Bayern Munchen', image: 'images/bayernmunchen.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Dortmund', name: 'Borussia Dortmund', image: 'images/borussiadortmund.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Leipzig', name: 'RB Leipzig', image: 'images/rbleipzig.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Frankfurt', name: 'Eintracht Frankfurt', image: 'images/eintrachtfrankfurt.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Schalke 04', name: 'Schalke 04', image: 'images/schalke04.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: []},
+    {id: 'Stuttgart', name: 'Stuttgart', image: 'images/stuttgart.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Monchengladbach', name: 'Borussia Monchengladbach', image: 'images/bmonchengladbach.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: []},
+    {id: 'Union Berlin', name: 'Union Berlín', image: 'images/unionberlin.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: []},
+    {id: 'Koln', name: 'Koln', image: 'images/koln.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: []},
+    {id: 'Leverkusen', name: 'Bayer Leverkusen', image: 'images/bayerleverkusen.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Freiburg', name: 'SC Freiburg', image: 'images/freiburg.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: ['Conference League']},
+    {id: 'Hamburgo', name: 'Hamburgo', image: 'images/hamburgo.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: []},
+    {id: 'Hoffeinheim', name: 'Hoffeinheim', image: 'images/hoffenheim.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Mainz 05', name: 'Mainz 05', image: 'images/mainz05.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: []},
+    {id: 'Augsburgo', name: 'Augsburgo', image: 'images/augsburgo.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: []},
+    {id: 'Bremen', name: 'Werder Bremen', image: 'images/werderbremen.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: []},
+    {id: 'Elversberg', name: 'Elversberg', image: 'images/elversberg.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: []},
+    {id: 'Paderborn', name: 'Paderborn07', image: 'images/paderborn07.png', continent: 'Europe', country: 'Germany', division: 'First Division', competitions: []},
 
     /* Inglaterra */
-    {id: 'Liverpool', name: 'Liverpool', image: 'images/liverpool.png', country: 'England', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Manchester United', name: 'Manchester United', image: 'images/manchesterunited.png', country: 'England', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Arsenal', name: 'Arsenal', image: 'images/arsenal.png', country: 'England', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Chelsea', name: 'Chelsea', image: 'images/chelsea.png', country: 'England', division: 'First Division', competitions: []},
-    {id: 'Manchester City', name: 'Manchester City', image: 'images/manchestercity.png', country: 'England', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Tottenham', name: 'Tottenham', image: 'images/tottenham.png', country: 'England', division: 'First Division', competitions: []},
-    {id: 'Newcastle', name: 'Newcastle', image: 'images/newcastle.png', country: 'England', division: 'First Division', competitions: []},
-    {id: 'Aston Villa', name: 'Aston Villa', image: 'images/astonvilla.png', country: 'England', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Brighton', name: 'Brighton & Hove Albion', image: 'images/brighton.png', country: 'England', division: 'First Division', competitions: ['Conference League']},
-    {id: 'Brentford', name: 'Brentford', image: 'images/brentford.png', country: 'England', division: 'First Division', competitions: []},
-    {id: 'Bournemouth', name: 'AFC Bournemouth', image: 'images/bournemouth.png', country: 'England', division: 'First Division', competitions: ['Europa League']},
-    {id: 'Everton', name: 'Everton', image: 'images/everton.png', country: 'England', division: 'First Division', competitions: []},
-    {id: 'Coventry', name: 'Coventry City', image: 'images/coventry.png', country: 'England', division: 'First Division', competitions: []},
-    {id: 'Crystal Palace', name: 'Crystal Palace', image: 'images/crystalpalace.png', country: 'England', division: 'First Division', competitions: ['Europa League']},
-    {id: 'Fulham', name: 'Fulham', image: 'images/fulham.png', country: 'England', division: 'First Division', competitions: []},
-    {id: 'Hull City', name: 'Hull City', image: 'images/hull_city.png', country: 'England', division: 'First Division', competitions: []},
-    {id: 'Ipswich', name: 'Ipswich Town', image: 'images/ipswich.png', country: 'England', division: 'First Division', competitions: []},
-    {id: 'Leeds', name: 'Leeds United', image: 'images/leeds.png', country: 'England', division: 'First Division', competitions: []},
-    {id: 'Forest', name: 'Nottingham Forest', image: 'images/nottingham_forest.png', country: 'England', division: 'First Division', competitions: []},
-    {id: 'Sunderland', name: 'Sunderland', image: 'images/sunderland.png', country: 'England', division: 'First Division', competitions: ['Europa League']},
-    {id: 'Birmingham', name: 'Birmingham', image: 'images/birmingham.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Blackburn', name: 'Blackburn Rovers', image: 'images/blackburn.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Bolton', name: 'Bolton Wanderers', image: 'images/bolton_wanderers.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Bristol', name: 'Bristol', image: 'images/bristol.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Burnley', name: 'Burnley', image: 'images/burnley.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Cardiff', name: 'Cardiff City', image: 'images/cardiff_city.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Charlton', name: 'Charlton Athletic', image: 'images/charlton.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Derby County', name: 'Derby County', image: 'images/derby_county.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Lincoln', name: 'Lincoln City', image: 'images/lincoln_city.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Middlesbrough', name: 'Middlesbrough', image: 'images/middlesbrough.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Millwall', name: 'Millwall', image: 'images/millwall.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Portsmouth', name: 'Portsmouth', image: 'images/portsmouth.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Preston', name: 'Preston', image: 'images/preston.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'QPR', name: 'Queens Park Rangers', image: 'images/qpr.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Sheffield', name: 'Sheffield United', image: 'images/sheffield.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Southampton', name: 'Southampton', image: 'images/southampton.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Stoke City', name: 'Stoke City', image: 'images/stoke_city.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Swansea', name: 'Swansea City', image: 'images/swansea.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Watford', name: 'Watford', image: 'images/watford.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Westbrownwich', name: 'West Bronwich Albion', image: 'images/westbrown.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'West Ham', name: 'West Ham United', image: 'images/westham.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Wolves', name: 'Wolverhampton', image: 'images/wolves.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Wrexham', name: 'Wrexham', image: 'images/wrexham.png', country: 'England', division: 'Second Division', competitions: []},
-    {id: 'Leicester City', name: 'Leicester City', image: 'images/leicester.png', country: 'England', competitions: []},
-    {id: 'Luton Town', name: 'Luton Town FC', image: 'images/luton.png', country: 'England', competitions: []},
+    {id: 'Liverpool', name: 'Liverpool', image: 'images/liverpool.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Manchester United', name: 'Manchester United', image: 'images/manchesterunited.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Arsenal', name: 'Arsenal', image: 'images/arsenal.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Chelsea', name: 'Chelsea', image: 'images/chelsea.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: []},
+    {id: 'Manchester City', name: 'Manchester City', image: 'images/manchestercity.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Tottenham', name: 'Tottenham', image: 'images/tottenham.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: []},
+    {id: 'Newcastle', name: 'Newcastle', image: 'images/newcastle.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: []},
+    {id: 'Aston Villa', name: 'Aston Villa', image: 'images/astonvilla.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Brighton', name: 'Brighton & Hove Albion', image: 'images/brighton.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: ['Conference League']},
+    {id: 'Brentford', name: 'Brentford', image: 'images/brentford.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: []},
+    {id: 'Bournemouth', name: 'AFC Bournemouth', image: 'images/bournemouth.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Everton', name: 'Everton', image: 'images/everton.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: []},
+    {id: 'Coventry', name: 'Coventry City', image: 'images/coventry.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: []},
+    {id: 'Crystal Palace', name: 'Crystal Palace', image: 'images/crystalpalace.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Fulham', name: 'Fulham', image: 'images/fulham.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: []},
+    {id: 'Hull City', name: 'Hull City', image: 'images/hull_city.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: []},
+    {id: 'Ipswich', name: 'Ipswich Town', image: 'images/ipswich.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: []},
+    {id: 'Leeds', name: 'Leeds United', image: 'images/leeds.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: []},
+    {id: 'Forest', name: 'Nottingham Forest', image: 'images/nottingham_forest.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: []},
+    {id: 'Sunderland', name: 'Sunderland', image: 'images/sunderland.png', continent: 'Europe', country: 'England', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Birmingham', name: 'Birmingham', image: 'images/birmingham.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Blackburn', name: 'Blackburn Rovers', image: 'images/blackburn.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Bolton', name: 'Bolton Wanderers', image: 'images/bolton_wanderers.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Bristol', name: 'Bristol', image: 'images/bristol.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Burnley', name: 'Burnley', image: 'images/burnley.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Cardiff', name: 'Cardiff City', image: 'images/cardiff_city.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Charlton', name: 'Charlton Athletic', image: 'images/charlton.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Derby County', name: 'Derby County', image: 'images/derby_county.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Lincoln', name: 'Lincoln City', image: 'images/lincoln_city.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Middlesbrough', name: 'Middlesbrough', image: 'images/middlesbrough.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Millwall', name: 'Millwall', image: 'images/millwall.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Portsmouth', name: 'Portsmouth', image: 'images/portsmouth.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Preston', name: 'Preston', image: 'images/preston.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'QPR', name: 'Queens Park Rangers', image: 'images/qpr.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Sheffield', name: 'Sheffield United', image: 'images/sheffield.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Southampton', name: 'Southampton', image: 'images/southampton.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Stoke City', name: 'Stoke City', image: 'images/stoke_city.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Swansea', name: 'Swansea City', image: 'images/swansea.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Watford', name: 'Watford', image: 'images/watford.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Westbrownwich', name: 'West Bronwich Albion', image: 'images/westbrown.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'West Ham', name: 'West Ham United', image: 'images/westham.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Wolves', name: 'Wolverhampton', image: 'images/wolves.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Wrexham', name: 'Wrexham', image: 'images/wrexham.png', continent: 'Europe', country: 'England', division: 'Second Division', competitions: []},
+    {id: 'Leicester City', name: 'Leicester City', image: 'images/leicester.png', continent: 'Europe', country: 'England', competitions: []},
+    {id: 'Luton Town', name: 'Luton Town FC', image: 'images/luton.png', continent: 'Europe', country: 'England', competitions: []},
 
     /* Francia */
-    {id: 'PSG', name: 'PSG', image: 'images/psg.png', country: 'France', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Lille', name: 'Lille', image: 'images/lille.png', country: 'France', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Lens', name: 'Lens', image: 'images/racinglens.png', country: 'France', division: 'First Division', competitions: ['Champions League']},
-    {id: 'OM', name: 'Olimpique Marsella', image: 'images/olimpiquemarsella.png', country: 'France', division: 'First Division', competitions: ['Europa League']},
-    {id: 'OL', name: 'Olympique Lyon', image: 'images/olympiquelyon.png', country: 'France', division: 'First Division', competitions: ['Europa League']},
-    {id: 'Paris FC', name: 'Paris FC', image: 'images/paris_fc.png', country: 'France', division: 'First Division', competitions: []},
-    {id: 'Rennais', name: 'Rennais', image: 'images/rennais.png', country: 'France', division: 'First Division', competitions: ['Europa League']},
-    {id: 'Estrasburgo', name: 'Estrasburgo', image: 'images/racingetrasburgo.png', country: 'France', division: 'First Division', competitions: []},
-    {id: 'Monaco', name: 'AS Monaco', image: 'images/monaco.png', country: 'France', division: 'First Division', competitions: ['Conference League']},
-    {id: 'Angers', name: 'Angers', image: 'images/angers.png', country: 'France', division: 'First Division', competitions: []},
-    {id: 'Auxerre', name: 'Auxerre', image: 'images/auxerre.png', country: 'France', division: 'First Division', competitions: []},
-    {id: 'Havre', name: 'Le Havre', image: 'images/havre.png', country: 'France', division: 'First Division', competitions: []},
-    {id: 'LeMans', name: 'Le Mans', image: 'images/le_mans.png', country: 'France', division: 'First Division', competitions: []},
-    {id: 'Lorient', name: 'Lorient', image: 'images/lorient.png', country: 'France', division: 'First Division', competitions: []},
-    {id: 'Niza', name: 'Niza', image: 'images/niza.png', country: 'France', division: 'First Division', competitions: []},
-    {id: 'Stade Bretois', name: 'Stade Bretois', image: 'images/stadebretois.png', country: 'France', division: 'First Division', competitions: []},
-    {id: 'Toulouse', name: 'Toulouse', image: 'images/toulouse.png', country: 'France', division: 'First Division', competitions: []},
-    {id: 'Troyes', name: 'Troyes', image: 'images/troyes.png', country: 'France', division: 'First Division', competitions: []},
+    {id: 'PSG', name: 'PSG', image: 'images/psg.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Lille', name: 'Lille', image: 'images/lille.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Lens', name: 'Lens', image: 'images/racinglens.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: ['Champions League']},
+    {id: 'OM', name: 'Olimpique Marsella', image: 'images/olimpiquemarsella.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: ['Europa League']},
+    {id: 'OL', name: 'Olympique Lyon', image: 'images/olympiquelyon.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Paris FC', name: 'Paris FC', image: 'images/paris_fc.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: []},
+    {id: 'Rennais', name: 'Rennais', image: 'images/rennais.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Estrasburgo', name: 'Estrasburgo', image: 'images/racingetrasburgo.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: []},
+    {id: 'Monaco', name: 'AS Monaco', image: 'images/monaco.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: ['Conference League']},
+    {id: 'Angers', name: 'Angers', image: 'images/angers.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: []},
+    {id: 'Auxerre', name: 'Auxerre', image: 'images/auxerre.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: []},
+    {id: 'Havre', name: 'Le Havre', image: 'images/havre.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: []},
+    {id: 'LeMans', name: 'Le Mans', image: 'images/le_mans.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: []},
+    {id: 'Lorient', name: 'Lorient', image: 'images/lorient.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: []},
+    {id: 'Niza', name: 'Niza', image: 'images/niza.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: []},
+    {id: 'Stade Bretois', name: 'Stade Bretois', image: 'images/stadebretois.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: []},
+    {id: 'Toulouse', name: 'Toulouse', image: 'images/toulouse.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: []},
+    {id: 'Troyes', name: 'Troyes', image: 'images/troyes.png', continent: 'Europe', country: 'France', division: 'First Division', competitions: []},
 
     /* Portugal */
-    {id: 'Benfica', name: 'Benfica', image: 'images/benfica.png', country: 'Portugal', division: 'First Division', competitions: ['Europa League']},
-    {id: 'Sporting', name: 'Sporting CP', image: 'images/sporting.png', country: 'Portugal', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Porto', name: 'Porto', image: 'images/porto.png', country: 'Portugal', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Torrense', name: 'SCU Torrense', image: 'images/torreense.png', country: 'Portugal', division: 'First Division', competitions: ['Europa League']},
-    {id: 'Braga', name: 'Sporting Braga', image: 'images/braga.png', country: 'Portugal', division: 'First Division', competitions: ['Conference League']},
-    {id: 'Santa Clara', name: 'Santa Clara', image: 'images/santaclara.png', country: 'Portugal', division: 'First Division', competitions: []},
-    {id: 'Arouca', name: 'Arouca', image: 'images/arouca.png', country: 'Portugal', division: 'First Division', competitions: []},
-    {id: 'Estrela Amadora', name: 'Estrela Amadora', image: 'images/estrella.png', country: 'Portugal', division: 'First Division', competitions: []},
-    {id: 'Académico', name: 'Académico Viseu', image: 'images/academico_viseu.png', country: 'Portugal', division: 'First Division', competitions: []},
-    {id: 'Gil Vicente', name: 'Gil Vicente', image: 'images/gilvicente.png', country: 'Portugal', division: 'First Division', competitions: []},
-    {id: 'Marítimo', name: 'Marítimo', image: 'images/maritimo.png', country: 'Portugal', division: 'First Division', competitions: []},
-    {id: 'Moreirense', name: 'Moreirense', image: 'images/moreirense.png', country: 'Portugal', division: 'First Division', competitions: []},
-    {id: 'Famalicao', name: 'Famalicao', image: 'images/famalicao.png', country: 'Portugal', division: 'First Division', competitions: []},
-    {id: 'Estoril', name: 'Estoril', image: 'images/estoril.png', country: 'Portugal', division: 'First Division', competitions: []},
-    {id: 'Rio Ave', name: 'Rio Ave', image: 'images/rioave.png', country: 'Portugal', division: 'First Division', competitions: []},
-    {id: 'Vitória Guimarães', name: 'Vitória Guimarães', image: 'images/vitoria.png', country: 'Portugal', division: 'First Division', competitions: []},
-    {id: 'Nacional', name: 'Nacional', image: 'images/nacional.png', country: 'Portugal', division: 'First Division', competitions: []},
-    {id: 'Casa Pia', name: 'Casa Pia', image: 'images/casa_pia.png', country: 'Portugal', division: 'First Division', competitions: []},
-    {id: 'Alverca', name: 'Alverca', image: 'images/alverca.png', country: 'Portugal', division: 'First Division', competitions: []},
+    {id: 'Benfica', name: 'Benfica', image: 'images/benfica.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Sporting', name: 'Sporting CP', image: 'images/sporting.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Porto', name: 'Porto', image: 'images/porto.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Torrense', name: 'SCU Torrense', image: 'images/torreense.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Braga', name: 'Sporting Braga', image: 'images/braga.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: ['Conference League']},
+    {id: 'Santa Clara', name: 'Santa Clara', image: 'images/santaclara.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: []},
+    {id: 'Arouca', name: 'Arouca', image: 'images/arouca.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: []},
+    {id: 'Estrela Amadora', name: 'Estrela Amadora', image: 'images/estrella.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: []},
+    {id: 'Académico', name: 'Académico Viseu', image: 'images/academico_viseu.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: []},
+    {id: 'Gil Vicente', name: 'Gil Vicente', image: 'images/gilvicente.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: []},
+    {id: 'Marítimo', name: 'Marítimo', image: 'images/maritimo.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: []},
+    {id: 'Moreirense', name: 'Moreirense', image: 'images/moreirense.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: []},
+    {id: 'Famalicao', name: 'Famalicao', image: 'images/famalicao.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: []},
+    {id: 'Estoril', name: 'Estoril', image: 'images/estoril.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: []},
+    {id: 'Rio Ave', name: 'Rio Ave', image: 'images/rioave.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: []},
+    {id: 'Vitória Guimarães', name: 'Vitória Guimarães', image: 'images/vitoria.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: []},
+    {id: 'Nacional', name: 'Nacional', image: 'images/nacional.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: []},
+    {id: 'Casa Pia', name: 'Casa Pia', image: 'images/casa_pia.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: []},
+    {id: 'Alverca', name: 'Alverca', image: 'images/alverca.png', continent: 'Europe', country: 'Portugal', division: 'First Division', competitions: []},
     
     /* Países Bajos */
-    {id: 'Ajax', name: 'Ajax', image: 'images/ajax.png', country: 'Netherlands', division: 'First Division', competitions: ['Conference League']},
-    {id: 'PSV', name: 'PSV', image: 'images/psv.png', country: 'Netherlands', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Feyenoord', name: 'Feyenoord', image: 'images/feyenoord.png', country: 'Netherlands', division: 'First Division', competitions: ['Champions League']},
-    {id: 'AZ', name: 'AZ Alkmaar', image: 'images/az.png', country: 'Netherlands', division: 'First Division', competitions: ['Europa League']},
-    {id: 'NEC', name: 'NEC Nimega', image: 'images/nec.png', country: 'Netherlands', division: 'First Division', competitions: ['Europa League']},
-    {id: 'Twente', name: 'Twente', image: 'images/twente.png', country: 'Netherlands', division: 'First Division', competitions: ['Conference League']},
-    {id: 'Excelsior', name: 'Excelsior', image: 'images/excelsior.png', country: 'Netherlands', division: 'First Division', competitions: []},
-    {id: 'Fortuna Sittard', name: 'Fortuna Sittard', image: 'images/fortunasittard.png', country: 'Netherlands', division: 'First Division', competitions: []},
-    {id: 'Gronningen', name: 'Gronningen', image: 'images/gronningen.png', country: 'Netherlands', division: 'First Division', competitions: []},
-    {id: 'Go Ahead', name: 'Go Ahead Eagles', image: 'images/go_ahead_eagles.png', country: 'Netherlands', division: 'First Division', competitions: []},
-    {id: 'Heerenveen', name: 'Heerenveen', image: 'images/scheerenveen.png', country: 'Netherlands', division: 'First Division', competitions: []},
-    {id: 'Sparta Rotterdam', name: 'Sparta Rotterdam', image: 'images/sparta.png', country: 'Netherlands', division: 'First Division', competitions: []},
-    {id: 'SC Telstar', name: 'SC Telstar', image: 'images/telstar.png', country: 'Netherlands', division: 'First Division', competitions: []},
-    {id: 'Utrecht', name: 'Utrecht', image: 'images/utrecht.png', country: 'Netherlands', division: 'First Division', competitions: []},
-    {id: 'Cambuur', name: 'Cambuur', image: 'images/cambuur.png', country: 'Netherlands', division: 'First Division', competitions: []},
-    {id: 'Zwolle', name: 'Zwolle', image: 'images/zwolle.png', country: 'Netherlands', division: 'First Division', competitions: []},
-    {id: 'Willem', name: 'Willem II', image: 'images/willem.png', country: 'Netherlands', division: 'First Division', competitions: []},
-    {id: 'Den Haag', name: 'Den Haag', image: 'images/adodenhaag.png', country: 'Netherlands', division: 'First Division', competitions: []},
+    {id: 'Ajax', name: 'Ajax', image: 'images/ajax.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: ['Conference League']},
+    {id: 'PSV', name: 'PSV', image: 'images/psv.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Feyenoord', name: 'Feyenoord', image: 'images/feyenoord.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: ['Champions League']},
+    {id: 'AZ', name: 'AZ Alkmaar', image: 'images/az.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: ['Europa League']},
+    {id: 'NEC', name: 'NEC Nimega', image: 'images/nec.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Twente', name: 'Twente', image: 'images/twente.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: ['Conference League']},
+    {id: 'Excelsior', name: 'Excelsior', image: 'images/excelsior.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: []},
+    {id: 'Fortuna Sittard', name: 'Fortuna Sittard', image: 'images/fortunasittard.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: []},
+    {id: 'Gronningen', name: 'Gronningen', image: 'images/gronningen.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: []},
+    {id: 'Go Ahead', name: 'Go Ahead Eagles', image: 'images/go_ahead_eagles.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: []},
+    {id: 'Heerenveen', name: 'Heerenveen', image: 'images/scheerenveen.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: []},
+    {id: 'Sparta Rotterdam', name: 'Sparta Rotterdam', image: 'images/sparta.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: []},
+    {id: 'SC Telstar', name: 'SC Telstar', image: 'images/telstar.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: []},
+    {id: 'Utrecht', name: 'Utrecht', image: 'images/utrecht.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: []},
+    {id: 'Cambuur', name: 'Cambuur', image: 'images/cambuur.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: []},
+    {id: 'Zwolle', name: 'Zwolle', image: 'images/zwolle.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: []},
+    {id: 'Willem', name: 'Willem II', image: 'images/willem.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: []},
+    {id: 'Den Haag', name: 'Den Haag', image: 'images/adodenhaag.png', continent: 'Europe', country: 'Netherlands', division: 'First Division', competitions: []},
 
     /* Bélgica */
-    {id: 'Brugge', name: 'Club Brugge', image: 'images/clubbrujas.png', country: 'Belgium', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Anderlecht', name: 'Anderlecht', image: 'images/anderlecht.png', country: 'Belgium', division: 'First Division', competitions: ['Europa League']},
-    {id: 'UnionSG', name: 'Union Saint-Gilloise', image: 'images/union_saint_gilloise.png', country: 'Belgium', division: 'First Division', competitions: ['Europa League']},
-    {id: 'KAA Gent', name: 'KAA Gent', image: 'images/gent.png', country: 'Belgium', division: 'First Division', competitions: ['Conference League']},
-    {id: 'Sint Truiden', name: 'Sint Truiden', image: 'images/truiden.png', country: 'Belgium', division: 'First Division', competitions: ['Conference League']},
-    {id: 'Charleroi', name: 'Charleroi', image: 'images/charleroi.png', country: 'Belgium', division: 'First Division', competitions: []},
-    {id: 'Zulte', name: 'Zulte Waregem', image: 'images/zulte.png', country: 'Belgium', division: 'First Division', competitions: []},
-    {id: 'Standard Liege', name: 'Standard Liège', image: 'images/standard_lieja.png', country: 'Belgium', division: 'First Division', competitions: []},
-    {id: 'Beveren', name: 'SK Bevereen', image: 'images/beveren.png', country: 'Belgium', division: 'First Division', competitions: []},
-    {id: 'Genk', name: 'KRC Genk', image: 'images/genk.png', country: 'Belgium', division: 'First Division', competitions: []},
-    {id: 'Royal Antwerp', name: 'Royal Antwerp', image: 'images/royal_antwerp.png', country: 'Belgium', division: 'First Division', competitions: []},
-    {id: 'Lommel', name: 'Lommel', image: 'images/lommel.png', country: 'Belgium', division: 'First Division', competitions: []},
-    {id: 'Cercle Brugge', name: 'Cercle Brugge', image: 'images/cerclebrugge.png', country: 'Belgium', division: 'First Division', competitions: []},
-    {id: 'Louviere', name: 'RAAL La Lovière', image: 'images/raal.png', country: 'Belgium', division: 'First Division', competitions: []},
-    {id: 'Leuven', name: 'Leuven', image: 'images/leuven.png', country: 'Belgium', division: 'First Division', competitions: []},
-    {id: 'Cortique', name: 'KV Cortrique', image: 'images/kortrijk.png', country: 'Belgium', division: 'First Division', competitions: []},
+    {id: 'Brugge', name: 'Club Brugge', image: 'images/clubbrujas.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Anderlecht', name: 'Anderlecht', image: 'images/anderlecht.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: ['Europa League']},
+    {id: 'UnionSG', name: 'Union Saint-Gilloise', image: 'images/union_saint_gilloise.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: ['Europa League']},
+    {id: 'KAA Gent', name: 'KAA Gent', image: 'images/gent.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: ['Conference League']},
+    {id: 'Sint Truiden', name: 'Sint Truiden', image: 'images/truiden.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: ['Conference League']},
+    {id: 'Charleroi', name: 'Charleroi', image: 'images/charleroi.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: []},
+    {id: 'Zulte', name: 'Zulte Waregem', image: 'images/zulte.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: []},
+    {id: 'Standard Liege', name: 'Standard Liège', image: 'images/standard_lieja.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: []},
+    {id: 'Beveren', name: 'SK Bevereen', image: 'images/beveren.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: []},
+    {id: 'Genk', name: 'KRC Genk', image: 'images/genk.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: []},
+    {id: 'Royal Antwerp', name: 'Royal Antwerp', image: 'images/royal_antwerp.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: []},
+    {id: 'Lommel', name: 'Lommel', image: 'images/lommel.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: []},
+    {id: 'Cercle Brugge', name: 'Cercle Brugge', image: 'images/cerclebrugge.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: []},
+    {id: 'Louviere', name: 'RAAL La Lovière', image: 'images/raal.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: []},
+    {id: 'Leuven', name: 'Leuven', image: 'images/leuven.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: []},
+    {id: 'Cortique', name: 'KV Cortrique', image: 'images/kortrijk.png', continent: 'Europe', country: 'Belgium', division: 'First Division', competitions: []},
 
     /* Turquía */
-    {id: 'Galatasaray', name: 'Galatasaray', image: 'images/galatasaray.png', country: 'Türkiye', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Fenerbahçe', name: 'Fenerbahçe', image: 'images/fenerbahce.png', country: 'Türkiye', division: 'First Division', competitions: ['Champions League']},
-    {id: 'Besiktas', name: 'Besiktas', image: 'images/besiktas.png', country: 'Türkiye', division: 'First Division', competitions: ['Europa League']},
-    {id: 'Trabzonspor', name: 'Trabzonspor', image: 'images/trabzonspor.png', country: 'Türkiye', division: 'First Division', competitions: ['Conference League']},
-    {id: 'Amed', name: 'Amed SK', image: 'images/amed.png', country: 'Türkiye', division: 'First Division', competitions: []},
-    {id: 'Kasımpasa', name: 'Kasımpasa', image: 'images/kasımpasa.png', country: 'Türkiye', division: 'First Division', competitions: []},
-    {id: 'Caykur Rizespor', name: 'Caykur Rizespor', image: 'images/caykur_rizespor.png', country: 'Türkiye', division: 'First Division', competitions: []},
-    {id: 'Kocaelispor', name: 'Kocaelispor', image: 'images/kocaelispor.png', country: 'Türkiye', division: 'First Division', competitions: []},
-    {id: 'Gaziantep', name: 'Gaziantep', image: 'images/gaziantep.png', country: 'Türkiye', division: 'First Division', competitions: []},
-    {id: 'Alanyaspor', name: 'Alanyaspor', image: 'images/alanyaspor.png', country: 'Türkiye', division: 'First Division', competitions: []},
-    {id: 'Çorum FK', name: 'Çorum FK', image: 'images/corum.png', country: 'Türkiye', division: 'First Division', competitions: []},
-    {id: 'Gençlerbirliği', name: 'Gençlerbirliği Spor Kulübü', image: 'images/genclerbirligi.png', country: 'Türkiye', division: 'First Division', competitions: []},
-    {id: 'Istanbul BB', name: 'Istanbul BB', image: 'images/estambul.png', country: 'Türkiye', division: 'First Division', competitions: []},
-    {id: 'Samsunspor', name: 'Samsunspor', image: 'images/samsunspor.png', country: 'Türkiye', division: 'First Division', competitions: []},
-    {id: 'Erzurumsor', name: 'Erzurumspor', image: 'images/erzurumspor.png', country: 'Türkiye', division: 'First Division', competitions: []},
-    {id: 'Konyaspor', name: 'Konyaspor', image: 'images/konyaspor.png', country: 'Türkiye', division: 'First Division', competitions: []},
-    {id: 'Eyüpspor', name: 'Eyüpspor', image: 'images/eyupspor.png', country: 'Türkiye', division: 'First Division', competitions: []},
-    {id: 'Göztepe', name: 'Göztepe', image: 'images/goztepe.png', country: 'Türkiye', division: 'First Division', competitions: []},
+    {id: 'Galatasaray', name: 'Galatasaray', image: 'images/galatasaray.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Fenerbahçe', name: 'Fenerbahçe', image: 'images/fenerbahce.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: ['Champions League']},
+    {id: 'Besiktas', name: 'Besiktas', image: 'images/besiktas.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: ['Europa League']},
+    {id: 'Trabzonspor', name: 'Trabzonspor', image: 'images/trabzonspor.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: ['Conference League']},
+    {id: 'Amed', name: 'Amed SK', image: 'images/amed.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: []},
+    {id: 'Kasımpasa', name: 'Kasımpasa', image: 'images/kasımpasa.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: []},
+    {id: 'Caykur Rizespor', name: 'Caykur Rizespor', image: 'images/caykur_rizespor.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: []},
+    {id: 'Kocaelispor', name: 'Kocaelispor', image: 'images/kocaelispor.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: []},
+    {id: 'Gaziantep', name: 'Gaziantep', image: 'images/gaziantep.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: []},
+    {id: 'Alanyaspor', name: 'Alanyaspor', image: 'images/alanyaspor.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: []},
+    {id: 'Çorum FK', name: 'Çorum FK', image: 'images/corum.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: []},
+    {id: 'Gençlerbirliği', name: 'Gençlerbirliği Spor Kulübü', image: 'images/genclerbirligi.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: []},
+    {id: 'Istanbul BB', name: 'Istanbul BB', image: 'images/estambul.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: []},
+    {id: 'Samsunspor', name: 'Samsunspor', image: 'images/samsunspor.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: []},
+    {id: 'Erzurumsor', name: 'Erzurumspor', image: 'images/erzurumspor.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: []},
+    {id: 'Konyaspor', name: 'Konyaspor', image: 'images/konyaspor.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: []},
+    {id: 'Eyüpspor', name: 'Eyüpspor', image: 'images/eyupspor.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: []},
+    {id: 'Göztepe', name: 'Göztepe', image: 'images/goztepe.png', continent: 'Europe', country: 'Türkiye', division: 'First Division', competitions: []},
+
+    /* Escocia */
+    {id: 'Celtic', name: 'Celtic', image: 'images/celtic.png', continent: 'Europe', country: 'Scotland', competitions: ['Europa League']},
+    {id: 'Hearts', name: 'Heart of Midlothian', image: 'images/hearts.png', continent: 'Europe', country: 'Scotland', competitions: ['Conference League']},
+    {id: 'Rangers', name: 'Rangers FC', image: 'images/rangers.png', continent: 'Europe', country: 'Scotland', competitions: []},
+    {id: 'Aberdeen', name: 'Abeerden', image: 'images/aberdeen.png', continent: 'Europe', country: 'Scotland', competitions: []},
+    {id: 'DundeeFC', name: 'Dundee FC', image: 'images/dundee_fc.png', continent: 'Europe', country: 'Scotland', competitions: []},
+    {id: 'DundeeU', name: 'Dundee United', image: 'images/dundee_united.png', continent: 'Europe', country: 'Scotland', competitions: []},
+    {id: 'Falkirk', name: 'Falkirk', image: 'images/falkirk.png', continent: 'Europe', country: 'Scotland', competitions: []},
+    {id: 'Hibbs', name: 'Hibernian', image: 'images/hibernian.png', continent: 'Europe', country: 'Scotland', competitions: []},
+    {id: 'Kilmarnock', name: 'Kilmarnock', image: 'images/kilmarnock.png', continent: 'Europe', country: 'Scotland', competitions: []},
+    {id: 'Motherwell', name: 'Motherwell', image: 'images/motherwell.png', continent: 'Europe', country: 'Scotland', competitions: []},
+    {id: 'St Johnstone', name: 'St. Johnstone FC', image: 'images/st_johnstone.png', continent: 'Europe', country: 'Scotland', competitions: []},
+    {id: 'St Mirren', name: 'St. Mirren FC', image: 'images/st_mirren.png', continent: 'Europe', country: 'Scotland', competitions: []},
+
+    /*Brasil*/
+    {id: 'Mineiro', name: 'Atletico Mineiro', image: 'images/atlmineiro.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Paranaense', name: 'Atlético Paranaense', image: 'images/atlparanaense.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Bahia', name: 'Bahía', image: 'images/bahia.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Botafogo', name: 'Botafogo', image: 'images/botafogo.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Chapecoense', name: 'Chapecoense, image: 'images/chapecoense.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Corinthians', name: 'Corinthians', image: 'images/corinthians.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Coritiba', name: 'Coritiba', image: 'images/coritiba.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Cruzeiro', name: 'Cruzeiro', image: 'images/cruzeiro.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Flamengo', name: 'Flamengo', image: 'images/flamengo.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Fluminense', name: 'Fluminense', image: 'images/fluminense.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Gremio', name: 'Gremio', image: 'images/gremio.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Internacional', name: 'Internacional', image: 'images/internacional.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Mirassol', name: 'Mirassol', image: 'images/mirassol.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Palmeiras', name: 'Palmeiras', image: 'images/palmeiras.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'RB Bragantino', name: 'RB Bragantino', image: 'images/rbbragantino.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Remo', name: 'Remo', image: 'images/remo.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Santos', name: 'Santos', image: 'images/santos.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Sao Paulo', name: 'Sao Paulo', image: 'images/saopaulo.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Vasco', name: 'Vasco Da Gama', image: 'images/vasco.png', continent: 'America', country: 'Brazil', competitions: []},
+    {id: 'Vitoria', name: 'EC Vitoria', image: 'images/vitoriafc.png', continent: 'America', country: 'Brazil', competitions: []},
+    
+    /* Argentina */
+    {id: 'Aldosivi', name: 'CA Aldosivi', image: 'images/aldosivi.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Argentinos Jrs', name: 'Argentinos Jrs', image: 'images/argentinos.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Tucumán', name: 'Atlético Tucumán', image: 'images/atleticotucuman.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Banfield', name: 'Banfield', image: 'images/banfield.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Barracas', name: 'Barracas Central', image: 'images/barracas.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Belgrano', name: 'Belgrano', image: 'images/belgrano.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Boca', name: 'Boca Juniors', image: 'images/boca.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Central Cordoba', name: 'Central Córdoba', image: 'images/centralcordoba.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Defensa', name: 'Defensa y Justicia', image: 'images/defensa.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Estudiantes', name: 'Estudiantes LP', image: 'images/estudiantes.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Estudiantesrc', name: 'AA Estudiantes', image: 'images/estudiantesrc.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Gimnasia', name: 'Club Gimnasia y Esgrima LP', image: 'images/gimnasia.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Gimnasia Mendoza', name: 'Gimnasia Mendoza', image: 'images/gimnasiamendoza.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Huracán', name: 'Huracán', image: 'images/huracan.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Independiente', name: 'Independiente', image: 'images/independiente.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Independiente Riv', name: 'Independiente Rivadavia', image: 'images/independienteriv.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Instituto', name: 'Instituto Atlético Central Córdoba', image: 'images/instituto.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Lanús', name: 'Lanús', image: 'images/lanus.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Newells', name: 'Newell\'s Old Boys', image: 'images/newells.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Platense', name: 'Platense', image: 'images/platense.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Racing Club', name: 'Racing Club', image: 'images/racingclub.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Riestra', name: 'Deportivo Riestra', image: 'images/riestra.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'River', name: 'River Plate', image: 'images/river.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Rosario', name: 'Rosario Central', image: 'images/rosariocentral.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'San Lorenzo', name: 'San Lorenzo', image: 'images/sanlorenzo.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Sarmiento', name: 'Sarmiento', image: 'images/sarmiento.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Talleres', name: 'Talleres', image: 'images/talleres.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Tigre', name: 'Tigre', image: 'images/tigre.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Union', name: 'Unión', image: 'images/union.png', continent: 'America', country: 'Argentina', competitions: []},
+    {id: 'Velez', name: 'CA Vélez Sarsfield', image: 'images/velez.png', continent: 'America', country: 'Argentina', competitions: []},
+    
+    /* México */
+    {id: 'America', name: 'América', image: 'images/america.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'Atlas', name: 'Atlas', image: 'images/atlas.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'San Luis', name: 'Atético San Luis', image: 'images/atleticosl.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'Cruz Azul', name: 'Cruz Azul', image: 'images/cruzazul.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'Guadalajara', name: 'Guadalajara', image: 'images/guadalajara.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'Juárez', name: 'Juárez', image: 'images/juarez.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'León', name: 'León', image: 'images/leon.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'Mazatlan', name: 'Mazatlan', image: 'images/mazatlan.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'Monterrey', name: 'Monterrey', image: 'images/monterrey.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'Necaxa', name: 'Necaxa', image: 'images/necaxa.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'Pachuca', name: 'Pachuca', image: 'images/pachuca.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'Puebla', name: 'Puebla', image: 'images/puebla.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'Pumas', name: 'Pumas', image: 'images/pumas.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'Queretaro', name: 'Querétaro', image: 'images/queretaro.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'Santos Laguna', name: 'Santos Laguna', image: 'images/santoslaguna.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'Tigres', name: 'Tigres', image: 'images/tigres.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'Tijuana', name: 'Tijuana', image: 'images/tijuana.png', continent: 'America', country: 'Mexico', competitions: []},
+    {id: 'Toluca', name: 'Toluca', image: 'images/toluca.png', continent: 'America', country: 'Mexico', competitions: []},
+
     
     /* Otros */
-    {id: 'Jagiellonia', name: 'Jagiellonia Bialystok', image: 'images/jagiellonia.png', country: 'Poland', competitions: ['Europa League']},
-    {id: 'Lech Poznan', name: 'Lech Poznan', image: 'images/lechpoznan.png', country: 'Poland', competitions: ['Europa League']},
+    {id: 'Jagiellonia', name: 'Jagiellonia Bialystok', image: 'images/jagiellonia.png', continent: 'Europe', country: 'Poland', competitions: ['Europa League']},
+    {id: 'Lech Poznan', name: 'Lech Poznan', image: 'images/lechpoznan.png', continent: 'Europe', country: 'Poland', competitions: ['Europa League']},
     
-    {id: 'Bodo Glimt', name: 'Bodo Glimt', image: 'images/bodo_glimt.png', country: 'Norway', competitions: ['Champions League']},
-    {id: 'Viking', name: 'Viking Stavanger', image: 'images/viking.png', country: 'Norway', competitions: ['Champions League']},
-    {id: 'Lillestrom', name: 'Lillestrom SK', image: 'images/lillestrom-sk.png', country: 'Norway', competitions: ['Europa League']},
-    {id: 'Brann', name: 'SK Brann', image: 'images/brann.png', country: 'Norway', competitions: ['Conference League']},
+    {id: 'Bodo Glimt', name: 'Bodo Glimt', image: 'images/bodo_glimt.png', continent: 'Europe', country: 'Norway', competitions: ['Champions League']},
+    {id: 'Viking', name: 'Viking Stavanger', image: 'images/viking.png', continent: 'Europe', country: 'Norway', competitions: ['Champions League']},
+    {id: 'Lillestrom', name: 'Lillestrom SK', image: 'images/lillestrom-sk.png', continent: 'Europe', country: 'Norway', competitions: ['Europa League']},
+    {id: 'Brann', name: 'SK Brann', image: 'images/brann.png', continent: 'Europe', country: 'Norway', competitions: ['Conference League']},
     
-    {id: 'AEK Atenas', name: 'AEK Atenas', image: 'images/aek_atenas.png', country: 'Greece', competitions: ['Champions League']},
-    {id: 'Olympiakos', name: 'Olympiakos', image: 'images/olympiacos.png', country: 'Greece', competitions: ['Europa League']},
-    {id: 'OFI', name: 'OFI', image: 'images/ofi.png', country: 'Greece', competitions: ['Europa League']},
-    {id: 'Panathinaikos', name: 'Panathinaikos', image: 'images/panathinaikos.png', country: 'Greece', competitions: ['Conference League']},
+    {id: 'AEK Atenas', name: 'AEK Atenas', image: 'images/aek_atenas.png', continent: 'Europe', country: 'Greece', competitions: ['Champions League']},
+    {id: 'Olympiakos', name: 'Olympiakos', image: 'images/olympiacos.png', continent: 'Europe', country: 'Greece', competitions: ['Europa League']},
+    {id: 'OFI', name: 'OFI', image: 'images/ofi.png', continent: 'Europe', country: 'Greece', competitions: ['Europa League']},
+    {id: 'Panathinaikos', name: 'Panathinaikos', image: 'images/panathinaikos.png', continent: 'Europe', country: 'Greece', competitions: ['Conference League']},
     
-    {id: 'Slavia Praga', name: 'Slavia Praga', image: 'images/slavia_praga.png', country: 'Czech Republic', competitions: ['Champions League']},
-    {id: 'Sparta Praga', name: 'Sparta Praha', image: 'images/sparta_praga.png', country: 'Czech Republic', competitions: ['Europa League']},
-    {id: 'Viktoria Plzen', name: 'Viktoria Plzen', image: 'images/viktoria_plzen.png', country: 'Czech Republic', competitions: ['Europa League']},
-    {id: 'Jablonec', name: 'FK Jablonec', image: 'images/jablonec.png', country: 'Czech Republic', competitions: ['Conference League']},
+    {id: 'Slavia Praga', name: 'Slavia Praga', image: 'images/slavia_praga.png', continent: 'Europe', country: 'Czech Republic', competitions: ['Champions League']},
+    {id: 'Sparta Praga', name: 'Sparta Praha', image: 'images/sparta_praga.png', continent: 'Europe', country: 'Czech Republic', competitions: ['Europa League']},
+    {id: 'Viktoria Plzen', name: 'Viktoria Plzen', image: 'images/viktoria_plzen.png', continent: 'Europe', country: 'Czech Republic', competitions: ['Europa League']},
+    {id: 'Jablonec', name: 'FK Jablonec', image: 'images/jablonec.png', continent: 'Europe', country: 'Czech Republic', competitions: ['Conference League']},
     
-    {id: 'LASK', name: 'LASK', image: 'images/lask.png', country: 'Austria', competitions: ['Champions League']},
-    {id: 'Salzburg', name: 'RB Salzburg', image: 'images/rbsalzburgo.png', country: 'Austria', competitions: ['Europa League']},
-    {id: 'Sturm Graz', name: 'Sturm Graz', image: 'images/sturm_graz.png', country: 'Austria', competitions: ['Europa League']},
+    {id: 'LASK', name: 'LASK', image: 'images/lask.png', continent: 'Europe', country: 'Austria', competitions: ['Champions League']},
+    {id: 'Salzburg', name: 'RB Salzburg', image: 'images/rbsalzburgo.png', continent: 'Europe', country: 'Austria', competitions: ['Europa League']},
+    {id: 'Sturm Graz', name: 'Sturm Graz', image: 'images/sturm_graz.png', continent: 'Europe', country: 'Austria', competitions: ['Europa League']},
     
-    {id: 'Celtic', name: 'Celtic', image: 'images/celtic.png', country: 'Scotland', competitions: ['Europa League']},
-    {id: 'Hearts', name: 'Heart of Midlothian', image: 'images/hearts.png', country: 'Scotland', competitions: ['Conference League']},
-    
-    {id: 'Copenhague', name: 'Copenhaguen', image: 'images/fc_copenhague.png', country: 'Denmark', competitions: ['Conference League']},
-    {id: 'Midtjylland', name: 'Midtjylland', image: 'images/midtjylland.png', country: 'Denmark', competitions: ['Conference League']},
-    {id: 'Aarhus', name: 'AGF Aarhus', image: 'images/aarhus.png', country: 'Denmark', competitions: ['Conference League']},
-    {id: 'Nordsjaelland', name: 'Nordsjaelland', image: 'images/nordsjaelland.png', country: 'Denmark', competitions: ['Conference League']},
+    {id: 'Copenhague', name: 'Copenhaguen', image: 'images/fc_copenhague.png', continent: 'Europe', country: 'Denmark', competitions: ['Conference League']},
+    {id: 'Midtjylland', name: 'Midtjylland', image: 'images/midtjylland.png', continent: 'Europe', country: 'Denmark', competitions: ['Conference League']},
+    {id: 'Aarhus', name: 'AGF Aarhus', image: 'images/aarhus.png', continent: 'Europe', country: 'Denmark', competitions: ['Conference League']},
+    {id: 'Nordsjaelland', name: 'Nordsjaelland', image: 'images/nordsjaelland.png', continent: 'Europe', country: 'Denmark', competitions: ['Conference League']},
 
-    {id: 'Levski Sofia', name: 'Levski Sofia', image: 'images/levskisofia.png', country: 'Bulgaria', competitions: ['Europa League']},
-    {id: 'CSKA Sofia', name: 'CSKA Sofia', image: 'images/cska_sofia.png', country: 'Bulgaria', competitions: ['Conference League']},
+    {id: 'Levski Sofia', name: 'Levski Sofia', image: 'images/levskisofia.png', continent: 'Europe', country: 'Bulgaria', competitions: ['Europa League']},
+    {id: 'CSKA Sofia', name: 'CSKA Sofia', image: 'images/cska_sofia.png', continent: 'Europe', country: 'Bulgaria', competitions: ['Conference League']},
 
-    {id: 'Lugano', name: 'FC Lugano', image: 'images/lugano.png', country: 'Switzerland', competitions: ['Conference League']},
-    {id: 'Thun', name: 'FC Lugano', image: 'images/thun.png', country: 'Switzerland', competitions: ['Conference League']},
+    {id: 'Lugano', name: 'FC Lugano', image: 'images/lugano.png', continent: 'Europe', country: 'Switzerland', competitions: ['Conference League']},
+    {id: 'Thun', name: 'FC Lugano', image: 'images/thun.png', continent: 'Europe', country: 'Switzerland', competitions: ['Conference League']},
 
-    {id: 'Hajduk Split', name: 'HNK Hajduk Split', image: 'images/hajduk_split.png', country: 'Switzerland', competitions: ['Conference League']},
-    {id: 'DZagreb', name: 'Dinamo Zagreb', image: 'images/dinamo_zagreb.png', country: 'Croatia', competitions: ['Europa League']},
+    {id: 'Hajduk Split', name: 'HNK Hajduk Split', image: 'images/hajduk_split.png', continent: 'Europe', country: 'Switzerland', competitions: ['Conference League']},
+    {id: 'DZagreb', name: 'Dinamo Zagreb', image: 'images/dinamo_zagreb.png', continent: 'Europe', country: 'Croatia', competitions: ['Europa League']},
    
-    {id: 'Pafos', name: 'Pafos', image: 'images/pafos.png', country: 'Cyprus', competitions: ['Conference League']},
-    {id: 'Nicosia', name: 'AC Omonia Nicosia', image: 'images/nicosia.png', country: 'Cyprus', competitions: ['Europa League']},
-    {id: 'Ferencvarosi', name: 'Ferencvarosi', image: 'images/ferencvaros.png', country: 'Hungary', competitions: ['Europa League']},
-    {id: 'Estrella Roja', name: 'Red Star Belgrade', image: 'images/estrella_roja.png', country: 'Serbia', competitions: ['Conference League']},  
-    {id: 'Shakhtar', name: 'Shakhtar Donetsk', image: 'images/shakhtar_donetsk.png', country: 'Ukraine', competitions: ['Champions League']},
-    {id: 'Slovan', name: 'Slovan Bratislava', image: 'images/slovan_bratislava.png', country: 'Slovakia', competitions: ['Champions League']},
-    {id: 'Sabah', name: 'Sabah FK', image: 'images/sabah.png', country: 'Azerbaijan', competitions: ['Champions League']},
-    {id: 'Kairat', name: 'Kairat Almaty', image: 'images/kairat_almaty.png', country: 'Kazakhstan', competitions: ['Conference League']},
-    {id: 'Ararat', name: 'FC Ararat Armenia', image: 'images/araratarmenia.png', country: 'Armenia', competitions: ['Europa League']},
-    {id: 'Hapoel', name: 'Hapoel Beer Sheva', image: 'images/hapoel.png', country: 'Israel', competitions: ['Europa League']},
-    {id: 'Celje', name: 'NK Celje', image: 'images/celje.png', country: 'Slovenia', competitions: ['Europa League']},
-    {id: 'Craiova', name: 'CSU Craiova', image: 'images/craiova.png', country: 'Romania', competitions: ['Conference League']},
-    {id: 'Iberia', name: 'FC Iberia 1999', image: 'images/iberia.png', country: 'Georgia', competitions: ['Conference League']},
-    {id: 'Borac Banja', name: 'FK Borac Banja Luka', image: 'images/borac.png', country: 'Bosnia & Heregovina', competitions: ['Conference League']},
-    {id: 'Zalgiris', name: 'FK Kauno Zalgiris', image: 'images/kauno.png', country: 'Lithuania', competitions: ['Conference League']},
-    {id: 'Inter Escaldes', name: 'Inter Club Escaldes', image: 'images/inter_escaldes.png', country: 'Andorra', competitions: ['Conference League']},
-    {id: 'Egnatia', name: 'FK Egnatia', image: 'images/egnatia.png', country: 'Albania', competitions: ['Conference League']},
-    {id: 'KUPS', name: 'KuPS', image: 'images/kups.png', country: 'Finland', competitions: ['Conference League']},
-    {id: 'Lincoln Red Imps', name: 'Lincoln Red Imps', image: 'images/lincoln_redimps.png', country: 'Gibraltar', competitions: ['Conference League']},
-    {id: 'Mjallby', name: 'Mjällby AIF', image: 'images/mjallby.png', country: 'Sweden', competitions: ['Conference League']},
-    {id: 'Riga', name: 'Riga FC', image: 'images/riga.png', country: 'Lativa', competitions: ['Conference League']},
+    {id: 'Pafos', name: 'Pafos', image: 'images/pafos.png', continent: 'Europe', country: 'Cyprus', competitions: ['Conference League']},
+    {id: 'Nicosia', name: 'AC Omonia Nicosia', image: 'images/nicosia.png', continent: 'Europe', country: 'Cyprus', competitions: ['Europa League']},
+    {id: 'Ferencvarosi', name: 'Ferencvarosi', image: 'images/ferencvaros.png', continent: 'Europe', country: 'Hungary', competitions: ['Europa League']},
+    {id: 'Estrella Roja', name: 'Red Star Belgrade', image: 'images/estrella_roja.png', continent: 'Europe', country: 'Serbia', competitions: ['Conference League']},  
+    {id: 'Shakhtar', name: 'Shakhtar Donetsk', image: 'images/shakhtar_donetsk.png', continent: 'Europe', country: 'Ukraine', competitions: ['Champions League']},
+    {id: 'Slovan', name: 'Slovan Bratislava', image: 'images/slovan_bratislava.png', continent: 'Europe', country: 'Slovakia', competitions: ['Champions League']},
+    {id: 'Sabah', name: 'Sabah FK', image: 'images/sabah.png', continent: 'Europe', country: 'Azerbaijan', competitions: ['Champions League']},
+    {id: 'Kairat', name: 'Kairat Almaty', image: 'images/kairat_almaty.png', continent: 'Europe', country: 'Kazakhstan', competitions: ['Conference League']},
+    {id: 'Ararat', name: 'FC Ararat Armenia', image: 'images/araratarmenia.png', continent: 'Europe', country: 'Armenia', competitions: ['Europa League']},
+    {id: 'Hapoel', name: 'Hapoel Beer Sheva', image: 'images/hapoel.png', continent: 'Europe', country: 'Israel', competitions: ['Europa League']},
+    {id: 'Celje', name: 'NK Celje', image: 'images/celje.png', continent: 'Europe', country: 'Slovenia', competitions: ['Europa League']},
+    {id: 'Craiova', name: 'CSU Craiova', image: 'images/craiova.png', continent: 'Europe', country: 'Romania', competitions: ['Conference League']},
+    {id: 'Iberia', name: 'FC Iberia 1999', image: 'images/iberia.png', continent: 'Europe', country: 'Georgia', competitions: ['Conference League']},
+    {id: 'Borac Banja', name: 'FK Borac Banja Luka', image: 'images/borac.png', continent: 'Europe', country: 'Bosnia & Heregovina', competitions: ['Conference League']},
+    {id: 'Zalgiris', name: 'FK Kauno Zalgiris', image: 'images/kauno.png', continent: 'Europe', country: 'Lithuania', competitions: ['Conference League']},
+    {id: 'Inter Escaldes', name: 'Inter Club Escaldes', image: 'images/inter_escaldes.png', continent: 'Europe', country: 'Andorra', competitions: ['Conference League']},
+    {id: 'Egnatia', name: 'FK Egnatia', image: 'images/egnatia.png', continent: 'Europe', country: 'Albania', competitions: ['Conference League']},
+    {id: 'KUPS', name: 'KuPS', image: 'images/kups.png', continent: 'Europe', country: 'Finland', competitions: ['Conference League']},
+    {id: 'Lincoln Red Imps', name: 'Lincoln Red Imps', image: 'images/lincoln_redimps.png', continent: 'Europe', country: 'Gibraltar', competitions: ['Conference League']},
+    {id: 'Mjallby', name: 'Mjällby AIF', image: 'images/mjallby.png', continent: 'Europe', country: 'Sweden', competitions: ['Conference League']},
+    {id: 'Riga', name: 'Riga FC', image: 'images/riga.png', continent: 'Europe', country: 'Lativa', competitions: ['Conference League']},
     
 ];
 
@@ -851,6 +957,7 @@ var myPicker = new picker.Picker({
 defaultSettings: {
     minBatchSize: 5,
     maxBatchSize: 5,
+    continent: 'all',
     country: 'all',
     competitions: [],
     divisions: []
@@ -858,6 +965,13 @@ defaultSettings: {
 
 getFilteredItems: function(settings) {
     var filtered = items;
+     /* CONTINENT */
+        if (settings.continent && settings.continent !== 'all') {
+            filtered = filtered.filter(function(item) {
+                return item.continent === settings.continent;
+            });
+        }
+/* Contry */
     if (settings.country && settings.country !== 'all') {
         filtered = filtered.filter(function(item) {
             return item.country === settings.country;
@@ -869,21 +983,61 @@ getFilteredItems: function(settings) {
             });
         }
     }
-    if (!settings.country || settings.country === 'all') {
-        var selectedCompetitions = settings.competitions || [];
-        if (selectedCompetitions.length > 0) {
-            filtered = filtered.filter(function(item) {
-                return item.competitions.some(function(competition) {
-                    return selectedCompetitions.indexOf(competition) !== -1;
+           /* EUROPEAN COMPETITIONS Only available when viewing Europe without selecting a specific country. */
+        if (
+            settings.continent === 'Europe' &&
+            (!settings.country || settings.country === 'all')
+        ) {
+            var selectedCompetitions = settings.competitions || [];
+
+            if (selectedCompetitions.length > 0) {
+                filtered = filtered.filter(function(item) {
+                    return item.competitions.some(function(competition) {
+                        return selectedCompetitions.indexOf(competition) !== -1;
+                    });
                 });
-            });
+            }
         }
+
+        /* ALL CONTINENTS Preserve the old behaviour: competitions can be used globally.  */
+        if (!settings.continent || settings.continent === 'all') {
+            var allCompetitions = settings.competitions || [];
+
+            if (allCompetitions.length > 0) {
+                filtered = filtered.filter(function(item) {
+                    return item.competitions.some(function(competition) {
+                        return allCompetitions.indexOf(competition) !== -1;
+                    });
+                });
+            }
+        }
+
+        return filtered.map(function(item) {
+            return item.id;
+        });
     }
-    return filtered.map(function(item) {
-        return item.id;
-    });
-}
 });
+
+var countriesByContinent = {
+    Europe: [
+        { value: 'Spain', name: 'Spain' },
+        { value: 'England', name: 'England' },
+        { value: 'Italy', name: 'Italy' },
+        { value: 'France', name: 'France' },
+        { value: 'Germany', name: 'Germany' },
+        { value: 'Netherlands', name: 'Netherlands' },
+        { value: 'Portugal', name: 'Portugal' },
+        { value: 'Türkiye', name: 'Türkiye' },
+        { value: 'Belgium', name: 'Belgium' },
+        { value: 'Scotland', name: 'Scotland' }
+    ],
+
+    America: [
+        { value: 'Brazil', name: 'Brazil' },
+        { value: 'Argentina', name: 'Argentina' },
+        { value: 'Mexico', name: 'Mexico' }
+    ]
+};
 
 var pickerUI = new PickerUI(myPicker, {
     elements: {
@@ -913,6 +1067,8 @@ onUpdate: function() {
 
 pickerUI.initialize();
 var currentSettings = myPicker.getSettings();
+document.getElementById('continent-filter').value = currentSettings.continent || 'all';
+updateCountryOptions();
 document.getElementById('country-filter').value = currentSettings.country || 'all';
 document.getElementById('batch-size').value =
     currentSettings.minBatchSize || 5;
@@ -928,6 +1084,42 @@ document.querySelectorAll('.division-filter').forEach(function(checkbox) {
 
 updateFilterVisibility();
 updateDivisionNames();
+    
+function updateCountryOptions() {
+    var continent = document.getElementById('continent-filter').value;
+    var countrySelect = document.getElementById('country-filter');
+
+    var currentCountry = countrySelect.value;
+
+    countrySelect.innerHTML = '';
+
+    var allOption = document.createElement('option');
+    allOption.value = 'all';
+    allOption.textContent = 'All Countries';
+    countrySelect.appendChild(allOption);
+
+    if (countriesByContinent[continent]) {
+        countriesByContinent[continent].forEach(function(country) {
+            var option = document.createElement('option');
+
+            option.value = country.value;
+            option.textContent = country.name;
+
+            countrySelect.appendChild(option);
+        });
+    }
+
+    /* If the previously selected country still belongs to the selected continent, preserve it. */
+    var countryExists = Array.from(countrySelect.options).some(function(option) {
+        return option.value === currentCountry;
+    });
+
+    if (countryExists) {
+        countrySelect.value = currentCountry;
+    } else {
+        countrySelect.value = 'all';
+    }
+}
 
 document.getElementById('batch-size').addEventListener('change', function() {
     var size = parseInt(this.value);
@@ -937,37 +1129,78 @@ document.getElementById('batch-size').addEventListener('change', function() {
     myPicker.setSettings(settings);
     pickerUI.update(true);
 });
-document.getElementById('country-filter').addEventListener('change', function() {
+    
+document.getElementById('continent-filter').addEventListener('change', function() {
+    var settings = myPicker.getSettings();
+
+    settings.continent = this.value;
+    settings.country = 'all';
+
+    settings.competitions = [];
+    settings.divisions = [];
+
+    document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
+        checkbox.checked = false;
+    });
+
+    document.querySelectorAll('.division-filter').forEach(function(checkbox) {
+        checkbox.checked = false;
+    });
+
+    myPicker.setSettings(settings);
+    updateCountryOptions();
+    updateFilterVisibility();
+    updateDivisionNames();
+    pickerUI.update(true);
+});
+    
+    document.getElementById('country-filter').addEventListener('change', function() {
     var settings = myPicker.getSettings();
     settings.country = this.value;
+
     if (this.value !== 'all') {
         settings.competitions = [];
         document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
             checkbox.checked = false;
         });
     }
+
     if (this.value === 'all') {
         settings.divisions = [];
-
         document.querySelectorAll('.division-filter').forEach(function(checkbox) {
             checkbox.checked = false;
         });
     }
+
     myPicker.setSettings(settings);
-    pickerUI.update(true);
     updateFilterVisibility();
     updateDivisionNames();
+    pickerUI.update(true);
 });
 function updateFilterVisibility() {
+    var continent = document.getElementById('continent-filter').value;
     var country = document.getElementById('country-filter').value;
 
-    if (country === 'all') {
-        document.getElementById('competition-filters').style.display = 'inline';
-        document.getElementById('division-filters').style.display = 'none';
-    } else {
-        document.getElementById('competition-filters').style.display = 'none';
-        document.getElementById('division-filters').style.display = 'inline';
+    var competitionFilters = document.getElementById('competition-filters');
+    var divisionFilters = document.getElementById('division-filters');
+
+    /* A specific country: show divisions. */
+    if (country !== 'all') {
+        competitionFilters.style.display = 'none';
+        divisionFilters.style.display = 'inline';
+        return;
     }
+
+    /* Europe without a specific country: show European competitions. */
+    if (continent === 'Europe') {
+        competitionFilters.style.display = 'inline';
+        divisionFilters.style.display = 'none';
+        return;
+    }
+
+    /* All continents or America without a country: no division filters. */
+    competitionFilters.style.display = 'none';
+    divisionFilters.style.display = 'none';
 }
 function updateDivisionNames() {
     var country = document.getElementById('country-filter').value;
@@ -977,60 +1210,94 @@ function updateDivisionNames() {
             first: 'Primera División',
             second: 'Segunda División'
         },
+
         England: {
             first: 'Premier League',
             second: 'Championship'
         },
+
         Italy: {
             first: 'Serie A',
             second: 'Serie B'
         },
+
         Germany: {
             first: 'Bundesliga',
             second: '2. Bundesliga'
         },
+
         France: {
             first: 'Ligue 1',
             second: 'Ligue 2'
         },
+
         Netherlands: {
             first: 'Eredivisie'
         },
+
         Portugal: {
             first: 'Primeira Liga'
         },
+
         Türkiye: {
             first: 'Süper Lig'
         },
+
         Belgium: {
             first: 'Belgian Pro League'
+        },
+
+        Scotland: {
+            first: 'Scottish Premiership'
+        },
+
+        Brazil: {
+            first: 'Brasileirão Série A'
+        },
+
+        Argentina: {
+            first: 'Primera División'
+        },
+
+        Mexico: {
+            first: 'Liga MX'
         }
     };
 
     var names = divisionNames[country];
-
     if (names) {
-        document.getElementById('first-division-name').textContent = names.first;
+        document.getElementById('first-division-name').textContent =
+            names.first;
 
         if (names.second) {
-            document.getElementById('second-division-name').textContent = names.second;
+            document.getElementById('second-division-name').textContent =
+                names.second;
+        } else {
+            document.getElementById('second-division-name').textContent =
+                'Second Division';
         }
     } else {
-        document.getElementById('first-division-name').textContent = 'First Division';
-        document.getElementById('second-division-name').textContent = 'Second Division';
+        document.getElementById('first-division-name').textContent =
+            'First Division';
+
+        document.getElementById('second-division-name').textContent =
+            'Second Division';
     }
 
     var singleDivisionCountries = [
         'Netherlands',
         'Portugal',
         'Türkiye',
-        'Belgium'
+        'Belgium',
+        'Scotland',
+        'Brazil',
+        'Argentina',
+        'Mexico'
     ];
 
     if (singleDivisionCountries.indexOf(country) !== -1) {
         document.getElementById('second-division-filter').style.display = 'none';
 
-        /* Make sure the hidden division cannot remain selected*/
         var secondDivision = document.querySelector(
             '#second-division-filter input'
         );
@@ -1038,6 +1305,7 @@ function updateDivisionNames() {
         if (secondDivision) {
             secondDivision.checked = false;
         }
+
         var settings = myPicker.getSettings();
         settings.divisions = (settings.divisions || []).filter(function(division) {
             return division !== 'Second Division';
@@ -1214,7 +1482,7 @@ function saveWinRateComparisons() {
 function saveWinRateCompetition() {
 
     localStorage.setItem(
-        'football-winrate-competition',
+    'football-winrate-competition',
         document.getElementById('winrate-competition').value
     );
 }
