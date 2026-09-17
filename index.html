@@ -1233,34 +1233,27 @@ getFilteredItems: function(settings) {
             return item.continent === settings.continent;
         });
     }
-
     var selectedLeagues = settings.leagues || [];
     var selectedCompetitions = settings.competitions || [];
-
     var hasLeagueFilters = selectedLeagues.length > 0;
     var hasCompetitionFilters = selectedCompetitions.length > 0;
-
     if (hasLeagueFilters || hasCompetitionFilters) {
         filtered = filtered.filter(function(item) {
             var matchesLeague =
                 hasLeagueFilters &&
                 selectedLeagues.indexOf(item.league) !== -1;
-
             var matchesCompetition =
                 hasCompetitionFilters &&
                 item.competitions.some(function(competition) {
                     return selectedCompetitions.indexOf(competition) !== -1;
                 });
-
-            // Los filtros funcionan mediante OR.
             return matchesLeague || matchesCompetition;
         });
     }
-
     return filtered.map(function(item) {
         return item.id;
     });
-},
+}
 
 var pickerUI = new PickerUI(myPicker, {
     elements: {
