@@ -1228,14 +1228,12 @@ defaultSettings: {
 getFilteredItems: function(settings) {
     var filtered = items;
 
-    /* CONTINENT */
     if (settings.continent && settings.continent !== 'all') {
         filtered = filtered.filter(function(item) {
             return item.continent === settings.continent;
         });
     }
 
-    /* LEAGUES + COMPETITIONS All selected filters work as OR. */
     var selectedLeagues = settings.leagues || [];
     var selectedCompetitions = settings.competitions || [];
 
@@ -1244,15 +1242,17 @@ getFilteredItems: function(settings) {
 
     if (hasLeagueFilters || hasCompetitionFilters) {
         filtered = filtered.filter(function(item) {
-
-            var matchesLeague = hasLeagueFilters &&
+            var matchesLeague =
+                hasLeagueFilters &&
                 selectedLeagues.indexOf(item.league) !== -1;
 
-            var matchesCompetition = hasCompetitionFilters &&
+            var matchesCompetition =
+                hasCompetitionFilters &&
                 item.competitions.some(function(competition) {
                     return selectedCompetitions.indexOf(competition) !== -1;
                 });
 
+            // Los filtros funcionan mediante OR.
             return matchesLeague || matchesCompetition;
         });
     }
@@ -1260,8 +1260,8 @@ getFilteredItems: function(settings) {
     return filtered.map(function(item) {
         return item.id;
     });
-}
-});
+},
+
 var countriesByContinent = {
     Europe: [
         { value: 'Spain', name: 'Spain' },
@@ -1361,69 +1361,48 @@ document.querySelectorAll('.league-filter').forEach(function(checkbox) {
         (currentSettings.leagues || []).indexOf(checkbox.value) !== -1;
 });
 
-updateCompetitionVisibility();
-updateLeagueVisibility();
 function updateCompetitionVisibility() {
-    var continent = document.querySelector(
-        'input[name="continent"]:checked'
-    ).value;
+    var selectedContinent = document.querySelector('input[name="continent"]:checked').value;
 
     document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
         var show = true;
 
-        if (continent === 'Europe') {
+        if (selectedContinent === 'Europe') {
             show = checkbox.value !== 'Copa Libertadores';
         }
 
-        if (continent === 'America') {
+        if (selectedContinent === 'America') {
             show = checkbox.value === 'Copa Libertadores';
         }
 
         checkbox.parentElement.style.display = show ? 'block' : 'none';
-
         if (!show) {
             checkbox.checked = false;
         }
     });
 
     var settings = myPicker.getSettings();
-
     settings.competitions = [];
-
     document.querySelectorAll('.competition-filter:checked').forEach(function(checkbox) {
         settings.competitions.push(checkbox.value);
     });
-
     myPicker.setSettings(settings);
 }
-    
-   
-document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
-    checkbox.addEventListener('change', function() {
-        var settings = myPicker.getSettings();
-        settings.competitions = [];
-        document.querySelectorAll('.competition-filter:checked').forEach(function(checked) {
-            settings.competitions.push(checked.value);
-        });
 
-        myPicker.setSettings(settings);
-        pickerUI.update(true);
+function updateLeagueVisibility() {
+    var selectedContinent = document.querySelector('input[name="continent"]:checked').value;
+    document.querySelectorAll('.league-country').forEach(function(countryColumn) {
+        var countryContinent = countryColumn.dataset.continent;
+        if (selectedContinent === 'all') {
+            countryColumn.style.display = '';
+        } else {
+            countryColumn.style.display =
+                countryContinent === selectedContinent ? '' : 'none';
+        }
     });
-});
-document.querySelectorAll('.league-filter').forEach(function(checkbox) {
-    checkbox.addEventListener('change', function() {
-        var settings = myPicker.getSettings();
-
-        settings.leagues = [];
-
-        document.querySelectorAll('.league-filter:checked').forEach(function(checked) {
-            settings.leagues.push(checked.value);
-        });
-
-        myPicker.setSettings(settings);
-        pickerUI.update(true);
-    });
-});
+}
+updateCompetitionVisibility();
+updateLeagueVisibility();
 document.getElementById('reset').addEventListener('click', function() {
     var confirmReset = confirm(
         'Cuidado: perderás el ranking actual y todo el progreso.\n\n¿Estás seguro de que quieres reiniciar?'
