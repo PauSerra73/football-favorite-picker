@@ -1329,9 +1329,29 @@ document.querySelectorAll('.league-filter').forEach(function(checkbox) {
         pickerUI.update(true);
     });
 });
-document.querySelectorAll('.league-filter').forEach(function(checkbox) {
+
+document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+        var settings = myPicker.getSettings();
+
+        settings.competitions = [];
+
+        document.querySelectorAll('.competition-filter:checked').forEach(function(checked) {
+            settings.competitions.push(checked.value);
+        });
+
+        myPicker.setSettings(settings);
+        pickerUI.update(true);
+    });
+});
+
+    document.querySelectorAll('.league-filter').forEach(function(checkbox) {
     checkbox.checked =
         (currentSettings.leagues || []).indexOf(checkbox.value) !== -1;
+});
+document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
+    checkbox.checked =
+        (currentSettings.competitions || []).indexOf(checkbox.value) !== -1;
 });
 
 function updateCompetitionVisibility() {
