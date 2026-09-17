@@ -159,16 +159,24 @@ button.disabled:hover {
 }
 
 #continent-filter,
-#competition-filters,
-#league-filters {
-    margin-bottom:15px;
+#competition-filters {
+    margin-bottom: 10px;
+}
+
+#continent-filter strong,
+#competition-filters strong {
+    display: block;
+    margin-bottom: 5px;
 }
 
 #continent-filter label,
-#competition-filters label,
-.league-country label {
-    display:block;
-    margin-top:4px;
+#competition-filters label {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+#league-filters {
+    margin-bottom:15px;
 }
 
 .league-grid {
@@ -419,50 +427,21 @@ button.disabled:hover {
 
     <div id="continent-filter">
         <strong>Continent:</strong>
-
-        <label>
-            <input type="radio" name="continent" value="all" checked>
-            All Continents
-        </label>
-
-        <label>
-            <input type="radio" name="continent" value="Europe">
-            Europe
-        </label>
-
-        <label>
-            <input type="radio" name="continent" value="America">
-            America
-        </label>
+        <label><input type="radio" name="continent" value="all" checked>All Continents</label>
+        <label><input type="radio" name="continent" value="Europe">Europe</label>
+        <label><input type="radio" name="continent" value="America">America</label>
     </div>
 
     <div id="competition-filters">
         <strong>Competitions:</strong>
-
-        <label>
-            <input type="checkbox" class="competition-filter" value="Champions League">
-            Champions League
-        </label>
-
-        <label>
-            <input type="checkbox" class="competition-filter" value="Europa League">
-            Europa League
-        </label>
-
-        <label>
-            <input type="checkbox" class="competition-filter" value="Conference League">
-            Conference League
-        </label>
-
-        <label>
-            <input type="checkbox" class="competition-filter" value="Copa Libertadores">
-            Copa Libertadores
-        </label>
+        <label><input type="checkbox" class="competition-filter" value="Champions League">Champions League</label>
+        <label><input type="checkbox" class="competition-filter" value="Europa League">Europa League</label>
+        <label><input type="checkbox" class="competition-filter" value="Conference League">Conference League</label>
+        <label><input type="checkbox" class="competition-filter" value="Copa Libertadores">Copa Libertadores</label>
     </div>
-
+  
     <div id="league-filters">
         <strong>Leagues:</strong>
-
         <div class="league-grid">
 
             <div class="league-country" data-continent="Europe" data-country="England">
