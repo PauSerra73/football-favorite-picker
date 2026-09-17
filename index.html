@@ -1335,9 +1335,7 @@ document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
 });
 
 function updateCompetitionVisibility() {
-    var selectedContinent = document.querySelector(
-        'input[name="continent"]:checked'
-    ).value;
+    var selectedContinent = document.querySelector('input[name="continent"]:checked').value;
 
     document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
         var show = true;
@@ -1350,14 +1348,16 @@ function updateCompetitionVisibility() {
             show = checkbox.value === 'Copa Libertadores';
         }
 
-        checkbox.parentElement.style.display = show ? 'block' : 'none';
-        // Si la competición deja de estar disponible, también se desmarca.
+        // Ocultar o mostrar la opción
+        checkbox.parentElement.style.display = show ? '' : 'none';
+
+        // Si deja de estar disponible, desmarcarla
         if (!show) {
             checkbox.checked = false;
         }
     });
 
-    // Reconstruimos la lista de competiciones activas después de haber desmarcado las que no corresponden.
+    // Actualizar las competiciones activas
     var settings = myPicker.getSettings();
     settings.competitions = [];
 
@@ -1370,15 +1370,31 @@ function updateCompetitionVisibility() {
 
 function updateLeagueVisibility() {
     var selectedContinent = document.querySelector('input[name="continent"]:checked').value;
+
     document.querySelectorAll('.league-country').forEach(function(countryColumn) {
         var countryContinent = countryColumn.dataset.continent;
-        if (selectedContinent === 'all') {
-            countryColumn.style.display = '';
-        } else {
-            countryColumn.style.display =
-                countryContinent === selectedContinent ? '' : 'none';
+        var show = selectedContinent === 'all' || countryContinent === selectedContinent;
+
+        // Mostrar u ocultar el país
+        countryColumn.style.display = show ? '' : 'none';
+
+        // Si el país deja de estar disponible, desmarcar todas sus ligas.
+        if (!show) {
+            countryColumn.querySelectorAll('.league-filter').forEach(function(checkbox) {
+                checkbox.checked = false;
+            });
         }
     });
+
+    // Reconstruir la lista de ligas activas
+    var settings = myPicker.getSettings();
+    settings.leagues = [];
+
+    document.querySelectorAll('.league-filter:checked').forEach(function(checkbox) {
+        settings.leagues.push(checkbox.value);
+    });
+
+    myPicker.setSettings(settings);
 }
 updateCompetitionVisibility();
 updateLeagueVisibility();
