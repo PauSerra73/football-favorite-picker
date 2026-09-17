@@ -1335,7 +1335,9 @@ document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
 });
 
 function updateCompetitionVisibility() {
-    var selectedContinent = document.querySelector('input[name="continent"]:checked').value;
+    var selectedContinent = document.querySelector(
+        'input[name="continent"]:checked'
+    ).value;
 
     document.querySelectorAll('.competition-filter').forEach(function(checkbox) {
         var show = true;
@@ -1349,16 +1351,20 @@ function updateCompetitionVisibility() {
         }
 
         checkbox.parentElement.style.display = show ? 'block' : 'none';
+        // Si la competición deja de estar disponible, también se desmarca.
         if (!show) {
             checkbox.checked = false;
         }
     });
 
+    // Reconstruimos la lista de competiciones activas después de haber desmarcado las que no corresponden.
     var settings = myPicker.getSettings();
     settings.competitions = [];
+
     document.querySelectorAll('.competition-filter:checked').forEach(function(checkbox) {
         settings.competitions.push(checkbox.value);
     });
+
     myPicker.setSettings(settings);
 }
 
