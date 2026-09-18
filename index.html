@@ -102,6 +102,10 @@ button.disabled:hover {
     list-style-type:none;
     line-height:100px;
 }
+.league-country label {
+    display:block;
+    margin-bottom:5px;
+}
 
 .item-list li {
     margin:0;
@@ -171,8 +175,8 @@ button.disabled:hover {
 
 #continent-filter label,
 #competition-filters label {
-    display: inline-flex !important;
-    width: auto !important;
+    display: inline-flex;
+    width: auto;
     margin-right: 15px;
     align-items: center;
 }
@@ -1349,7 +1353,7 @@ function updateCompetitionVisibility() {
         }
 
         // Ocultar o mostrar la opción
-        checkbox.parentElement.style.display = show ? '' : 'none';
+        checkbox.parentElement.style.display = show ? 'inline-flex' : 'none';
 
         // Si deja de estar disponible, desmarcarla
         if (!show) {
