@@ -1156,26 +1156,25 @@ function updateCompetitionVisibility() {
         var show = true;
 
         if (selectedContinent === 'Europe') {
-            show = checkbox.value !== 'Copa Libertadores';
+            show =
+                checkbox.value !== 'Copa Libertadores' &&
+                checkbox.value !== 'Copa Sudamericana';
         }
 
         if (selectedContinent === 'America') {
-            show = checkbox.value === 'Copa Libertadores';
+            show =
+                checkbox.value === 'Copa Libertadores' ||
+                checkbox.value === 'Copa Sudamericana';
         }
 
-        // Ocultar o mostrar la opción
         checkbox.parentElement.style.display = show ? 'inline-flex' : 'none';
 
-        // Si deja de estar disponible, desmarcarla
         if (!show) {
             checkbox.checked = false;
         }
     });
-
-    // Actualizar las competiciones activas
     var settings = myPicker.getSettings();
     settings.competitions = [];
-
     document.querySelectorAll('.competition-filter:checked').forEach(function(checkbox) {
         settings.competitions.push(checkbox.value);
     });
