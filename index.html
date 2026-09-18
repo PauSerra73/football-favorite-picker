@@ -428,6 +428,20 @@ button.disabled:hover {
 <p id="remaining"></p>
 
 <div id="settings">
+ <br>
+    Batch size:
+    <select id="batch-size">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+    </select>
+
+    <button id="reset">Reset</button>
+</div>
+
 <div id="filters">
 
     <div id="continent-filter">
@@ -451,26 +465,13 @@ button.disabled:hover {
 
             <div class="league-country" data-continent="Europe" data-country="England">
                 <strong>England</strong>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="england-premier">
-                    Premier League
-                </label>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="england-championship">
-                    Championship
-                </label>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="england-others">
-                    Others
-                </label>
+                <label><input type="checkbox" class="league-filter" value="england-premier">Premier League</label>
+                <label><input type="checkbox" class="league-filter" value="england-championship">Championship</label>
+                <label><input type="checkbox" class="league-filter" value="england-others">Others</label>
             </div>
 
             <div class="league-country" data-continent="Europe" data-country="Spain">
                 <strong>Spain</strong>
-
                 <label><input type="checkbox" class="league-filter" value="spain-first">LaLiga</label>
                 <label><input type="checkbox" class="league-filter" value="spain-second">LaLiga2</label>
                 <label><input type="checkbox" class="league-filter" value="spain-others">Others</label>
@@ -478,153 +479,76 @@ button.disabled:hover {
 
             <div class="league-country" data-continent="Europe" data-country="Italy">
                 <strong>Italy</strong>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="italy-first">
-                    Serie A
-                </label>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="italy-second">
-                    Serie B
-                </label>
+                <label><input type="checkbox" class="league-filter" value="italy-first">Serie A</label>
+                <label><input type="checkbox" class="league-filter" value="italy-second">Serie B</label>
             </div>
 
             <div class="league-country" data-continent="Europe" data-country="Germany">
                 <strong>Germany</strong>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="germany-first">
-                    Bundesliga
-                </label>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="germany-second">
-                    2. Bundesliga
-                </label>
+                <label><input type="checkbox" class="league-filter" value="germany-first">Bundesliga</label>
+                <label><input type="checkbox" class="league-filter" value="germany-second">2. Bundesliga</label>
             </div>
 
             <div class="league-country" data-continent="Europe" data-country="France">
                 <strong>France</strong>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="france-first">
-                    Ligue 1
-                </label>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="france-second">
-                    Ligue 2
-                </label>
+                <label><input type="checkbox" class="league-filter" value="france-first">Ligue 1</label>
+                <label><input type="checkbox" class="league-filter" value="france-second">Ligue 2</label>
             </div>
 
             <div class="league-country" data-continent="Europe" data-country="Netherlands">
                 <strong>Netherlands</strong>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="netherlands-first">
-                    Eredivisie
-                </label>
+                <label><input type="checkbox" class="league-filter" value="netherlands-first">Eredivisie</label>
             </div>
 
             <div class="league-country" data-continent="Europe" data-country="Portugal">
                 <strong>Portugal</strong>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="portugal-first">
-                    Primeira Liga
-                </label>
+                <label><input type="checkbox" class="league-filter" value="portugal-first">Primeira Liga</label>
             </div>
 
             <div class="league-country" data-continent="Europe" data-country="Türkiye">
                 <strong>Türkiye</strong>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="türkiye-first">
-                    Süper Lig
-                </label>
+                <label><input type="checkbox" class="league-filter" value="türkiye-first">Süper Lig</label>
             </div>
 
             <div class="league-country" data-continent="Europe" data-country="Belgium">
                 <strong>Belgium</strong>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="belgium-first">
-                    Belgian Pro League
-                </label>
+                <label><input type="checkbox" class="league-filter" value="belgium-first">Pro League</label>
             </div>
         
             <div class="league-country" data-continent="Europe" data-country="Scotland">
                 <strong>Scotland</strong>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="scotland-first">
-                    Scottish Premiership
-                </label>
+                <label><input type="checkbox" class="league-filter" value="scotland-first">Scottish Premiership</label>
             </div>
 
             <div class="league-country" data-continent="America" data-country="Brazil">
                 <strong>Brazil</strong>
-
                 <label>
-                    <input type="checkbox" class="league-filter" value="brazil-first">
-                    Brasileirão Série A
-                </label>
+                    <input type="checkbox" class="league-filter" value="brazil-first">Brasileirão Série A</label>
             </div>
 
             <div class="league-country" data-continent="America" data-country="Argentina">
                 <strong>Argentina</strong>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="argentina-first">
-                    Primera División
-                </label>
+                <label><input type="checkbox" class="league-filter" value="argentina-first">Liga Profesional</label>
             </div>
 
             <div class="league-country" data-continent="America" data-country="Mexico">
                 <strong>Mexico</strong>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="mexico-first">
-                    Liga MX
-                </label>
+                <label><input type="checkbox" class="league-filter" value="mexico-first">Liga MX</label>
             </div>
 
             <div class="league-country" data-continent="Europe" data-country="Others Europe">
                 <strong>Others Europe</strong>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="others-europe">
-                    Others Europe
-                </label>
+                <label><input type="checkbox" class="league-filter" value="others-europe">Others Europe</label>
             </div>
 
             <div class="league-country" data-continent="America" data-country="Others America">
                 <strong>Others America</strong>
-
-                <label>
-                    <input type="checkbox" class="league-filter" value="others-america">
-                    Others America
-                </label>
+                <label><input type="checkbox" class="league-filter" value="others-america">Others America</label>
             </div>
 
         </div>
     </div>
 
-</div>
-
-    <br>
-    Batch size:
-    <select id="batch-size">
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="20">20</option>
-    </select>
-
-    <button id="reset">Reset</button>
 </div>
 </div>
 
