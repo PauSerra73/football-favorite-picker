@@ -1024,10 +1024,10 @@ getFilteredItems: function(settings) {
     var filtered = items;
 
     if (settings.continent && settings.continent !== 'all') {
-        filtered = filtered.filter(function(item) {
-            return item.continent === settings.continent;
-        });
-    }
+    filtered = filtered.filter(function(item) {
+        return leagueContinents[item.league] === settings.continent;
+    });
+}
     var selectedLeagues = settings.leagues || [];
     var selectedCompetitions = settings.competitions || [];
     var hasLeagueFilters = selectedLeagues.length > 0;
