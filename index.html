@@ -379,52 +379,25 @@ button.disabled:hover {
                 <label><input type="checkbox" class="league-filter" value="france-second">Ligue 2</label>
             </div>
 
-            <div class="league-country" data-continent="Europe" data-country="Netherlands">
-                <strong>Netherlands</strong>
-                <label><input type="checkbox" class="league-filter" value="netherlands-first">Eredivisie</label>
-            </div>
-
-            <div class="league-country" data-continent="Europe" data-country="Portugal">
-                <strong>Portugal</strong>
-                <label><input type="checkbox" class="league-filter" value="portugal-first">Primeira Liga</label>
-            </div>
-
-            <div class="league-country" data-continent="Europe" data-country="Türkiye">
-                <strong>Türkiye</strong>
-                <label><input type="checkbox" class="league-filter" value="türkiye-first">Süper Lig</label>
-            </div>
-
-            <div class="league-country" data-continent="Europe" data-country="Belgium">
-                <strong>Belgium</strong>
-                <label><input type="checkbox" class="league-filter" value="belgium-first">Pro League</label>
-            </div>
-        
-            <div class="league-country" data-continent="Europe" data-country="Scotland">
-                <strong>Scotland</strong>
-                <label><input type="checkbox" class="league-filter" value="scotland-first">Scottish Premiership</label>
-            </div>
-
-            <div class="league-country" data-continent="America" data-country="Brazil">
-                <strong>Brazil</strong>
-                <label>
-                    <input type="checkbox" class="league-filter" value="brazil-first">Brasileirão Série A</label>
-            </div>
-
-            <div class="league-country" data-continent="America" data-country="Argentina">
-                <strong>Argentina</strong>
-                <label><input type="checkbox" class="league-filter" value="argentina-first">Liga Profesional</label>
-            </div>
-
-            <div class="league-country" data-continent="America" data-country="Mexico">
-                <strong>Mexico</strong>
-                <label><input type="checkbox" class="league-filter" value="mexico-first">Liga MX</label>
-            </div>
+            <div class="league-country" data-continent="Europe">
+    <strong>Single-division leagues</strong>
+    <label><input type="checkbox" class="league-filter" value="netherlands-first">Eredivisie</label>
+    <label><input type="checkbox" class="league-filter" value="portugal-first">Primeira Liga</label>
+    <label><input type="checkbox" class="league-filter" value="belgium-first">Pro League</label>
+    <label><input type="checkbox" class="league-filter" value="türkye-first">Süper Lig</label>
+    <label><input type="checkbox" class="league-filter" value="scotland-first">Scottish Premiership</label>
+</div>
+         <div class="league-country" data-continent="Europe">
+    <strong>American leagues</strong>
+    <label><input type="checkbox" class="league-filter" value="brazil-first">Brasileirão</label>
+    <label><input type="checkbox" class="league-filter" value="argentina-first">Liga Profesional</label>
+    <label><input type="checkbox" class="league-filter" value="mexico-first">Liga MX</label>
+</div>
 
             <div class="league-country" data-continent="Europe" data-country="Others Europe">
                 <strong>Others Europe</strong>
                 <label><input type="checkbox" class="league-filter" value="others-europe">Others Europe</label>
             </div>
-
             <div class="league-country" data-continent="America" data-country="Others America">
                 <strong>Others America</strong>
                 <label><input type="checkbox" class="league-filter" value="others-america">Others America</label>
@@ -881,32 +854,39 @@ var items = [
     
     /* Otros */
     {id: 'Medellín', name: 'Deportivo Independiente Medellín', image: 'images/dim.png', continent: 'America', country: 'Colombia', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'Always Ready', name: 'Always Ready', image: 'images/always_ready.png', continent: 'America', country: 'Bolivia', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'BarcelonaSC', name: 'Barcelona SC', image: 'images/barcelonasc.png', continent: 'America', country: 'Ecuador', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'Cusco', name: 'Cusco', image: 'images/cusco.png', continent: 'America', country: 'Perú', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'Coquimbo Unido', name: 'Coquimbo Unido', image: 'images/coquimbo.png', continent: 'America', country: 'Chile', league: 'others-america', competitions: ['Copa Libertadores']},
     {id: 'Tolima', name: 'Tolima', image: 'images/tolima.png', continent: 'America', country: 'Colombia', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'NacionalUruguay', name: 'Nacional', image: 'images/nacionaluruguay.png', continent: 'America', country: 'Uruguay', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'Universitario', name: 'Universitario', image: 'images/universitario.png', continent: 'America', country: 'Perú', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'Bolívar', name: 'Bolívar', image: 'images/bolivar.png', continent: 'America', country: 'Bolivia', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'Guaira', name: 'D. La Guaira', image: 'images/laguaira.png', continent: 'America', country: 'Venezuela', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'U. Católica', name: 'U. Católica', image: 'images/ucatolica.png', continent: 'America', country: 'Chile', league: 'others-america', competitions: ['Copa Libertadores']},
     {id: 'Santa Fe', name: 'Santa Fe', image: 'images/santafe.png', continent: 'America', country: 'Colombia', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'Peñarol', name: 'Peñarol', image: 'images/penarol.png', continent: 'America', country: 'Uruguay', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'Sporting Cristal', name: 'Sporting Cristal', image: 'images/sportingcristal.png', continent: 'America', country: 'Perú', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'Junior', name: 'Junior', image: 'images/junior.png', continent: 'America', country: 'Colombia', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'LDU Quito', name: 'LDU Quito', image: 'images/ligadequito.png', continent: 'America', country: 'Ecuador', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'IndependienteDV', name: 'Independiente del Valle', image: 'images/independientedv.png', continent: 'America', country: 'Ecuador', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'Universidad Central', name: 'Universidad Central', image: 'images/univcentral.png', continent: 'America', country: 'Venezuela', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'Libertad', name: 'Libertad', image: 'images/libertad.png', continent: 'America', country: 'Paraguay', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'Cerro Porteño', name: 'Cerro Porteño', image: 'images/cerroporteno.png', continent: 'America', country: 'Paraguay', league: 'others-america', competitions: ['Copa Libertadores']},
-    {id: 'Atlnacional', name: 'Atlético Nacional', image: 'images/atlnacional.png', continent: 'America', country: 'Colombia', league: 'others-america', competitions: []},
-    {id: 'Colo Colo', name: 'Colo Colo', image: 'images/colocolo.png', continent: 'America', country: 'Chile', league: 'others-america', competitions: []},
     {id: 'DepCali', name: 'Deportivo Cali', image: 'images/depcali.png', continent: 'America', country: 'Colombia', league: 'others-america', competitions: []},
     {id: 'Millonarios', name: 'Millonarios', image: 'images/millonarios.png', continent: 'America', country: 'Colombia', league: 'others-america', competitions: []},
+    {id: 'Atlnacional', name: 'Atlético Nacional', image: 'images/atlnacional.png', continent: 'America', country: 'Colombia', league: 'others-america', competitions: []},
+    {id: 'Junior', name: 'Junior', image: 'images/junior.png', continent: 'America', country: 'Colombia', league: 'others-america', competitions: ['Copa Libertadores']},
+
+    {id: 'Coquimbo Unido', name: 'Coquimbo Unido', image: 'images/coquimbo.png', continent: 'America', country: 'Chile', league: 'others-america', competitions: ['Copa Libertadores']},
+    {id: 'U. Católica', name: 'U. Católica', image: 'images/ucatolica.png', continent: 'America', country: 'Chile', league: 'others-america', competitions: ['Copa Libertadores']},
+    {id: 'Colo Colo', name: 'Colo Colo', image: 'images/colocolo.png', continent: 'America', country: 'Chile', league: 'others-america', competitions: []},
     {id: 'UdeChile', name: 'Universidad de Chile', image: 'images/udechile.png', continent: 'America', country: 'Chile', league: 'others-america', competitions: []},
     
+    {id: 'Always Ready', name: 'Always Ready', image: 'images/always_ready.png', continent: 'America', country: 'Bolivia', league: 'others-america', competitions: ['Copa Libertadores']},
+    {id: 'Bolívar', name: 'Bolívar', image: 'images/bolivar.png', continent: 'America', country: 'Bolivia', league: 'others-america', competitions: ['Copa Libertadores']},
     
+    {id: 'BarcelonaSC', name: 'Barcelona SC', image: 'images/barcelonasc.png', continent: 'America', country: 'Ecuador', league: 'others-america', competitions: ['Copa Libertadores']},
+    {id: 'LDU Quito', name: 'LDU Quito', image: 'images/ligadequito.png', continent: 'America', country: 'Ecuador', league: 'others-america', competitions: ['Copa Libertadores']},
+    {id: 'IndependienteDV', name: 'Independiente del Valle', image: 'images/independientedv.png', continent: 'America', country: 'Ecuador', league: 'others-america', competitions: ['Copa Libertadores']},
+
+    {id: 'Peñarol', name: 'Peñarol', image: 'images/penarol.png', continent: 'America', country: 'Uruguay', league: 'others-america', competitions: ['Copa Libertadores']},
+    {id: 'NacionalUruguay', name: 'Nacional', image: 'images/nacionaluruguay.png', continent: 'America', country: 'Uruguay', league: 'others-america', competitions: ['Copa Libertadores']},
+    
+    {id: 'Cusco', name: 'Cusco', image: 'images/cusco.png', continent: 'America', country: 'Perú', league: 'others-america', competitions: ['Copa Libertadores']},
+    {id: 'Universitario', name: 'Universitario', image: 'images/universitario.png', continent: 'America', country: 'Perú', league: 'others-america', competitions: ['Copa Libertadores']},
+    {id: 'Sporting Cristal', name: 'Sporting Cristal', image: 'images/sportingcristal.png', continent: 'America', country: 'Perú', league: 'others-america', competitions: ['Copa Libertadores']},
+
+    {id: 'Guaira', name: 'D. La Guaira', image: 'images/laguaira.png', continent: 'America', country: 'Venezuela', league: 'others-america', competitions: ['Copa Libertadores']},
+    {id: 'Universidad Central', name: 'Universidad Central', image: 'images/univcentral.png', continent: 'America', country: 'Venezuela', league: 'others-america', competitions: ['Copa Libertadores']},
+    
+    {id: 'Libertad', name: 'Libertad', image: 'images/libertad.png', continent: 'America', country: 'Paraguay', league: 'others-america', competitions: ['Copa Libertadores']},
+    {id: 'Cerro Porteño', name: 'Cerro Porteño', image: 'images/cerroporteno.png', continent: 'America', country: 'Paraguay', league: 'others-america', competitions: ['Copa Libertadores']},
+    
+    /*Otros Europa*/
     {id: 'Jagiellonia', name: 'Jagiellonia Bialystok', image: 'images/jagiellonia.png', continent: 'Europe', country: 'Poland', league: 'others-europe', competitions: ['Europa League']},
     {id: 'Lech Poznan', name: 'Lech Poznan', image: 'images/lechpoznan.png', continent: 'Europe', country: 'Poland', league: 'others-europe', competitions: ['Europa League']},
     
@@ -966,11 +946,12 @@ var items = [
     {id: 'Riga', name: 'Riga FC', image: 'images/riga.png', continent: 'Europe', country: 'Latvia', league: 'others-europe', competitions: ['Conference League']},
 
     {id: 'Inter Miami', name: 'Inter Miami', image: 'images/intermiami.png', continent: 'America', country: 'USA', league: 'others-america', competitions: ['Club World Cup']},
-    {id: 'Al-Ahly', name: 'Al-Ahly', image: 'images/alahly.png', continent: 'Others', country: 'Egypt', league: 'others-world', competitions: ['Club World Cup']},
     {id: 'Seattle Sounders', name: 'Seattle Sounders FC', image: 'images/seattle.png', continent: 'America', country: 'USA', league: 'others-america', competitions: ['Club World Cup']},
+    {id: 'LAFC', name: 'Los Ángeles FC', image: 'images/lafc.png', continent: 'America', country: 'USA', league: 'others-america', competitions: ['Club World Cup']},
+    
+    {id: 'Al-Ahly', name: 'Al-Ahly', image: 'images/alahly.png', continent: 'Others', country: 'Egypt', league: 'others-world', competitions: ['Club World Cup']},
     {id: 'Auckland City', name: 'Auckland City', image: 'images/aucklandcity.png', continent: 'Others', country: 'New Zealand', league: 'others-world', competitions: ['Club World Cup']},
     {id: 'ES Tunis', name: 'ES Tunis', image: 'images/tunis.png', continent: 'Others', country: 'Tunisia', league: 'others-world', competitions: ['Club World Cup']},
-    {id: 'LAFC', name: 'Los Ángeles FC', image: 'images/lafc.png', continent: 'America', country: 'USA', league: 'others-america', competitions: ['Club World Cup']},
     {id: 'Urawa Reds', name: 'Urawa Reds', image: 'images/urawa.png', continent: 'Others', country: 'Japan', league: 'others-world', competitions: ['Club World Cup']},
     {id: 'Mamelodi', name: 'Mamelodi Sundowns', image: 'images/mamelodi.png', continent: 'Others', country: 'Southafrica', league: 'others-world', competitions: ['Club World Cup']},
     {id: 'Ulsan Hyundai', name: 'Ulsan Hyundai', image: 'images/ulsan.png', continent: 'Others', country: 'South Korea', league: 'others-world', competitions: ['Club World Cup']},
