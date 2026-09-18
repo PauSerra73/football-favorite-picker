@@ -453,6 +453,7 @@ button.disabled:hover {
 
     <div id="competition-filters">
         <strong>Competitions:</strong>
+        <label><input type="checkbox" class="competition-filter" value="Club World Cup">Club World Cup</label>
         <label><input type="checkbox" class="competition-filter" value="Champions League">Champions League</label>
         <label><input type="checkbox" class="competition-filter" value="Europa League">Europa League</label>
         <label><input type="checkbox" class="competition-filter" value="Conference League">Conference League</label>
@@ -624,8 +625,8 @@ button.disabled:hover {
 var items = [
     /* España */
     {id: 'Barcelona', name: 'FC Barcelona', image: 'images/barcelona.png', continent: 'Europe', country: 'Spain', league: 'spain-first', competitions: ['Champions League']},
-    {id: 'Real Madrid', name: 'Real Madrid', image: 'images/realmadrid.png', continent: 'Europe', country: 'Spain', league: 'spain-first', competitions: ['Champions League']},
-    {id: 'Atlético Madrid', name: 'Atlético Madrid', image: 'images/atlmadrid.png', continent: 'Europe', country: 'Spain', league: 'spain-first', competitions: ['Champions League']},
+    {id: 'Real Madrid', name: 'Real Madrid', image: 'images/realmadrid.png', continent: 'Europe', country: 'Spain', league: 'spain-first', competitions: ['Club World Cup','Champions League']},
+    {id: 'Atlético Madrid', name: 'Atlético Madrid', image: 'images/atlmadrid.png', continent: 'Europe', country: 'Spain', league: 'spain-first', competitions: ['Champions League','Club World Cup']},
     {id: 'Villarreal', name: 'Villarreal', image: 'images/villarreal.png', continent: 'Europe', country: 'Spain', league: 'spain-first', competitions: ['Champions League']},
     {id: 'Betis', name: 'Real Betis', image: 'images/betis.png', continent: 'Europe', country: 'Spain', league: 'spain-first', competitions: ['Champions League']},
     {id: 'Athletic', name: 'Athletic Club', image: 'images/athletic.png', continent: 'Europe', country: 'Spain', league: 'spain-first', competitions: []},
@@ -689,9 +690,9 @@ var items = [
     {id: 'Ferrol', name: 'Racing de Ferrol', image: 'images/ferrol.png', continent: 'Europe', country: 'Spain', league:'spain-others', competitions: []},
 
     /* Italia */
-    {id: 'Juventus', name: 'Juventus', image: 'images/juventus.png', continent: 'Europe', country: 'Italy', league: 'italy-first', competitions: ['Europa League']},
+    {id: 'Juventus', name: 'Juventus', image: 'images/juventus.png', continent: 'Europe', country: 'Italy', league: 'italy-first', competitions: ['Europa League','Club World Cup']},
     {id: 'AC Milan', name: 'AC Milan', image: 'images/milan.png', continent: 'Europe', country: 'Italy', league: 'italy-first', competitions: ['Europa League']},
-    {id: 'Inter de Milan', name: 'Inter de Milan', image: 'images/inter.png', continent: 'Europe', country: 'Italy', league: 'italy-first', competitions: ['Champions League']},
+    {id: 'Inter de Milan', name: 'Inter de Milan', image: 'images/inter.png', continent: 'Europe', country: 'Italy', league: 'italy-first', competitions: ['Champions League','Club World Cup']},
     {id: 'Napoli', name: 'Napoli', image: 'images/napoli.png', continent: 'Europe', country: 'Italy', league: 'italy-first', competitions: ['Champions League']},
     {id: 'Roma', name: 'AS Roma', image: 'images/roma.png', continent: 'Europe', country: 'Italy', league: 'italy-first', competitions: ['Champions League']},
     {id: 'Lazio', name: 'Lazio', image: 'images/lazio.png', continent: 'Europe', country: 'Italy', league: 'italy-first', competitions: []},
@@ -730,8 +731,8 @@ var items = [
     {id: 'Virtus Entella', name: 'Virtus Entella', image: 'images/virtus_entella.png', continent: 'Europe', country: 'Italy', league: 'italy-second', competitions: []},
 
     /* Alemania */
-    {id: 'Bayern Munchen', name: 'Bayern Munchen', image: 'images/bayernmunchen.png', continent: 'Europe', country: 'Germany', league: 'germany-first', competitions: ['Champions League']},
-    {id: 'Dortmund', name: 'Borussia Dortmund', image: 'images/borussiadortmund.png', continent: 'Europe', country: 'Germany', league: 'germany-first', competitions: ['Champions League']},
+    {id: 'Bayern Munchen', name: 'Bayern Munchen', image: 'images/bayernmunchen.png', continent: 'Europe', country: 'Germany', league: 'germany-first', competitions: ['Champions League','Club World Cup']},
+    {id: 'Dortmund', name: 'Borussia Dortmund', image: 'images/borussiadortmund.png', continent: 'Europe', country: 'Germany', league: 'germany-first', competitions: ['Champions League','Club World Cup']},
     {id: 'Leipzig', name: 'RB Leipzig', image: 'images/rbleipzig.png', continent: 'Europe', country: 'Germany', league: 'germany-first', competitions: ['Champions League']},
     {id: 'Frankfurt', name: 'Eintracht Frankfurt', image: 'images/eintrachtfrankfurt.png', continent: 'Europe', country: 'Germany', league: 'germany-first', competitions: ['Champions League']},
     {id: 'Schalke 04', name: 'Schalke 04', image: 'images/schalke04.png', continent: 'Europe', country: 'Germany', league: 'germany-first', competitions: []},
@@ -772,8 +773,8 @@ var items = [
     {id: 'Liverpool', name: 'Liverpool', image: 'images/liverpool.png', continent: 'Europe', country: 'England', league: 'england-premier', competitions: ['Champions League']},
     {id: 'Manchester United', name: 'Manchester United', image: 'images/manchesterunited.png', continent: 'Europe', country: 'England', league: 'england-premier', competitions: ['Champions League']},
     {id: 'Arsenal', name: 'Arsenal', image: 'images/arsenal.png', continent: 'Europe', country: 'England', league: 'england-premier', competitions: ['Champions League']},
-    {id: 'Chelsea', name: 'Chelsea', image: 'images/chelsea.png', continent: 'Europe', country: 'England', league: 'england-premier', competitions: []},
-    {id: 'Manchester City', name: 'Manchester City', image: 'images/manchestercity.png', continent: 'Europe', country: 'England', league: 'england-premier', competitions: ['Champions League']},
+    {id: 'Chelsea', name: 'Chelsea', image: 'images/chelsea.png', continent: 'Europe', country: 'England', league: 'england-premier', competitions: ['Club World Cup']},
+    {id: 'Manchester City', name: 'Manchester City', image: 'images/manchestercity.png', continent: 'Europe', country: 'England', league: 'england-premier', competitions: ['Champions League','Club World Cup']},
     {id: 'Tottenham', name: 'Tottenham', image: 'images/tottenham.png', continent: 'Europe', country: 'England', league: 'england-premier', competitions: []},
     {id: 'Newcastle', name: 'Newcastle', image: 'images/newcastle.png', continent: 'Europe', country: 'England', league: 'england-premier', competitions: []},
     {id: 'Aston Villa', name: 'Aston Villa', image: 'images/astonvilla.png', continent: 'Europe', country: 'England', league: 'england-premier', competitions: ['Champions League']},
@@ -816,7 +817,7 @@ var items = [
     {id: 'Luton Town', name: 'Luton Town FC', image: 'images/luton.png', continent: 'Europe', country: 'England', league:'england-others', competitions: []},
 
     /* Francia */
-    {id: 'PSG', name: 'PSG', image: 'images/psg.png', continent: 'Europe', country: 'France', league: 'france-first', competitions: ['Champions League']},
+    {id: 'PSG', name: 'PSG', image: 'images/psg.png', continent: 'Europe', country: 'France', league: 'france-first', competitions: ['Champions League','Club World Cup']},
     {id: 'Lille', name: 'Lille', image: 'images/lille.png', continent: 'Europe', country: 'France', league: 'france-first', competitions: ['Champions League']},
     {id: 'Lens', name: 'Lens', image: 'images/racinglens.png', continent: 'Europe', country: 'France', league: 'france-first', competitions: ['Champions League']},
     {id: 'OM', name: 'Olympique Marsella', image: 'images/olimpiquemarsella.png', continent: 'Europe', country: 'France', league: 'france-first', competitions: ['Europa League']},
@@ -855,9 +856,9 @@ var items = [
     {id: 'Laval', name: 'Stade Lavallois', image: 'images/laval.png', continent: 'Europe', country: 'France', league: 'france-second', competitions: []},
 
     /* Portugal */
-    {id: 'Benfica', name: 'Benfica', image: 'images/benfica.png', continent: 'Europe', country: 'Portugal', league: 'portugal-first', competitions: ['Europa League']},
+    {id: 'Benfica', name: 'Benfica', image: 'images/benfica.png', continent: 'Europe', country: 'Portugal', league: 'portugal-first', competitions: ['Europa League','Club World Cup']},
     {id: 'Sporting', name: 'Sporting CP', image: 'images/sporting.png', continent: 'Europe', country: 'Portugal', league: 'portugal-first', competitions: ['Champions League']},
-    {id: 'Porto', name: 'Porto', image: 'images/porto.png', continent: 'Europe', country: 'Portugal', league: 'portugal-first', competitions: ['Champions League']},
+    {id: 'Porto', name: 'Porto', image: 'images/porto.png', continent: 'Europe', country: 'Portugal', league: 'portugal-first', competitions: ['Champions League','Club World Cup']},
     {id: 'Torrense', name: 'SCU Torrense', image: 'images/torreense.png', continent: 'Europe', country: 'Portugal', league: 'portugal-first', competitions: ['Europa League']},
     {id: 'Braga', name: 'Sporting Braga', image: 'images/braga.png', continent: 'Europe', country: 'Portugal', league: 'portugal-first', competitions: ['Conference League']},
     {id: 'Santa Clara', name: 'Santa Clara', image: 'images/santaclara.png', continent: 'Europe', country: 'Portugal', league: 'portugal-first', competitions: []},
@@ -951,17 +952,17 @@ var items = [
     {id: 'Mineiro', name: 'Atletico Mineiro', image: 'images/atlmineiro.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: []},
     {id: 'Paranaense', name: 'Atlético Paranaense', image: 'images/atlparanaense.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: []},
     {id: 'Bahia', name: 'Bahía', image: 'images/bahia.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: []},
-    {id: 'Botafogo', name: 'Botafogo', image: 'images/botafogo.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: []},
+    {id: 'Botafogo', name: 'Botafogo', image: 'images/botafogo.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: ['Club World Cup']},
     {id: 'Chapecoense', name: 'Chapecoense', image: 'images/chapecoense.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: []},
     {id: 'Corinthians', name: 'Corinthians', image: 'images/corinthians.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: ['Copa Libertadores']},
     {id: 'Coritiba', name: 'Coritiba', image: 'images/coritiba.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: []},
     {id: 'Cruzeiro', name: 'Cruzeiro', image: 'images/cruzeiro.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: ['Copa Libertadores']},
-    {id: 'Flamengo', name: 'Flamengo', image: 'images/flamengo.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: ['Copa Libertadores']},
-    {id: 'Fluminense', name: 'Fluminense', image: 'images/fluminense.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: ['Copa Libertadores']},
+    {id: 'Flamengo', name: 'Flamengo', image: 'images/flamengo.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: ['Copa Libertadores','Club World Cup']},
+    {id: 'Fluminense', name: 'Fluminense', image: 'images/fluminense.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: ['Copa Libertadores','Club World Cup']},
     {id: 'Gremio', name: 'Gremio', image: 'images/gremio.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: []},
     {id: 'Internacional', name: 'Internacional', image: 'images/internacional.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: []},
     {id: 'Mirassol', name: 'Mirassol', image: 'images/mirassol.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: ['Copa Libertadores']},
-    {id: 'Palmeiras', name: 'Palmeiras', image: 'images/palmeiras.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: ['Copa Libertadores']},
+    {id: 'Palmeiras', name: 'Palmeiras', image: 'images/palmeiras.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: ['Copa Libertadores','Club World Cup']},
     {id: 'RB Bragantino', name: 'RB Bragantino', image: 'images/rbbragantino.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: []},
     {id: 'Remo', name: 'Remo', image: 'images/remo.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: []},
     {id: 'Santos', name: 'Santos', image: 'images/santos.png', continent: 'America', country: 'Brazil', league: 'brazil-first', competitions: []},
@@ -976,7 +977,7 @@ var items = [
     {id: 'Banfield', name: 'Banfield', image: 'images/banfield.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: []},
     {id: 'Barracas', name: 'Barracas Central', image: 'images/barracas.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: []},
     {id: 'Belgrano', name: 'Belgrano', image: 'images/belgrano.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: []},
-    {id: 'Boca', name: 'Boca Juniors', image: 'images/boca.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: ['Copa Libertadores']},
+    {id: 'Boca', name: 'Boca Juniors', image: 'images/boca.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: ['Copa Libertadores','Club World Cup']},
     {id: 'Central Cordoba', name: 'Central Córdoba', image: 'images/centralcordoba.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: []},
     {id: 'Defensa', name: 'Defensa y Justicia', image: 'images/defensa.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: []},
     {id: 'Estudiantes', name: 'Estudiantes LP', image: 'images/estudiantes.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: ['Copa Libertadores']},
@@ -992,7 +993,7 @@ var items = [
     {id: 'Platense', name: 'Platense', image: 'images/platense.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: ['Copa Libertadores']},
     {id: 'Racing Club', name: 'Racing Club', image: 'images/racingclub.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: []},
     {id: 'Riestra', name: 'Deportivo Riestra', image: 'images/riestra.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: []},
-    {id: 'River', name: 'River Plate', image: 'images/river.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: []},
+    {id: 'River', name: 'River Plate', image: 'images/river.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: ['Club World Cup']},
     {id: 'Rosario', name: 'Rosario Central', image: 'images/rosariocentral.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: ['Copa Libertadores']},
     {id: 'San Lorenzo', name: 'San Lorenzo', image: 'images/sanlorenzo.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: []},
     {id: 'Sarmiento', name: 'Sarmiento', image: 'images/sarmiento.png', continent: 'America', country: 'Argentina', league: 'argentina-first', competitions: []},
@@ -1010,9 +1011,9 @@ var items = [
     {id: 'Juárez', name: 'Juárez', image: 'images/juarez.png', continent: 'America', country: 'Mexico', league: 'mexico-first', competitions: []},
     {id: 'León', name: 'León', image: 'images/leon.png', continent: 'America', country: 'Mexico', league: 'mexico-first', competitions: []},
     {id: 'Mazatlan', name: 'Mazatlan', image: 'images/mazatlan.png', continent: 'America', country: 'Mexico', league: 'mexico-first', competitions: []},
-    {id: 'Monterrey', name: 'Monterrey', image: 'images/monterrey.png', continent: 'America', country: 'Mexico', league: 'mexico-first', competitions: []},
+    {id: 'Monterrey', name: 'Monterrey', image: 'images/monterrey.png', continent: 'America', country: 'Mexico', league: 'mexico-first', competitions: ['Club World Cup']},
     {id: 'Necaxa', name: 'Necaxa', image: 'images/necaxa.png', continent: 'America', country: 'Mexico', league: 'mexico-first', competitions: []},
-    {id: 'Pachuca', name: 'Pachuca', image: 'images/pachuca.png', continent: 'America', country: 'Mexico', league: 'mexico-first', competitions: []},
+    {id: 'Pachuca', name: 'Pachuca', image: 'images/pachuca.png', continent: 'America', country: 'Mexico', league: 'mexico-first', competitions: ['Club World Cup']},
     {id: 'Puebla', name: 'Puebla', image: 'images/puebla.png', continent: 'America', country: 'Mexico', league: 'mexico-first', competitions: []},
     {id: 'Pumas', name: 'Pumas', image: 'images/pumas.png', continent: 'America', country: 'Mexico', league: 'mexico-first', competitions: []},
     {id: 'Queretaro', name: 'Querétaro', image: 'images/queretaro.png', continent: 'America', country: 'Mexico', league: 'mexico-first', competitions: []},
@@ -1069,7 +1070,7 @@ var items = [
     {id: 'Jablonec', name: 'FK Jablonec', image: 'images/jablonec.png', continent: 'Europe', country: 'Czech Republic', league: 'others-europe', competitions: ['Conference League']},
     
     {id: 'LASK', name: 'LASK', image: 'images/lask.png', continent: 'Europe', country: 'Austria', league: 'others-europe', competitions: ['Champions League']},
-    {id: 'Salzburg', name: 'RB Salzburg', image: 'images/rbsalzburgo.png', continent: 'Europe', country: 'Austria', league: 'others-europe', competitions: ['Europa League']},
+    {id: 'Salzburg', name: 'RB Salzburg', image: 'images/rbsalzburgo.png', continent: 'Europe', country: 'Austria', league: 'others-europe', competitions: ['Europa League','Club World Cup']},
     {id: 'Sturm Graz', name: 'Sturm Graz', image: 'images/sturm_graz.png', continent: 'Europe', country: 'Austria', league: 'others-europe', competitions: ['Europa League']},
     
     {id: 'Copenhague', name: 'Copenhaguen', image: 'images/fc_copenhague.png', continent: 'Europe', country: 'Denmark', league: 'others-europe', competitions: ['Conference League']},
@@ -1107,7 +1108,20 @@ var items = [
     {id: 'Lincoln Red Imps', name: 'Lincoln Red Imps', image: 'images/lincoln_redimps.png', continent: 'Europe', country: 'Gibraltar', league: 'others-europe', competitions: ['Conference League']},
     {id: 'Mjallby', name: 'Mjällby AIF', image: 'images/mjallby.png', continent: 'Europe', country: 'Sweden', league: 'others-europe', competitions: ['Conference League']},
     {id: 'Riga', name: 'Riga FC', image: 'images/riga.png', continent: 'Europe', country: 'Latvia', league: 'others-europe', competitions: ['Conference League']},
-    
+
+    {id: 'Inter Miami', name: 'Inter Miami', image: 'images/intermiami.png', continent: 'America', country: 'USA', league: 'others-america', competitions: ['Club World Cup']},
+    {id: 'Al-Ahly', name: 'Al-Ahly', image: 'images/alahly.png', continent: 'Others', country: 'Egypt', league: 'others-world', competitions: ['Club World Cup']},
+    {id: 'Seattle Sounders', name: 'Seattle Sounders FC', image: 'images/seattle.png', continent: 'America', country: 'USA', league: 'others-america', competitions: ['Club World Cup']},
+    {id: 'Auckland City', name: 'Auckland City', image: 'images/auckland.png', continent: 'Others', country: 'New Zealand', league: 'others-world', competitions: ['Club World Cup']},
+    {id: 'ES Tunis', name: 'ES Tunis', image: 'images/tunis.png', continent: 'Others', country: 'Tunisia', league: 'others-world', competitions: ['Club World Cup']},
+    {id: 'LAFC', name: 'Los Ángeles FC', image: 'images/lafc.png', continent: 'America', country: 'USA', league: 'others-america', competitions: ['Club World Cup']},
+    {id: 'Urawa Reds', name: 'Urawa Reds', image: 'images/urawareds.png', continent: 'Others', country: 'Japan', league: 'others-world', competitions: ['Club World Cup']},
+    {id: 'Mamelodi', name: 'Mamelodi Sundowns', image: 'images/mamelodi.png', continent: 'Others', country: 'Southafrica', league: 'others-world', competitions: ['Club World Cup']},
+    {id: 'Ulsan Hyundai', name: 'Ulsan Hyundai', image: 'images/ulsan.png', continent: 'Others', country: 'South Korea', league: 'others-world', competitions: ['Club World Cup']},
+    {id: 'Al Ain', name: 'Al Ain', image: 'images/alain.png', continent: 'Others', country: 'UAE', league: 'others-world', competitions: ['Club World Cup']},
+    {id: 'Wydad', name: 'Wydad AC', image: 'images/wydad.png', continent: 'Others', country: 'Morocco', league: 'others-world', competitions: ['Club World Cup']},
+    {id: 'Al Hilal', name: 'Al Hilal', image: 'images/alhilal.png', continent: 'Others', country: 'Saudi Arabia', league: 'others-world', competitions: ['Club World Cup']},
+    {id: 'LAFC', name: 'Los Ángeles FC', image: 'images/lafc.png', continent: 'America', country: 'USA', league: 'others-america', competitions: ['Club World Cup']},
 ];
 
 var myPicker = new picker.Picker({
