@@ -470,16 +470,15 @@ PickerUI.prototype.getItemElem = function(item, settings) {
         itemContent = $(this.options.getItemElem(item, settings));
     }
   else if (item.image || this.options.getItemImageUrl) {
+    var imageUrl = this.options.getItemImageUrl
+        ? this.options.getItemImageUrl(item, settings)
+        : item.image;
 
-    itemContent = $(
-        '<img src="' +
-        (
-            this.options.getItemImageUrl
-                ? this.options.getItemImageUrl(item, settings)
-                : 
-        ) +
-        ''
-    );
+    itemContent = $('<img>', {
+        src: imageUrl,
+        alt: itemName,
+        title: itemName
+    });
 }
 
     else {
