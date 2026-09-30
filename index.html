@@ -1121,6 +1121,7 @@ var pickerUI = new PickerUI(myPicker, {
         evaluating: "#evaluating",
         favorites: "#favorites"
     },
+});
 document.getElementById('confirm-remove-team').addEventListener('click', function() {
     pickerUI.confirmRemoveTeam();
 });
@@ -1143,7 +1144,6 @@ onUpdate: function() {
         );
     }
 }
-});
 
 pickerUI.initialize();
 var currentSettings = myPicker.getSettings();
@@ -1424,7 +1424,8 @@ document.getElementById('import-favorites').addEventListener('click', function()
 
     alert('Favorites imported successfully!');
 });
-<div id="remove-team-modal" style="display:none;">
+</script>
+    <div id="remove-team-modal" style="display:none;">
     <div id="remove-team-box">
         <h2>Warning</h2>
 
@@ -1448,6 +1449,5 @@ document.getElementById('import-favorites').addEventListener('click', function()
         </p>
     </div>
 </div>
-</script>
 </body>
 </html>
