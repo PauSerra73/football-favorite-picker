@@ -134,6 +134,26 @@ button.disabled:hover {
     vertical-align:middle;
     line-height:1.2;
 }
+
+.item-list li .remove-team {
+    position:absolute;
+    top:2px;
+    right:5px;
+    width:20px;
+    height:20px;
+    line-height:18px;
+    text-align:center;
+    font-size:16px;
+    font-weight:bold;
+    color:#999;
+    cursor:pointer;
+    z-index:10;
+}
+
+.item-list li .remove-team:hover {
+    color:#f00;
+}
+
 #settings {
     margin-bottom: 25px;
 }
@@ -1019,6 +1039,10 @@ defaultSettings: {
     competitions: [],
     leagues: []
 },
+
+var removeWarningKey = 'football-picker-remove-warning';
+var skipRemoveWarning =
+    localStorage.getItem(removeWarningKey) === 'true';
 
 getFilteredItems: function(settings) {
     var filtered = items;
