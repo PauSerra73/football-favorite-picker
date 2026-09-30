@@ -497,6 +497,30 @@ button.disabled:hover {
         </p>
     </div>
 </div>
+        <div id="remove-team-modal" style="display:none;">
+    <div id="remove-team-box">
+        <h2>Warning</h2>
+
+        <p>
+            This action cannot be undone.
+        </p>
+
+        <p>
+            This team will be removed from all future comparisons.
+            The only way to bring it back is to reset your progress.
+        </p>
+
+        <label id="remove-team-warning-label">
+            <input type="checkbox" id="remove-team-warning-checkbox">
+            Don't show this warning again
+        </label>
+
+        <p>
+            <button id="cancel-remove-team">Cancel</button>
+            <button id="confirm-remove-team">Remove</button>
+        </p>
+    </div>
+</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -1426,29 +1450,5 @@ document.getElementById('import-favorites').addEventListener('click', function()
     alert('Favorites imported successfully!');
 });
 </script>
-    <div id="remove-team-modal" style="display:none;">
-    <div id="remove-team-box">
-        <h2>Warning</h2>
-
-        <p>
-            This action cannot be undone.
-        </p>
-
-        <p>
-            This team will be removed from all future comparisons.
-            The only way to bring it back is to reset your progress.
-        </p>
-
-        <label id="remove-team-warning-label">
-            <input type="checkbox" id="remove-team-warning-checkbox">
-            Don't show this warning again
-        </label>
-
-        <p>
-            <button id="cancel-remove-team">Cancel</button>
-            <button id="confirm-remove-team">Remove</button>
-        </p>
-    </div>
-</div>
 </body>
 </html>
