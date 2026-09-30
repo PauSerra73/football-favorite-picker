@@ -469,11 +469,10 @@ PickerUI.prototype.getItemElem = function(item, settings) {
     if (this.options.getItemElem) {
         itemContent = $(this.options.getItemElem(item, settings));
     }
-  else if (item.image || this.options.getItemImageUrl) {
+ else if (item.image || this.options.getItemImageUrl) {
     var imageUrl = this.options.getItemImageUrl
-        ? this.options.getItemImageUrl(item, settings)
-        : item.image;
-
+? this.options.getItemImageUrl(item, settings)
+: item.image;
     itemContent = $('<img>', {
         src: imageUrl,
         alt: itemName,
