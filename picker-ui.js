@@ -14,6 +14,7 @@
 
         this.picker = picker;
         this.options = options;
+        this.teamToRemove = null;
 
         /* MESSAGE OPTIONS */
 
@@ -512,15 +513,27 @@ removeButton.on('click', function(e) {
 PickerUI.prototype.removeTeam = function(teamId) {
     /* Removes a team after confirmation. */
 
-    var skipWarning =
-        localStorage.getItem('football-picker-remove-warning') === 'true';
+ this.teamToRemove = teamId;
+ 
+$('#remove-team-modal').show();
+};
+PickerUI.prototype.cancelRemoveTeam = function() {
 
-    if (!skipWarning) {
-        this.showRemoveWarning(teamId);
+    this.teamToRemove = null;
+
+    $('#remove-team-modal').hide();
+};
+
+PickerUI.prototype.confirmRemoveTeam = function() {
+
+    if (!this.teamToRemove) {
         return;
     }
 
-    this.picker.removeItem(teamId);
+    this.picker.removeItem(this.teamToRemove);
+    this.teamToRemove = null;
+
+    $('#remove-team-modal').hide();
     this.update(true);
 };
 
