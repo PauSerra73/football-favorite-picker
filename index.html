@@ -108,19 +108,38 @@ button.disabled:hover {
 }
 
 .item-list li {
-    margin:0;
-    display:inline-block;
-    height:100px;
-    width:100px;
-    line-height:100px;
-    border:3px solid transparent;
-    text-align:center;
-    position:relative;
-    vertical-align:top;
-    overflow:hidden;
-    border-radius:100%;
-    background:#F7F7F7;
-    color:#000;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+
+    width: 100px;
+    height: 100px;
+    margin: 4px;
+
+    text-align: center;
+    line-height: 100px;
+
+    overflow: visible;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    color: #000;
+}
+
+.item-circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    box-sizing: border-box;
+    overflow: hidden;
+
+    border: 3px solid transparent;
+    border-radius: 50%;
+    background: #F7F7F7;
+
+    text-align: center;
+    line-height: 94px;
 }
 
 .item-list li img {
@@ -141,9 +160,9 @@ button.disabled:hover {
 
 .remove-team {
     position: absolute;
-    top: 7px;
-    right: 7px;
-    z-index: 10;
+    top: -5px;
+    right: -5px;
+    z-index: 20;
 
     display: flex;
     align-items: center;
@@ -153,23 +172,39 @@ button.disabled:hover {
     height: 22px;
     padding: 0;
 
-    border: 2px solid white;
+    border: 2px solid #F7F7F7;
     border-radius: 50%;
-    background: #c62828;
-    color: white;
+
+    background: #b8b8b8;
+    color: #fff;
 
     font-size: 16px;
     font-weight: bold;
     line-height: 1;
 
     cursor: pointer;
+    opacity: 0.5;
+
+    transition:
+        background-color 0.15s ease,
+        opacity 0.15s ease,
+        transform 0.15s ease;
 }
 
 .remove-team:hover {
-    background: #e53935;
-    color: white;
-    transform: scale(1.08);
-}    
+    background: #d32f2f;
+    color: #fff;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.remove-team:focus-visible {
+    background: #d32f2f;
+    color: #fff;
+    opacity: 1;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
 
 #remove-team-modal {
     position: fixed;
@@ -235,6 +270,17 @@ button.disabled:hover {
         width:75px;
     }
 }
+    .item-circle {
+    line-height: 69px;
+}
+
+.remove-team {
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+}
 
 @media (max-width:423px) {
     .item-list {
@@ -246,6 +292,17 @@ button.disabled:hover {
         height:50px;
         width:50px;
     }
+    .item-circle {
+    line-height: 44px;
+}
+
+.remove-team {
+    top: -6px;
+    right: -6px;
+    width: 18px;
+    height: 18px;
+    font-size: 13px;
+}
 }
 #filters {
     margin-bottom:20px;
@@ -312,16 +369,16 @@ button.disabled:hover {
     cursor:move;
 }
 
-.item-list li:hover {
-    background:#CDF;
+.item-list li:hover .item-circle {
+    background: #CDF;
 }
 
-.item-list.sorting li:hover {
-    background:#F7F7F7;
+.item-list.sorting li:hover .item-circle {
+    background: #F7F7F7;
 }
 
-#evaluating li.selected {
-    border:3px solid #7AC;
+#evaluating li.selected .item-circle {
+    border-color: #7AC;
 }
 
 #evaluating, #buttons {
