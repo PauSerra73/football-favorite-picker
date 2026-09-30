@@ -1121,7 +1121,6 @@ var pickerUI = new PickerUI(myPicker, {
         evaluating: "#evaluating",
         favorites: "#favorites"
     },
-});
 
 onUpdate: function() {
     var state = this.picker.state.arrays;
@@ -1137,6 +1136,7 @@ onUpdate: function() {
         );
     }
 }
+});
 
 pickerUI.initialize();
 var currentSettings = myPicker.getSettings();
