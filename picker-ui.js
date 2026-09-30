@@ -491,19 +491,7 @@ removeButton.on('click', function(e) {
     e.preventDefault();
     e.stopPropagation();
 
-    var confirmDelete = confirm(
-        'This action cannot be undone.\n\n' +
-        'This team will be removed from all future comparisons.\n' +
-        'The only way to bring it back is to reset your progress.\n\n' +
-        'Do you want to continue?'
-    );
-
-    if (!confirmDelete) {
-        return;
-    }
-
-    self.picker.removeItem(item.id);
-    self.update(true);
+    self.removeTeam(item.id);
 });
 
     element.append(removeButton);
@@ -522,19 +510,6 @@ PickerUI.prototype.cancelRemoveTeam = function() {
     this.teamToRemove = null;
 
     $('#remove-team-modal').hide();
-};
-
-PickerUI.prototype.confirmRemoveTeam = function() {
-
-    if (!this.teamToRemove) {
-        return;
-    }
-
-    this.picker.removeItem(this.teamToRemove);
-    this.teamToRemove = null;
-
-    $('#remove-team-modal').hide();
-    this.update(true);
 };
 
 PickerUI.prototype.showRemoveWarning = function(teamId) {
@@ -568,9 +543,7 @@ PickerUI.prototype.confirmRemoveTeam = function() {
     this.picker.removeItem(teamId);
     this.update(true);
 };
-PickerUI.prototype.cancelRemoveTeam = function() {
-    $('#remove-team-modal').hide();
-};
+    
     PickerUI.prototype.makeResetButton = function(text) {
         /**
          * Creates and returns a reset button.
