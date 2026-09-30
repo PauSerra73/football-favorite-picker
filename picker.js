@@ -41,6 +41,7 @@
             current: copyArray(this.arrays.current),
             evaluating: copyArray(this.arrays.evaluating),
             favorites: copyArray(this.arrays.favorites),
+            excluded: copyArray(this.excluded || []),
             settings: copyObject(this.settings)
         };
     };
@@ -60,6 +61,7 @@
             evaluating: [],
             favorites: []
         };
+        this.excluded = [];
         this.batchSize = this.getBatchSize(this.arrays.current.length);
 
         shuffle(this.arrays.current);
@@ -88,13 +90,69 @@
     };
 
     PickerState.prototype.reset = function() {
-        /**
-         * Resets the PickerState to its initial state (leaving the settings
-         * unchanged).
-         */
+        /* Resets the PickerState to its initial state (leaving the settings unchanged). */
         this.initialize(this.settings);
     };
 
+PickerState.prototype.removeItem = function(identifier) {
+    /**
+     * Permanently removes an item from the current ranking.
+     * The item can only be restored by resetting the picker.
+     */
+
+    if (!this.excluded) {
+        this.excluded = [];
+    }
+
+    if (this.excluded.indexOf(identifier) !== -1) {
+        return;
+    }
+
+    this.excluded.push(identifier);
+
+    var arrays = this.arrays;
+    var i;
+    var j;
+
+    // Remove the item from favorites, survived, current and evaluating.
+    var arrayNames = ['favorites', 'survived', 'current', 'evaluating'];
+
+    for (i = 0; i < arrayNames.length; i++) {
+        var array = arrays[arrayNames[i]];
+
+        for (j = array.length - 1; j >= 0; j--) {
+            if (array[j] === identifier || (array[j] && array[j].id === identifier)) {
+                array.splice(j, 1);
+            }
+        }
+    }
+
+    // Remove the item itself from the eliminated list.
+    for (i = arrays.eliminated.length - 1; i >= 0; i--) {
+        if (arrays.eliminated[i].id === identifier) {
+            arrays.eliminated.splice(i, 1);
+        }
+    }
+
+    // Remove the deleted item from every eliminatedBy list.
+    // If that was the only reason an item was eliminated, restore that item to survived.
+    for (i = arrays.eliminated.length - 1; i >= 0; i--) {
+        var eliminatedItem = arrays.eliminated[i];
+        var index = eliminatedItem.eliminatedBy.indexOf(identifier);
+
+        if (index !== -1) {
+            eliminatedItem.eliminatedBy.splice(index, 1);
+
+            if (eliminatedItem.eliminatedBy.length === 0) {
+                arrays.survived.push(eliminatedItem.id);
+                arrays.eliminated.splice(i, 1);
+            }
+        }
+    }
+
+    // Recalculate the batch size.
+    this.resetBatchSize();
+};    
     /* PUBLIC SETTERS */
 
     PickerState.prototype.setSettings = function(settings) {
@@ -149,14 +207,28 @@
         return true;
     };
 
-    PickerState.prototype.getFilteredItems = function() {
-        /**
-         * Returns a list of item identifiers that match the given
-         * settings.
-         */
-        if (this.options.getFilteredItems) {
-            return this.options.getFilteredItems(this.settings);
+ PickerState.prototype.getFilteredItems = function() {
+    /* Returns a list of item identifiers that match the given settings, excluding items that have been permanently removed. */
+    var result;
+    var self = this;
+
+    if (this.options.getFilteredItems) {
+        result = this.options.getFilteredItems(this.settings);
+    }
+    else {
+        result = [];
+
+        for (var i = 0; i < this.options.items.length; i++) {
+            if (this.shouldIncludeItem(this.options.items[i], this.settings)) {
+                result.push(this.options.items[i]);
+            }
         }
+    }
+
+    return result.filter(function(identifier) {
+        return self.excluded.indexOf(identifier) === -1;
+    });
+};
         var result = [];
         var i;
         for (i = 0; i < this.options.items.length; i++) {
@@ -779,7 +851,18 @@
         this.state.reset();
         this.pushHistory();
     };
+Picker.prototype.removeItem = function(identifier) {
+    /* Permanently removes an item from the current ranking. This action cannot be undone with Undo. The item is restored only by Reset. */
 
+    this.state.removeItem(identifier);
+
+    // Removing a team is deliberately not added to the normal undo history.
+    // Otherwise Undo would make the supposedly irreversible action reversible.
+    this.history = [];
+    this.historyPos = -1;
+
+    this.pushHistory();
+};
     Picker.prototype.setSettings = function(settings) {
         this.state.setSettings(settings);
         this.pushHistory();
