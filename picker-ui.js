@@ -455,30 +455,97 @@
         return $('<li></li>').append(itemContent);
     };
 
-    PickerUI.prototype.getItemElem = function(item, settings) {
-        /**
-         * Creates and returns an element or jQuery object for an item,
-         * to be inserted into the evaluating element.
-         * The behaviour of this function can be overridden with the
-         * getItemElem setting. By default, if the getImageUrl setting
-         * is set, it returns an image with that URL; otherwise, it simply
-         * returns a plain text list item.
-         */
-        var itemContent;
-        var itemName;
-        itemName = item.name || item.id;
-        if (this.options.getItemElem) {
-            return $(this.options.getItemElem(item, settings)).addClass('item').data('item', item.id);
-        }
-        if (item.image || this.options.getItemImageUrl) {
-            itemContent = $('<img src="' + (this.options.getItemImageUrl ? this.options.getItemImageUrl(item, settings) : item.image) + '" alt="' + itemName + '" title="' + itemName + '">');
-        }
-        else {
-            itemContent = $('<span>' + itemName + '</span>');
-        }
-        return this.wrapItem(itemContent).addClass('item').data('item', item.id);
-    };
+  PickerUI.prototype.getItemElem = function(item, settings) {
+    /* Creates and returns an element for an item, including the remove button. */
 
+    var self = this;
+    var itemContent;
+    var itemName = item.name || item.id;
+
+    if (this.options.getItemElem) {
+        itemContent = $(this.options.getItemElem(item, settings));
+    }
+    else if (item.image || this.options.getItemImageUrl) {
+        itemContent = $('<img src="' +
+            (this.options.getItemImageUrl ?
+                this.options.getItemImageUrl(item, settings) :
+                item.image) +
+            '" alt="' + itemName +
+            '" title="' + itemName + '">');
+    }
+    else {
+        itemContent = $('<span>' + itemName + '</span>');
+    }
+
+    var element = this.wrapItem(itemContent)
+        .addClass('item')
+        .data('item', item.id);
+
+    var removeButton = $(
+        '<button type="button" class="remove-team" ' +
+        'title="Remove team">&times;</button>'
+    );
+
+    removeButton.on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        self.removeTeam(item.id);
+    });
+
+    element.append(removeButton);
+    return element;
+};
+
+PickerUI.prototype.removeTeam = function(teamId) {
+    /* Removes a team after confirmation. */
+
+    var skipWarning =
+        localStorage.getItem('football-picker-remove-warning') === 'true';
+
+    if (!skipWarning) {
+        this.showRemoveWarning(teamId);
+        return;
+    }
+
+    this.picker.removeItem(teamId);
+    this.update(true);
+};
+
+PickerUI.prototype.showRemoveWarning = function(teamId) {
+    var self = this;
+
+    var modal = $('#remove-team-modal');
+
+    if (modal.length === 0) {
+        return;
+    }
+
+    modal.data('team-id', teamId);
+    modal.show();
+};
+PickerUI.prototype.confirmRemoveTeam = function() {
+    var teamId = $('#remove-team-modal').data('team-id');
+
+    if (!teamId) {
+        return;
+    }
+
+    if ($('#remove-team-warning-checkbox').prop('checked')) {
+        localStorage.setItem(
+            'football-picker-remove-warning',
+            'true'
+        );
+    }
+
+    $('#remove-team-modal').hide();
+
+    this.picker.removeItem(teamId);
+    this.update(true);
+};
+PickerUI.prototype.cancelRemoveTeam = function() {
+    $('#remove-team-modal').hide();
+};
     PickerUI.prototype.makeResetButton = function(text) {
         /**
          * Creates and returns a reset button.
