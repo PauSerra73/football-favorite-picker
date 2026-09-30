@@ -47,27 +47,27 @@
     };
 
     PickerState.prototype.initialize = function(settings) {
-        /**
-         * Initializes the PickerState according to the given settings
-         * (or the default settings if no settings are provided).
-         */
+        /* Initializes the PickerState according to the given settings (or the default settings if no settings are provided). */
         this.settings = settings || this.options.defaultSettings || {};
-        this.items = this.getFilteredItems();
-
-        this.arrays = {
-            eliminated: [],
-            survived: [],
-            current: this.items.slice(0),
-            evaluating: [],
-            favorites: []
-        };
-        this.excluded = [];
-        this.batchSize = this.getBatchSize(this.arrays.current.length);
-
-        shuffle(this.arrays.current);
-
-        this.nextBatch();
-    };
+ 
+this.excluded = [];
+ 
+this.items = this.getFilteredItems();
+ 
+this.arrays = {
+eliminated: [],
+survived: [],
+current: this.items.slice(0),
+evaluating: [],
+favorites: []
+};
+ 
+this.batchSize = this.getBatchSize(this.arrays.current.length);
+ 
+shuffle(this.arrays.current);
+ 
+this.nextBatch();
+};
 
     PickerState.prototype.restoreState = function(state) {
         /**
@@ -225,9 +225,9 @@ PickerState.prototype.removeItem = function(identifier) {
         }
     }
 
-    return result.filter(function(identifier) {
-        return self.excluded.indexOf(identifier) === -1;
-    });
+ return result.filter(function(identifier) {
+    return !self.excluded || self.excluded.indexOf(identifier) === -1;
+});
 };
 
 
