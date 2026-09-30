@@ -135,25 +135,66 @@ button.disabled:hover {
     line-height:1.2;
 }
 
-.item-list li .remove-team {
-    position:absolute;
-    top:2px;
-    right:5px;
-    width:20px;
-    height:20px;
-    line-height:18px;
-    text-align:center;
-    font-size:16px;
-    font-weight:bold;
-    color:#999;
-    cursor:pointer;
-    z-index:10;
+.item {
+    position: relative;
 }
 
-.item-list li .remove-team:hover {
-    color:#f00;
+.remove-team {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #999;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 20px;
+    cursor: pointer;
+    z-index: 10;
 }
 
+.remove-team:hover {
+    color: #f00;
+}
+
+#remove-team-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1100;
+}
+
+#remove-team-box {
+    position: relative;
+    width: 500px;
+    max-width: 90%;
+    margin: 150px auto;
+    padding: 25px;
+    background: white;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#remove-team-warning-label {
+    display: block;
+    margin-top: 20px;
+}
+
+#remove-team-box button {
+    margin-right: 8px;
+}
+
+#confirm-remove-team {
+    color: white;
+    background: #c00;
+    border: 1px solid #a00;
+}
 #settings {
     margin-bottom: 25px;
 }
@@ -1084,6 +1125,13 @@ var pickerUI = new PickerUI(myPicker, {
         evaluating: "#evaluating",
         favorites: "#favorites"
     },
+document.getElementById('confirm-remove-team').addEventListener('click', function() {
+    pickerUI.confirmRemoveTeam();
+});
+
+document.getElementById('cancel-remove-team').addEventListener('click', function() {
+    pickerUI.cancelRemoveTeam();
+});
 
 onUpdate: function() {
     var state = this.picker.state.arrays;
@@ -1380,6 +1428,30 @@ document.getElementById('import-favorites').addEventListener('click', function()
 
     alert('Favorites imported successfully!');
 });
+<div id="remove-team-modal" style="display:none;">
+    <div id="remove-team-box">
+        <h2>Warning</h2>
+
+        <p>
+            This action cannot be undone.
+        </p>
+
+        <p>
+            This team will be removed from all future comparisons.
+            The only way to bring it back is to reset your progress.
+        </p>
+
+        <label id="remove-team-warning-label">
+            <input type="checkbox" id="remove-team-warning-checkbox">
+            Don't show this warning again
+        </label>
+
+        <p>
+            <button id="cancel-remove-team">Cancel</button>
+            <button id="confirm-remove-team">Remove</button>
+        </p>
+    </div>
+</div>
 </script>
 </body>
 </html>
