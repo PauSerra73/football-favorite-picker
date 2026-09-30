@@ -456,9 +456,12 @@
         return $('<li></li>').append(itemContent);
     };
 
-  PickerUI.prototype.getItemElem = function(item, settings) {
-    /* Creates and returns an element for an item, including the remove button. */
-
+PickerUI.prototype.getItemElem = function(item, settings) {
+    /* Creates and returns an item with:
+     * - an outer container,
+     * - a circular image container,
+     * - and a remove button outside the circle.
+     */
     var self = this;
     var itemContent;
     var itemName = item.name || item.id;
@@ -467,34 +470,47 @@
         itemContent = $(this.options.getItemElem(item, settings));
     }
     else if (item.image || this.options.getItemImageUrl) {
-        itemContent = $('<img src="' +
-            (this.options.getItemImageUrl ?
-                this.options.getItemImageUrl(item, settings) :
-                item.image) +
-            '" alt="' + itemName +
-            '" title="' + itemName + '">');
+        itemContent = $(
+            '' +
+            (
+                this.options.getItemImageUrl
+                    ? this.options.getItemImageUrl(item, settings)
+                    : item.image
+            ) +
+            ''
+        );
     }
     else {
-        itemContent = $('<span>' + itemName + '</span>');
+        itemContent = $('<span></span>')
+            .text(itemName);
     }
 
-    var element = this.wrapItem(itemContent)
+    // Circular part containing the crest or team name.
+    var itemCircle = $('<div class="item-circle"></div>')
+        .append(itemContent);
+
+    // Outer list element. This element does not clip the remove button.
+    var element = this.wrapItem(itemCircle)
         .addClass('item')
         .data('item', item.id);
 
+    // Remove button placed outside the circular area.
     var removeButton = $(
-        '<button type="button" class="remove-team" title="Remove team">&times;
-        </button>'
+        '<button type="button" class="remove-team" ' +
+        'title="Remove team" aria-label="Remove ' +
+        itemName +
+        '">&times;</button>'
     );
 
-removeButton.on('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
+    removeButton.on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
 
-    self.removeTeam(item.id);
-});
+        self.removeTeam(item.id);
+    });
 
     element.append(removeButton);
+
     return element;
 };
 
