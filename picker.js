@@ -229,15 +229,7 @@ PickerState.prototype.removeItem = function(identifier) {
         return self.excluded.indexOf(identifier) === -1;
     });
 };
-        var result = [];
-        var i;
-        for (i = 0; i < this.options.items.length; i++) {
-            if (this.shouldIncludeItem(this.options.items[i], this.settings)) {
-                result.push(this.options.items[i]);
-            }
-        }
-        return result;
-    };
+
 
     PickerState.prototype.findInArray = function(identifier, arrayName) {
         /**
