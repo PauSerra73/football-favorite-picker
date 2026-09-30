@@ -486,12 +486,24 @@
         'title="Remove team">&times;</button>'
     );
 
-    removeButton.on('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+removeButton.on('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
 
-        self.removeTeam(item.id);
-    });
+    var confirmDelete = confirm(
+        'This action cannot be undone.\n\n' +
+        'This team will be removed from all future comparisons.\n' +
+        'The only way to bring it back is to reset your progress.\n\n' +
+        'Do you want to continue?'
+    );
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    self.picker.removeItem(item.id);
+    self.update(true);
+});
 
     element.append(removeButton);
     return element;
