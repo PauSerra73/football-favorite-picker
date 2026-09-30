@@ -237,7 +237,7 @@ PickerState.prototype.removeItem = function(identifier) {
             }
         }
         return result;
-    };
+    });
 
     PickerState.prototype.findInArray = function(identifier, arrayName) {
         /**
