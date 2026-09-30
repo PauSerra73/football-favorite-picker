@@ -483,8 +483,8 @@
         .data('item', item.id);
 
     var removeButton = $(
-        '<button type="button" class="remove-team" ' +
-        'title="Remove team">&times;</button>'
+        '<button type="button" class="remove-team" title="Remove team">&times;
+        </button>'
     );
 
 removeButton.on('click', function(e) {
@@ -499,35 +499,30 @@ removeButton.on('click', function(e) {
 };
 
 PickerUI.prototype.removeTeam = function(teamId) {
-    /* Removes a team after confirmation. */
+    var warningDisabled = localStorage.getItem(
+        'football-picker-remove-warning'
+    ) === 'true';
 
- this.teamToRemove = teamId;
- 
-$('#remove-team-modal').show();
-};
-PickerUI.prototype.cancelRemoveTeam = function() {
-
-    this.teamToRemove = null;
-
-    $('#remove-team-modal').hide();
-};
-
-PickerUI.prototype.showRemoveWarning = function(teamId) {
-    var self = this;
-
-    var modal = $('#remove-team-modal');
-
-    if (modal.length === 0) {
+    if (warningDisabled) {
+        this.picker.removeItem(teamId);
+        this.update(true);
         return;
     }
 
-    modal.data('team-id', teamId);
-    modal.show();
-};
-PickerUI.prototype.confirmRemoveTeam = function() {
-    var teamId = $('#remove-team-modal').data('team-id');
+    this.teamToRemove = teamId;
 
-    if (!teamId) {
+    $('#remove-team-warning-checkbox').prop('checked', false);
+    $('#remove-team-modal').show();
+};
+
+PickerUI.prototype.cancelRemoveTeam = function() {
+    this.teamToRemove = null;
+    $('#remove-team-warning-checkbox').prop('checked', false);
+    $('#remove-team-modal').hide();
+};
+
+PickerUI.prototype.confirmRemoveTeam = function() {
+    if (!this.teamToRemove) {
         return;
     }
 
@@ -538,9 +533,10 @@ PickerUI.prototype.confirmRemoveTeam = function() {
         );
     }
 
-    $('#remove-team-modal').hide();
+    this.picker.removeItem(this.teamToRemove);
+    this.teamToRemove = null;
 
-    this.picker.removeItem(teamId);
+    $('#remove-team-modal').hide();
     this.update(true);
 };
     
