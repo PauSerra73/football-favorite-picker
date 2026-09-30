@@ -1122,13 +1122,6 @@ var pickerUI = new PickerUI(myPicker, {
         favorites: "#favorites"
     },
 });
-document.getElementById('confirm-remove-team').addEventListener('click', function() {
-    pickerUI.confirmRemoveTeam();
-});
-
-document.getElementById('cancel-remove-team').addEventListener('click', function() {
-    pickerUI.cancelRemoveTeam();
-});
 
 onUpdate: function() {
     var state = this.picker.state.arrays;
@@ -1148,6 +1141,14 @@ onUpdate: function() {
 pickerUI.initialize();
 var currentSettings = myPicker.getSettings();
 var savedContinent = currentSettings.continent || 'all';
+
+document.getElementById('confirm-remove-team').addEventListener('click', function() {
+    pickerUI.confirmRemoveTeam();
+});
+
+document.getElementById('cancel-remove-team').addEventListener('click', function() {
+    pickerUI.cancelRemoveTeam();
+});
 
 document.querySelectorAll('input[name="continent"]').forEach(function(radio) {
     radio.checked = radio.value === savedContinent;
