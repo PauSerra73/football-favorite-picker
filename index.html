@@ -430,6 +430,56 @@ button.disabled:hover {
     box-sizing:border-box;
     resize:vertical;
 }
+/* Distribución para móviles y tablets */
+@media (max-width: 1023px) {
+    #container {
+        display: flex;
+        flex-direction: column;
+        overflow: visible;
+    }
+
+    /* Permite ordenar individualmente los elementos que están dentro de #picking.*/
+    #picking {
+        display: contents;
+    }
+
+    /* Texto de instrucciones */
+    #picking > p:first-child {
+        order: 1;
+    }
+
+    /* Equipos que se están comparando */
+    #evaluating {
+        order: 2;
+    }
+
+    /* Botones Pick, Pass, Undo y Redo */
+    #buttons {
+        order: 3;
+    }
+
+    /* Número de equipos restantes */
+    #remaining {
+        order: 4;
+    }
+
+    /* Found Favorites */
+    #secondary {
+        order: 5;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* Tamaño de grupo y Reset */
+    #settings {
+        order: 6;
+    }
+
+    /* Continentes, competiciones y ligas */
+    #filters {
+        order: 7;
+    }
+}
 </style>
 </head>
 <body>
