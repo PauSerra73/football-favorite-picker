@@ -497,7 +497,7 @@ button.disabled:hover {
         </p>
     </div>
 </div>
-        <div id="remove-team-modal" style="display:none;">
+    <div id="remove-team-modal" style="display:none;">
     <div id="remove-team-box">
         <h2>Warning</h2>
 
@@ -1167,12 +1167,12 @@ var currentSettings = myPicker.getSettings();
 var savedContinent = currentSettings.continent || 'all';
 
 document.getElementById('confirm-remove-team').addEventListener('click', function() {
-    pickerUI.confirmRemoveTeam();
-});
+        pickerUI.confirmRemoveTeam();
+    });
 
 document.getElementById('cancel-remove-team').addEventListener('click', function() {
-    pickerUI.cancelRemoveTeam();
-});
+        pickerUI.cancelRemoveTeam();
+    });
 
 document.querySelectorAll('input[name="continent"]').forEach(function(radio) {
     radio.checked = radio.value === savedContinent;
